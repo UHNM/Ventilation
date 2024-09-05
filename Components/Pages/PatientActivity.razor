@@ -1,0 +1,16 @@
+﻿@page "/patient/activity"
+@using Microsoft.AspNetCore.Components.QuickGrid
+@inject NavigationManager _navigationManager;
+
+@rendermode InteractiveServer
+
+<h3>Patient Activity</h3>
+
+<p>This screen will contain a grid of the history of loaned equipment, with the ability to add, edit or delete a loan</p>
+
+<p>In addition to loaned equipment, a patient may require consumables to go with the equipment, such as filters and tubing. A history of consumables sent to the patient needs to be included</p>
+
+<p>A further noting section may be required for when a nurse needs to record something that was said in a phone call or similar</p>
+
+<button class="btn btn-success" @onclick='() => _navigationManager.NavigateTo("/patient/equipment/add")'>Add New Loan of Equipment</button>
+
