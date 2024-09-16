@@ -1,3 +1,4 @@
+using System.Globalization;
 using Ventilation.Components;
 
 var builder = WebApplication.CreateBuilder(args);

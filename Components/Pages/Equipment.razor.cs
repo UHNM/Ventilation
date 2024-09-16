@@ -15,9 +15,9 @@ namespace Ventilation.Components.Pages
             await Task.Delay(500);
             List<Models.Equipment> items = new List<Models.Equipment>
             {
-             new Models.Equipment(1, "Nippy 1000", 10, 20,true, new DateOnly(2024, 3, 16), "Chris"),
-             new Models.Equipment(2, "Shark 1234", 11, 23,true, new DateOnly(2024, 7, 21), "Simon"),
-             new Models.Equipment(3, "Some Mask", 12, 24,true, new DateOnly(2024, 2, 10), "Nige"),
+             new Models.Equipment(1, "Nippy 1000", 10, 20,true, new DateTime(2024, 3, 16), "Chris", DateTime.MinValue, null),
+             new Models.Equipment(2, "Shark 1234", 11, 23,true, new DateTime(2024, 7, 21), "Simon", DateTime.MinValue, null),
+             new Models.Equipment(3, "Some Mask", 12, 24,true, new DateTime(2024, 2, 10), "Nige", DateTime.MinValue, null),
             };
 
             equipment = (items).AsQueryable();

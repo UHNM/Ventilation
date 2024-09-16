@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ventilation", "Ventilation.csproj", "{EE141053-B2F1-44D8-A417-CFE3A0C0CFCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ventilation", "Ventilation.csproj", "{EE141053-B2F1-44D8-A417-CFE3A0C0CFCB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "..\Models\Models.csproj", "{FB578895-2FEC-421B-9D77-32375CC67F43}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{ABADD9EA-5996-4B41-9473-9570450455A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{EE141053-B2F1-44D8-A417-CFE3A0C0CFCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE141053-B2F1-44D8-A417-CFE3A0C0CFCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE141053-B2F1-44D8-A417-CFE3A0C0CFCB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FB578895-2FEC-421B-9D77-32375CC67F43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FB578895-2FEC-421B-9D77-32375CC67F43}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FB578895-2FEC-421B-9D77-32375CC67F43}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FB578895-2FEC-421B-9D77-32375CC67F43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABADD9EA-5996-4B41-9473-9570450455A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABADD9EA-5996-4B41-9473-9570450455A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABADD9EA-5996-4B41-9473-9570450455A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABADD9EA-5996-4B41-9473-9570450455A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
