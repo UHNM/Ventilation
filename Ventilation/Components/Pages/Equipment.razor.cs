@@ -1,18 +1,23 @@
 using BAL.Managers;
+using BAL.Managers.DefaultImplementations;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.QuickGrid;
+using System.Data.Entity.Infrastructure;
 
 
 namespace Ventilation.Components.Pages
 {
+
     public partial class Equipment
     {
         IQueryable<Models.Equipment>? equipment;
         PaginationState state = new PaginationState { ItemsPerPage = 5 };
-        private readonly IEquipmentManager _equipmentManager;
+        [Inject]
+        private  IEquipmentManager _equipmentManager {get;set;}
 
-        public Equipment(IEquipmentManager equipmentManager)
+        public Equipment()
         {
-            _equipmentManager = equipmentManager;
+            //
         }
       
         protected override async Task OnInitializedAsync()
