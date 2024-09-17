@@ -8,12 +8,12 @@ namespace DAL.Repositories.DefaultImplementations
     public class EquipmentRepository : Repository, IEquipmentRepository
     {
 
-        private readonly IVentilationContext _context;
+        //private readonly IVentilationContext _context;
 
         public EquipmentRepository(IVentilationContext context)
             : base(context)
         {
-            _context = context;
+            //_context = context;
         }
 
         public IEnumerable<EquipmentCx> GetEquipmentList()

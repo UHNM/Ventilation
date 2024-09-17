@@ -1,5 +1,6 @@
 using BAL.Managers;
 using BAL.Managers.DefaultImplementations;
+using DAL.Contexts;
 using DAL.Repositories;
 using DAL.Repositories.DefaultImplementations;
 using System.Globalization;
@@ -7,10 +8,10 @@ using Ventilation.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddScoped<IVentilationContext,VentilationContext>();
 
-
-//builder.Services.AddScoped<IEquipmentManager, EquipmentManager>();
-//builder.Services.AddScoped<IEquipmentRepository, EquipmentRepository>();
+builder.Services.AddScoped<IEquipmentManager, EquipmentManager>();
+builder.Services.AddScoped<IEquipmentRepository, EquipmentRepository>();
 
 
 
