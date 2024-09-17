@@ -10,16 +10,16 @@ namespace Ventilation.Components.Pages
 
     public partial class Equipment
     {
+        [Inject]
+        IEquipmentManager _equipmentManager { get; set;}
+
+
         IQueryable<Models.Equipment>? equipment;
         PaginationState state = new PaginationState { ItemsPerPage = 5 };
-        [Inject]
-        private  IEquipmentManager _equipmentManager {get;set;}
-
-        public Equipment()
-        {
-            //
-        }
       
+
+      
+
         protected override async Task OnInitializedAsync()
         {
             await Task.Delay(500);
