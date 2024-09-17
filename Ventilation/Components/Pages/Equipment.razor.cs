@@ -1,4 +1,5 @@
 using BAL.Managers;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.QuickGrid;
 
 
@@ -6,15 +7,16 @@ namespace Ventilation.Components.Pages
 {
     public partial class Equipment
     {
+        [Inject]
+        IEquipmentManager _equipmentManager { get; set;}
+
+
         IQueryable<Models.Equipment>? equipment;
         PaginationState state = new PaginationState { ItemsPerPage = 5 };
-        private readonly IEquipmentManager _equipmentManager;
-
-        public Equipment(IEquipmentManager equipmentManager)
-        {
-            _equipmentManager = equipmentManager;
-        }
       
+
+      
+
         protected override async Task OnInitializedAsync()
         {
             await Task.Delay(500);
