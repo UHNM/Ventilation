@@ -1,6 +1,7 @@
 ﻿@page "/equipmenttype"
 @using Microsoft.AspNetCore.Components.QuickGrid
 @inject NavigationManager _navigationManager;
+@rendermode @(new InteractiveServerRenderMode(prerender:false));
 
 <h3>Equipment Types</h3>
 
@@ -9,7 +10,7 @@
 <p>This could be a phase 2 development with entries added to the db manually for now..</p>
 <button class="btn btn-success" @onclick='() => _navigationManager.NavigateTo("/equipmenttype/add")'>Add Type</button>
 
-<QuickGrid Class="table" Items="type" Pagination="state">
+<QuickGrid Class="table" Items="types" Pagination="state">
       
         <PropertyColumn Property="@(p => p.EquipmentTypeName)" Sortable="true" Title="name" ></PropertyColumn>
         <PropertyColumn Property="@(p => p.CreatedDate)" Format="MM/dd/yyyy" Sortable="true" Title="CreatedDate" />

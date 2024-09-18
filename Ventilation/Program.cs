@@ -9,15 +9,20 @@ using Ventilation.Components;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IVentilationContext,VentilationContext>();
-
 builder.Services.AddScoped<IEquipmentManager, EquipmentManager>();
 builder.Services.AddScoped<IEquipmentRepository, EquipmentRepository>();
+builder.Services.AddScoped<IEquipmentTypeManager, EquipmentTypeManager>();
+builder.Services.AddScoped<IEquipmentTypeRepository, EquipmentTypeRepository>();
 
+builder.Services.AddLocalization();
 
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+//CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-GB");
+//CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("en-GB");
 
 var app = builder.Build();
 
@@ -33,6 +38,11 @@ app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 app.UseAntiforgery();
+app.UseRequestLocalization("en-GB");
+//app.UseRequestLocalization(new RequestLocalizationOptions()
+//    .AddSupportedCultures(new[] { "en-GB" })
+//    .AddSupportedUICultures(new[] { "en-GB" }));
+
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();

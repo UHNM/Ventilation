@@ -33,7 +33,12 @@ namespace BAL.Managers.DefaultImplementations
                     Equipment e = new Equipment();
                     e.Id = item.Id;
                     e.EquipmentName = item.EquipmentName;
-
+                    e.SupplierId = item.SupplierId;
+                    e.Available = item.Available;
+                    e.CreatedBy = item.CreatedBy;
+                    e.CreatedDate = item.CreatedDate;
+                    e.DeletedDate = item.DeletedDate;
+                    e.DeletedBy = item.DeletedBy;
                     Equipments.Add(e);
                 }
 

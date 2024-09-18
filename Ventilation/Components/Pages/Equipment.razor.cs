@@ -1,9 +1,6 @@
 using BAL.Managers;
-using BAL.Managers.DefaultImplementations;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.QuickGrid;
-using System.Data.Entity.Infrastructure;
-
 
 namespace Ventilation.Components.Pages
 {
@@ -14,26 +11,16 @@ namespace Ventilation.Components.Pages
         IEquipmentManager _equipmentManager { get; set;}
 
 
-        IQueryable<Models.Equipment>? equipment;
+        IQueryable<Domain.Models.EquipmentDetails.Equipment>? equipment;
         PaginationState state = new PaginationState { ItemsPerPage = 5 };
       
 
       
 
-        protected override async Task OnInitializedAsync()
+        protected override void OnInitialized()
         {
-            await Task.Delay(500);
-
-            var t = _equipmentManager.GetEquipmentList(); ;
-
-            //List<Models.Equipment> items = new List<Models.Equipment>
-            //{
-            // new Models.Equipment(1, "Nippy 1000", 10, 20,true, new DateTime(2024, 3, 16), "Chris", DateTime.MinValue, null),
-            // new Models.Equipment(2, "Shark 1234", 11, 23,true, new DateTime(2024, 7, 21), "Simon", DateTime.MinValue, null),
-            // new Models.Equipment(3, "Some Mask", 12, 24,true, new DateTime(2024, 2, 10), "Nige", DateTime.MinValue, null),
-            //};
-
-            //equipment = (items).AsQueryable();
+            var items = _equipmentManager.GetEquipmentList(); ;
+            equipment = (items).AsQueryable();
 
         }
     }

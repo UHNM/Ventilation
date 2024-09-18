@@ -1,7 +1,4 @@
-﻿
-using Domain.Entities.Complex;
-using Domain.Models.EquipmentDetails;
-using System.Reflection.Metadata;
+﻿using Domain.Models.EquipmentDetails;
 
 namespace BAL.Managers
 {
