@@ -10,7 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IVentilationContext,VentilationContext>();
 builder.Services.AddScoped<IEquipmentManager, EquipmentManager>();
+builder.Services.AddScoped<IPatientListManager, PatientListManager>();
 builder.Services.AddScoped<IEquipmentRepository, EquipmentRepository>();
+builder.Services.AddScoped<IPatientListRepository, PatientListRepository>();
 builder.Services.AddScoped<IEquipmentTypeManager, EquipmentTypeManager>();
 builder.Services.AddScoped<IEquipmentTypeRepository, EquipmentTypeRepository>();
 
