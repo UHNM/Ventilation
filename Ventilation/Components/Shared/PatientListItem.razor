@@ -1,4 +1,69 @@
 ﻿
 <div class="border border-dark">
-    This is a patient list item
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">
+                    Name: @paramPatientLoan!.Patient.Surname, @paramPatientLoan!.Patient.Forename
+                </label>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">
+                    Hospital Number: @paramPatientLoan!.Patient.HospitalNumber
+                </label>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">
+                   Address: @paramPatientLoan!.Patient.Address1, @paramPatientLoan!.Patient.Address2, @paramPatientLoan!.Patient.Address3, @paramPatientLoan!.Patient.Address4 
+                </label>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                       Name
+                    </div>
+                    <div class="col-sm">
+                        Serial No.
+                    </div>
+                    <div class="col-sm">
+                       Clinical Ref.
+                    </div>
+                    <div class="col-sm">
+                       Loan Date
+                    </div>
+                </div>
+            </div>
+
+
+            @foreach (var loan in paramPatientLoan!.Loans)
+            {
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            @loan.EquipmentName
+                        </div>
+                        <div class="col-sm">
+                            @loan.SerialNumber
+                        </div>
+                        <div class="col-sm">
+                            @loan.ClinicalReference
+                        </div>
+                        <div class="col-sm">
+                            @loan.LoanDate
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                           
+            }
+           
+        </div>
+        
+    </div>
 </div>

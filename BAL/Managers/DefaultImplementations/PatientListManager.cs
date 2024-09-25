@@ -40,6 +40,12 @@ namespace BAL.Managers.DefaultImplementations
                     Patient.NHSNumber = item.Patient.NHSNumber;
                     Patient.Forename =item.Patient.Forename;
                     Patient.Surname = item.Patient.Surname;
+                    Patient.Address1 = item.Patient.Address1;
+                    Patient.Address2 = item.Patient.Address2;
+                    Patient.Address3 = item.Patient.Address3;
+                    Patient.Address4 = item.Patient.Address4;
+                    Patient.PostCode = item.Patient.PostCode;
+
 
                     foreach (StockItemCx stock in item.Loans)
                     {

@@ -23,6 +23,11 @@ namespace DAL.Repositories.DefaultImplementations
             p.NHSNumber = "666 6666 666";
             p.Surname = "Smith";
             p.Forename = "John";
+            p.Address1 = "1 Main Road";
+            p.Address2 = "Lazy Town";
+            p.Address3 = "";
+            p.Address4 = "Staffs";
+            p.PostCode = "ST5 4BB";
 
             StockItemCx s = new StockItemCx();
             s.SerialNumber = "Serial 1";
@@ -60,6 +65,11 @@ namespace DAL.Repositories.DefaultImplementations
             p1.NHSNumber = "444 4444 555";
             p1.Surname = "Jones";
             p1.Forename = "Duncan";
+            p1.Address1 = "24 Sesame St";
+            p1.Address2 = "Some Town";
+            p1.Address3 = "";
+            p1.Address4 = "Staffs";
+            p1.PostCode = "ST5 4YB";
 
             StockItemCx s2 = new StockItemCx();
             s2.SerialNumber = "Serial 3";
