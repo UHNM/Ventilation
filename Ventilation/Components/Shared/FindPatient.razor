@@ -16,71 +16,72 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">
+                                <label class="col-sm-2 col-form-label">
                                     Hospital Number:
                                 </label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-8">
                                     <input type="text" class="form-control" disabled value="@patientFound.HospitalNumber" />
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">
+                                <label class="col-sm-2 col-form-label">
                                     NHS Number:
                                 </label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-8">
                                     <input type="text" class="form-control" disabled value="@patientFound.NHSNumber" />
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">
+                                <label class="col-sm-2 col-form-label">
                                     Surname:
                                 </label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-8">
                                     <input type="text" class="form-control" disabled value="@patientFound.Surname" />
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">
+                                <label class="col-sm-2 col-form-label">
                                     Forename:
                                 </label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-8">
                                     <input type="text" class="form-control" disabled value="@patientFound.Forename" />
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">
+                                <label class="col-sm-2 col-form-label">
                                     Address:
                                 </label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-8">
                                     <input type="text" class="form-control" disabled value="@patientFound.Address1, @patientFound.Address2 , @patientFound.Address3, @patientFound.Address4, @patientFound.PostCode" />
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">
+                                <label class="col-sm-2 col-form-label">
                                     Date of Birth:
                                 </label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-8">
                                     <input type="text" class="form-control" disabled value="@patientFound.DateofBirth" />
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">
+                                <label class="col-sm-2 col-form-label">
                                     Home Tel:
                                 </label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-8">
                                     <input type="text" class="form-control" disabled value="@patientFound.Telephone1" />
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">
+                                <label class="col-sm-2 col-form-label">
                                     Mobile Tel:
                                 </label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-8">
                                     <input type="text" class="form-control" disabled value="@patientFound.Telephone2" />
                                 </div>
                             </div>
+
                         </div>
 
 
@@ -95,7 +96,152 @@
     </Tab>
     <Tab Title="Patient Detail">
         <Content>
-            <p class="mt-3">This is the placeholder content for the <b>Patient Detail</b> tab.</p>
+            @if (showPatient)
+            {
+                <EditForm Model="@patientFound" OnSubmit="OnSavePatient">
+                <div class="row">
+                   
+                    <div class="col">
+                      
+
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">
+                                    Date Initiated:
+                                </label>
+                                <div class="col-sm-8">
+                                    <InputDate id="dateInitiated" @bind-Value="@patientFound.DateInitiated"></InputDate>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">
+                                    Current Status:
+                                </label>
+                                <div class="col-sm-8">
+                                    <InputNumber id="patientStatus" @bind-Value="@patientFound.PatientStatus"></InputNumber>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">
+                                    CCG:
+                                </label>
+                                <div class="col-sm-8">
+                                    <InputText id="ccg" @bind-Value="@patientFound.CCG"></InputText>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">
+                                    Dependency:
+                                </label>
+                                <div class="col-sm-8">
+                                    <InputNumber id="ccg" @bind-Value="@patientFound.Dependency"></InputNumber>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">
+                                    Discharge Status:
+                                </label>
+                                <div class="col-sm-8">
+                                    <InputNumber id="dischargeStatus" @bind-Value="@patientFound.DischargeStatus"></InputNumber>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">
+                                    Diagnosis:
+                                </label>
+                                <div class="col-sm-8">
+                                    <InputTextArea id="diagnosis" @bind-Value="@patientFound.Diagnosis"></InputTextArea>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">
+                                    Discharge Date:
+                                </label>
+                                <div class="col-sm-8">
+                                    <InputDate id="dischargeDate" @bind-Value="@patientFound.DischargeDate"></InputDate>
+                                </div>
+                            </div>
+
+
+
+
+
+                    </div>
+                     <div class="col">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">
+                                    Tracheostomy:
+                                </label>
+                                <div class="col-sm-8">
+                                    <InputCheckbox id="tracheostomy" @bind-Value="@patientFound.Tracheostomy"></InputCheckbox>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">
+                                    Home Visit:
+                                </label>
+                                <div class="col-sm-8">
+                                    <InputCheckbox id="homeVisit" @bind-Value="@patientFound.HomeVisit"></InputCheckbox>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">
+                                    Home Service:
+                                </label>
+                                <div class="col-sm-8">
+                                    <InputCheckbox id="homeService" @bind-Value="@patientFound.HomeService"></InputCheckbox>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">
+                                    Smoking Status:
+                                </label>
+                                <div class="col-sm-8">
+                                    <InputNumber id="homeService" @bind-Value="@patientFound.SmokingStatus"></InputNumber>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">
+                                    Peg Date:
+                                </label>
+                                <div class="col-sm-8">
+                                    <InputDate id="pegDate" @bind-Value="@patientFound.PegDate"></InputDate>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">
+                                    Comments:
+                                </label>
+                                <div class="col-sm-8">
+                                    <InputTextArea id="comments" @bind-Value="@patientFound.Comments"></InputTextArea>
+                                </div>
+                            </div>
+                    </div>
+                        <div class="row">
+                        <div class="col">
+                                <button Type="submit" class="btn btn-primary pull-right">Save</button>
+                        </div>    
+                        </div>
+
+                        
+                    
+                </div>
+                </EditForm>
+            }
+            
+               
+                
+                
+              
+
+
+
+
         </Content>
     </Tab>
     <Tab Title="Patient Loans">

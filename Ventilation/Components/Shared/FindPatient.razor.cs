@@ -11,12 +11,12 @@ namespace Ventilation.Components.Shared
         [Inject]
         IPatientManager _patientManager { get; set; }
         public PatientToFind? patientToFind = new();
+        PatientDetail patientFound = new();
 
         private bool showPatient = false;
 
 
-        PatientDetail patientFound = new();
-
+        
         private void OnFindClick(EditContext context)
         {
             patientFound = _patientManager.FindPatient(((PatientToFind)context.Model).HospitalNumber);
@@ -25,6 +25,13 @@ namespace Ventilation.Components.Shared
             {
                 showPatient = true;
             }
+
+        }
+
+
+        private void OnSavePatient(EditContext context)
+        {
+          
 
         }
 
