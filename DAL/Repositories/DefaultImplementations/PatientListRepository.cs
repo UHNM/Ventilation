@@ -88,12 +88,12 @@ namespace DAL.Repositories.DefaultImplementations
             s3.LoanDate = new DateTime(2024, 01, 19);
 
             StockItemCx s4 = new StockItemCx();
-            s3.SerialNumber = "Serial 5";
-            s3.EquipmentName = "Nippy 1000";
-            s3.Id = 1;
-            s3.EquipmentId = 2;
-            s3.ClinicalReference = "Clin Ref 99999";
-            s3.LoanDate = new DateTime(2024, 01, 07);
+            s4.SerialNumber = "Serial 5";
+            s4.EquipmentName = "Nippy 1000";
+            s4.Id = 1;
+            s4.EquipmentId = 2;
+            s4.ClinicalReference = "Clin Ref 99999";
+            s4.LoanDate = new DateTime(2024, 01, 07);
             PatientLoanCx l2 = new PatientLoanCx();
             l2.Patient = p1;
 
