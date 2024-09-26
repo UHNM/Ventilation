@@ -12,7 +12,7 @@ namespace Ventilation.Components.Pages
         IPatientListManager _patientListManager { get; set; }
        
         IQueryable<Domain.Models.PatientLoan>? patientlist;
-      //  VentilationModal ventilationModal => new VentilationModal();
+        VentilationModal ventilationModal => new VentilationModal();
 
 
         protected override void OnInitialized()
@@ -22,10 +22,11 @@ namespace Ventilation.Components.Pages
 
         }
 
-        //private async Task OnAddPatientClick()
-        //{
-        //    ventilationModal.OnShowModalClick();
-        //}
+        private async Task OnAddPatientClick()
+        {
+          
+            ventilationModal.OnShowModalClick();
+        }
 
 
 

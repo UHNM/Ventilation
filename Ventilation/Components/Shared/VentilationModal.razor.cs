@@ -8,8 +8,13 @@ namespace Ventilation.Components.Shared
     {
         [Inject]
         ToastService ToastService { get; set; } = default!;
-         private Modal modal = default!;
+        
+        
+        private Modal modal = default!;
         // Modal modal => new Modal();
+
+   
+
 
 
         public async Task OnShowModalClick()
@@ -18,7 +23,9 @@ namespace Ventilation.Components.Shared
             //parameters.Add("InternalPatientId", 321);
             //await modal.ShowAsync<AddPatient>(title: "Add Patient", parameters: parameters);
            
-            await modal.ShowAsync<AddPatient>(title: "Add Patient");
+            
+           // await modal.ShowAsync();
+             await modal.ShowAsync<AddPatient>(title: "Add Patient");
         }
 
 
