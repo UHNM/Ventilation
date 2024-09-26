@@ -17,7 +17,7 @@ builder.Services.AddScoped<IEquipmentTypeManager, EquipmentTypeManager>();
 builder.Services.AddScoped<IEquipmentTypeRepository, EquipmentTypeRepository>();
 
 builder.Services.AddLocalization();
-
+builder.Services.AddBlazorBootstrap();
 
 // Add services to the container.
 builder.Services.AddRazorComponents()

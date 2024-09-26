@@ -1,67 +1,11 @@
-﻿
-<div class="border border-dark">
+﻿<div class="border border-dark">
 
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link active" aria-current="page" data-toggle="tab" href="#searchhospital">Hospital Number</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#searchname">Name</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#searchdevice">Device Serial Number</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#searchclinical">Clinical Technology Number</a>
-        </li>
-    </ul>
 
-    <content>
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
-            @* <span class="input-group-text" id="basic-addon2">Search</span> *@
-        </div>
+    <EditForm Model="@patientToFind" OnSubmit="OnFindClick">
+        <InputText id="hospNumber" @bind-Value="@patientToFind.HospitalNumber"></InputText>
+        <button Type="submit" class="btn btn-primary">Find</button>
+       
+    </EditForm>
 
-        @*   https://blazor-university.com/templating-components-with-renderfragements/creating-a-tabcontrol/ *@
 
-        <button type="button" class="btn btn-primary">Search</button>
-    </content>
-
-    <div class="tab-content">
-        <div id="searchhospital" class="tab-pane">
-            xx
-            <div class="form-group">
-                <label class="col-sm-4 control-label">Hosp Number:</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" />
-                </div>
-            </div>
-        </div>
-        <div id="searchname" class="tab-pane">
-            fsdfds
-            <div class="form-group">
-                <label class="col-sm-4 control-label">Name:</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" />
-                </div>
-            </div>
-        </div>
-        <div id="searchdevice" class="tab-pane">
-            sddfsf
-            <div class="form-group">
-                <label class="col-sm-4 control-label">Device Serial Number:</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" />
-                </div>
-            </div>
-        </div>
-        <div id="searchclinical" class="tab-pane">
-            <div class="form-group">
-                <label class="col-sm-4 control-label">Clinical Technology Number:</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" />
-                </div>
-            </div>
-        </div>
-    </div>
 </div>

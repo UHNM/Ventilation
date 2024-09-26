@@ -1,0 +1,25 @@
+﻿@rendermode InteractiveServer
+<Modal @ref="modal"
+       title="Add Patient"
+       UseStaticBackdrop="true"
+       CloseOnEscape="false"
+       Size="ModalSize.ExtraLarge"
+       OnShowing="OnModalShowing"
+       OnShown="OnModalShown"
+       OnHiding="OnModalHiding"
+       OnHidden="OnModalHidden"
+       OnHidePrevented="OnModalHidePrevented">
+
+    <BodyTemplate>
+      
+    </BodyTemplate>
+
+    <FooterTemplate>
+        <Button Color="ButtonColor.Secondary" @onclick="OnHideModalClick">Close</Button>
+    </FooterTemplate>
+
+</Modal>
+
+<Button Color="ButtonColor.Success" @onclick="OnShowModalClick"><Icon Name="IconName.PersonPlus" /></Button>
+
+

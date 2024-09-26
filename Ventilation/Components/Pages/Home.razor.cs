@@ -1,6 +1,8 @@
 using BAL.Managers;
+using BlazorBootstrap;
 using Microsoft.AspNetCore.Components;
-using static Ventilation.Components.Pages.PatientDetail;
+using System.Reflection;
+using Ventilation.Components.Shared;
 
 namespace Ventilation.Components.Pages
 {
@@ -8,8 +10,10 @@ namespace Ventilation.Components.Pages
     {
         [Inject]
         IPatientListManager _patientListManager { get; set; }
-
+       
         IQueryable<Domain.Models.PatientLoan>? patientlist;
+      //  VentilationModal ventilationModal => new VentilationModal();
+
 
         protected override void OnInitialized()
         {
@@ -18,7 +22,12 @@ namespace Ventilation.Components.Pages
 
         }
 
-        
+        //private async Task OnAddPatientClick()
+        //{
+        //    ventilationModal.OnShowModalClick();
+        //}
+
+
 
 
 
