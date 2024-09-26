@@ -28,6 +28,10 @@ namespace DAL.Repositories.DefaultImplementations
             p.Address3 = "";
             p.Address4 = "Staffs";
             p.PostCode = "ST5 4BB";
+            p.DateofBirth = new DateOnly(1972, 9, 23);
+            p.Telephone1 = "01782 444666";
+            p.Telephone2 = "07704 789555";
+
 
             p.PatientStatus = 1;
             p.DischargeDate = new DateTime(2024, 11, 8);

@@ -1,5 +1,6 @@
 using BAL.Managers;
 using BlazorBootstrap;
+using Domain.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 
@@ -11,12 +12,20 @@ namespace Ventilation.Components.Shared
         IPatientManager _patientManager { get; set; }
         public PatientToFind? patientToFind = new();
 
+        private bool showPatient = false;
+
+
+        PatientDetail patientFound = new();
 
         private void OnFindClick(EditContext context)
         {
-             
-          var patient = _patientManager.FindPatient(((PatientToFind)context.Model).HospitalNumber);
-            
+            patientFound = _patientManager.FindPatient(((PatientToFind)context.Model).HospitalNumber);
+
+            if (patientFound != null)
+            {
+                showPatient = true;
+            }
+
         }
 
 

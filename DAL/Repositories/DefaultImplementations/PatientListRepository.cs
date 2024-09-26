@@ -28,6 +28,9 @@ namespace DAL.Repositories.DefaultImplementations
             p.Address3 = "";
             p.Address4 = "Staffs";
             p.PostCode = "ST5 4BB";
+            p.DateofBirth = new DateOnly(1972, 9, 23);
+            p.Telephone1 = "01782 444666";
+            p.Telephone2 = "07704 789555";
 
             StockItemCx s = new StockItemCx();
             s.SerialNumber = "Serial 1";
@@ -70,6 +73,9 @@ namespace DAL.Repositories.DefaultImplementations
             p1.Address3 = "";
             p1.Address4 = "Staffs";
             p1.PostCode = "ST5 4YB";
+            p.DateofBirth = new DateOnly(1972, 9, 23);
+            p.Telephone1 = "01782 444666";
+            p.Telephone2 = "07704 789555";
 
             StockItemCx s2 = new StockItemCx();
             s2.SerialNumber = "Serial 3";

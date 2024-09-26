@@ -45,6 +45,9 @@ namespace BAL.Managers.DefaultImplementations
                     Patient.Address3 = item.Patient.Address3;
                     Patient.Address4 = item.Patient.Address4;
                     Patient.PostCode = item.Patient.PostCode;
+                    Patient.DateofBirth = item.Patient.DateofBirth;
+                    Patient.Telephone2 = item.Patient.Telephone2;
+                    Patient.Telephone1 = item.Patient.Telephone1;
 
 
                     foreach (StockItemCx stock in item.Loans)

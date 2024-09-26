@@ -37,6 +37,9 @@ namespace BAL.Managers.DefaultImplementations
                 Patient.Address3 = Dto.Address3;
                 Patient.Address4 = Dto.Address4;
                 Patient.PostCode = Dto.PostCode;
+                Patient.DateofBirth = Dto.DateofBirth;
+                Patient.Telephone2 = Dto.Telephone2;
+                Patient.Telephone1 = Dto.Telephone1;
 
                 Patient.PatientStatus = Dto.PatientStatus;
                 Patient.DischargeStatus = Dto.DischargeStatus;

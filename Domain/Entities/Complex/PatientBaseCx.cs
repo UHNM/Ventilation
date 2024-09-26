@@ -14,6 +14,9 @@ namespace Domain.Entities.Complex
         public string? Address3 { get; set; }
         public string? Address4 { get; set; }
         public string? PostCode { get; set; }
+        public DateOnly? DateofBirth { get; set; }
+        public string? Telephone1 { get; set; }
+        public string? Telephone2 { get; set; }
 
     }
 }
