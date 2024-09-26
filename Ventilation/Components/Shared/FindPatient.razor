@@ -1,88 +1,109 @@
-﻿<div class="border border-dark">
+﻿
+<Tabs>
+    <Tab Title="Patient Demographics" Active="true">
+        <Content>
+
+            <div class="border border-dark">
 
 
-    <EditForm Model="@patientToFind" OnSubmit="OnFindClick">
-        <InputText id="hospNumber" @bind-Value="@patientToFind.HospitalNumber"></InputText>
-        <button Type="submit" class="btn btn-primary">Find</button>
-       
-    </EditForm>
-    @if (showPatient)
-    {
-        <div class="row">
-            <div class="col">
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label">
-                        Hospital Number:
-                    </label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" disabled value="@patientFound.HospitalNumber" />
-                    </div>
-                </div>
+                <EditForm Model="@patientToFind" OnSubmit="OnFindClick">
+                    <InputText id="hospNumber" @bind-Value="@patientToFind.HospitalNumber"></InputText>
+                    <button Type="submit" class="btn btn-primary">Find</button>
 
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label">
-                        NHS Number:
-                    </label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" disabled value="@patientFound.NHSNumber" />
-                    </div>
-                </div>
+                </EditForm>
+                @if (showPatient)
+                {
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">
+                                    Hospital Number:
+                                </label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" disabled value="@patientFound.HospitalNumber" />
+                                </div>
+                            </div>
 
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label">
-                        Surname:
-                    </label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" disabled value="@patientFound.Surname" />
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">
+                                    NHS Number:
+                                </label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" disabled value="@patientFound.NHSNumber" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">
+                                    Surname:
+                                </label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" disabled value="@patientFound.Surname" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">
+                                    Forename:
+                                </label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" disabled value="@patientFound.Forename" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">
+                                    Address:
+                                </label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" disabled value="@patientFound.Address1, @patientFound.Address2 , @patientFound.Address3, @patientFound.Address4, @patientFound.PostCode" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">
+                                    Date of Birth:
+                                </label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" disabled value="@patientFound.DateofBirth" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">
+                                    Home Tel:
+                                </label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" disabled value="@patientFound.Telephone1" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">
+                                    Mobile Tel:
+                                </label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" disabled value="@patientFound.Telephone2" />
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label">
-                        Forename:
-                    </label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" disabled value="@patientFound.Forename" />
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label">
-                        Address:
-                    </label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" disabled value="@patientFound.Address1, @patientFound.Address2 , @patientFound.Address3, @patientFound.Address4, @patientFound.PostCode" />
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label">
-                        Date of Birth:
-                    </label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" disabled value="@patientFound.DateofBirth" />
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label">
-                        Home Tel:
-                    </label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" disabled value="@patientFound.Telephone1" />
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label">
-                        Mobile Tel:
-                    </label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" disabled value="@patientFound.Telephone2" />
-                    </div>
-                </div>
+
+
+                }
+
+
             </div>
+        </Content>
+    </Tab>
+    <Tab Title="Patient Detail">
+        <Content>
+            <p class="mt-3">This is the placeholder content for the <b>Patient Detail</b> tab.</p>
+        </Content>
+    </Tab>
+    <Tab Title="Patient Loans">
+        <Content>
+            <p class="mt-3">This is the placeholder content for the <b>Loans</b> tab.</p>
+        </Content>
+    </Tab>
+    
+</Tabs>
 
 
-        </div>
-
-
-    }
- 
-
-</div>
