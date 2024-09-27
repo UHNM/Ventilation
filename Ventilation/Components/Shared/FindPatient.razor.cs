@@ -3,6 +3,7 @@ using BlazorBootstrap;
 using Domain.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
+using System.Reflection;
 
 namespace Ventilation.Components.Shared
 {
@@ -34,6 +35,7 @@ namespace Ventilation.Components.Shared
           
 
         }
+
 
 
         public class PatientToFind

@@ -7,5 +7,7 @@ namespace DAL.Repositories
     {
         PatientDetailCx FindPatient(string hospitalNumber);
 
+        PatientDetailCx GetPatient(int internalPatientId);
+
     }
 }

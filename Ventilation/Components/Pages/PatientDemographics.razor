@@ -1,20 +1,12 @@
-﻿@inject NavigationManager _navigationManager;
-@rendermode InteractiveServer
-
+﻿@page "/patient/detail/{internalpatientid:int}"
+@rendermode @(new InteractiveServerRenderMode(prerender:false));
 <Tabs>
     <Tab Title="Patient Demographics" Active="true">
         <Content>
 
             <div class="border border-dark">
 
-
-                <EditForm Model="@patientToFind" OnSubmit="OnFindClick">
-                    <InputText id="hospNumber" @bind-Value="@patientToFind.HospitalNumber"></InputText>
-                    <button Type="submit" class="btn btn-primary">Find</button>
-
-                </EditForm>
-                @if (showPatient)
-                {
+                
                     <div class="row">
                         <div class="col">
                             <div class="form-group row">
@@ -22,7 +14,7 @@
                                     Hospital Number:
                                 </label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" disabled value="@patientFound.HospitalNumber" />
+                                    <input type="text" class="form-control" disabled value="@patient.HospitalNumber" />
                                 </div>
                             </div>
 
@@ -31,7 +23,7 @@
                                     NHS Number:
                                 </label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" disabled value="@patientFound.NHSNumber" />
+                                    <input type="text" class="form-control" disabled value="@patient.NHSNumber" />
                                 </div>
                             </div>
 
@@ -40,7 +32,7 @@
                                     Surname:
                                 </label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" disabled value="@patientFound.Surname" />
+                                    <input type="text" class="form-control" disabled value="@patient.Surname" />
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -48,7 +40,7 @@
                                     Forename:
                                 </label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" disabled value="@patientFound.Forename" />
+                                    <input type="text" class="form-control" disabled value="@patient.Forename" />
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -56,7 +48,7 @@
                                     Address:
                                 </label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" disabled value="@patientFound.Address1, @patientFound.Address2 , @patientFound.Address3, @patientFound.Address4, @patientFound.PostCode" />
+                                    <input type="text" class="form-control" disabled value="@patient.Address1, @patient.Address2 , @patient.Address3, @patient.Address4, @patient.PostCode" />
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -64,7 +56,7 @@
                                     Date of Birth:
                                 </label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" disabled value="@patientFound.DateofBirth" />
+                                    <input type="text" class="form-control" disabled value="@patient.DateofBirth" />
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -72,7 +64,7 @@
                                     Home Tel:
                                 </label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" disabled value="@patientFound.Telephone1" />
+                                    <input type="text" class="form-control" disabled value="@patient.Telephone1" />
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -80,7 +72,7 @@
                                     Mobile Tel:
                                 </label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" disabled value="@patientFound.Telephone2" />
+                                    <input type="text" class="form-control" disabled value="@patient.Telephone2" />
                                 </div>
                             </div>
 
@@ -89,8 +81,7 @@
 
                     </div>
 
-                    <Button Color="ButtonColor.Primary" @onclick='() => _navigationManager.NavigateTo("/patient/detail/1023887")'>Save changes</Button>
-                }
+                
 
 
             </div>
@@ -98,20 +89,19 @@
     </Tab>
     <Tab Title="Patient Detail">
         <Content>
-            @if (showPatient)
-            {
-                <EditForm Model="@patientFound" OnSubmit="OnSavePatient">
-                <div class="row">
-                   
-                    <div class="col">
-                      
+            
+                <EditForm Model="@patient" OnSubmit="OnSavePatient">
+                    <div class="row">
+
+                        <div class="col">
+
 
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">
                                     Date Initiated:
                                 </label>
                                 <div class="col-sm-8">
-                                    <InputDate id="dateInitiated" @bind-Value="@patientFound.DateInitiated"></InputDate>
+                                    <InputDate id="dateInitiated" @bind-Value="@patient.DateInitiated"></InputDate>
                                 </div>
                             </div>
 
@@ -120,7 +110,7 @@
                                     Current Status:
                                 </label>
                                 <div class="col-sm-8">
-                                    <InputNumber id="patientStatus" @bind-Value="@patientFound.PatientStatus"></InputNumber>
+                                    <InputNumber id="patientStatus" @bind-Value="@patient.PatientStatus"></InputNumber>
                                 </div>
                             </div>
 
@@ -129,7 +119,7 @@
                                     CCG:
                                 </label>
                                 <div class="col-sm-8">
-                                    <InputText id="ccg" @bind-Value="@patientFound.CCG"></InputText>
+                                    <InputText id="ccg" @bind-Value="@patient.CCG"></InputText>
                                 </div>
                             </div>
 
@@ -138,7 +128,7 @@
                                     Dependency:
                                 </label>
                                 <div class="col-sm-8">
-                                    <InputNumber id="ccg" @bind-Value="@patientFound.Dependency"></InputNumber>
+                                    <InputNumber id="ccg" @bind-Value="@patient.Dependency"></InputNumber>
                                 </div>
                             </div>
 
@@ -147,7 +137,7 @@
                                     Discharge Status:
                                 </label>
                                 <div class="col-sm-8">
-                                    <InputNumber id="dischargeStatus" @bind-Value="@patientFound.DischargeStatus"></InputNumber>
+                                    <InputNumber id="dischargeStatus" @bind-Value="@patient.DischargeStatus"></InputNumber>
                                 </div>
                             </div>
 
@@ -156,7 +146,7 @@
                                     Diagnosis:
                                 </label>
                                 <div class="col-sm-8">
-                                    <InputTextArea id="diagnosis" @bind-Value="@patientFound.Diagnosis"></InputTextArea>
+                                    <InputTextArea id="diagnosis" @bind-Value="@patient.Diagnosis"></InputTextArea>
                                 </div>
                             </div>
 
@@ -165,7 +155,7 @@
                                     Discharge Date:
                                 </label>
                                 <div class="col-sm-8">
-                                    <InputDate id="dischargeDate" @bind-Value="@patientFound.DischargeDate"></InputDate>
+                                    <InputDate id="dischargeDate" @bind-Value="@patient.DischargeDate"></InputDate>
                                 </div>
                             </div>
 
@@ -173,14 +163,14 @@
 
 
 
-                    </div>
-                     <div class="col">
+                        </div>
+                        <div class="col">
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">
                                     Tracheostomy:
                                 </label>
                                 <div class="col-sm-8">
-                                    <InputCheckbox id="tracheostomy" @bind-Value="@patientFound.Tracheostomy"></InputCheckbox>
+                                    <InputCheckbox id="tracheostomy" @bind-Value="@patient.Tracheostomy"></InputCheckbox>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -188,7 +178,7 @@
                                     Home Visit:
                                 </label>
                                 <div class="col-sm-8">
-                                    <InputCheckbox id="homeVisit" @bind-Value="@patientFound.HomeVisit"></InputCheckbox>
+                                    <InputCheckbox id="homeVisit" @bind-Value="@patient.HomeVisit"></InputCheckbox>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -196,7 +186,7 @@
                                     Home Service:
                                 </label>
                                 <div class="col-sm-8">
-                                    <InputCheckbox id="homeService" @bind-Value="@patientFound.HomeService"></InputCheckbox>
+                                    <InputCheckbox id="homeService" @bind-Value="@patient.HomeService"></InputCheckbox>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -204,7 +194,7 @@
                                     Smoking Status:
                                 </label>
                                 <div class="col-sm-8">
-                                    <InputNumber id="homeService" @bind-Value="@patientFound.SmokingStatus"></InputNumber>
+                                    <InputNumber id="homeService" @bind-Value="@patient.SmokingStatus"></InputNumber>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -212,7 +202,7 @@
                                     Peg Date:
                                 </label>
                                 <div class="col-sm-8">
-                                    <InputDate id="pegDate" @bind-Value="@patientFound.PegDate"></InputDate>
+                                    <InputDate id="pegDate" @bind-Value="@patient.PegDate"></InputDate>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -220,34 +210,34 @@
                                     Comments:
                                 </label>
                                 <div class="col-sm-8">
-                                    <InputTextArea id="comments" @bind-Value="@patientFound.Comments"></InputTextArea>
+                                    <InputTextArea id="comments" @bind-Value="@patient.Comments"></InputTextArea>
                                 </div>
                             </div>
-                    </div>
+                        </div>
                         <div class="row">
-                        <div class="col">
+                            <div class="col">
                                 <button Type="submit" class="btn btn-primary pull-right">Save</button>
-                        </div>    
+                            </div>
                         </div>
 
-                        
-                    
-                </div>
+
+
+                    </div>
                 </EditForm>
-            }
             
-               
-                
-                
-              
+
+
+
+
+
 
 
 
 
         </Content>
     </Tab>
-   
-    
+
+
 </Tabs>
 
 

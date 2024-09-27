@@ -13,6 +13,13 @@ namespace BAL.Managers.DefaultImplementations
             _dynamicResponseRepository = dynamicResponseRepository;
         }
 
+        public PatientDetail GetPatient(int internalPatientId)
+        {
+            var dto = _dynamicResponseRepository.GetPatient(internalPatientId);
+            return GetPatientFromDto(dto);
+        }
+
+
         public PatientDetail FindPatient(string hospitalNumber)
         {
             var dto = _dynamicResponseRepository.FindPatient(hospitalNumber);

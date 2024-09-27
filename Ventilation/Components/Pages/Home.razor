@@ -4,11 +4,20 @@
 
 <PageTitle>Ventilation System</PageTitle>
 
-<h3>Patients</h3>
-
-<div class="nhsuk-u-float-right">
-  <VentilationModal></VentilationModal>
-   @*  <Button Color="ButtonColor.Success" @onclick="OnAddPatientClick"><Icon Name="IconName.PersonPlus" /></Button> *@
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <h4>Patients</h4>
+        </div>
+        <div class="col-sm-9">
+            
+        </div>
+        <div class="col-sm">
+            <span class="pull-right"> <VentilationModal></VentilationModal></span>
+           
+            @*  <Button Color="ButtonColor.Success" @onclick="OnAddPatientClick"><Icon Name="IconName.PersonPlus" /></Button> *@
+        </div>
+    </div>
 </div>
 
 <FindPatientLoan/>
