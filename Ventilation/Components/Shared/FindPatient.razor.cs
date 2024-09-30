@@ -1,3 +1,4 @@
+
 using BAL.Managers;
 using BlazorBootstrap;
 using Domain.Models;
@@ -12,7 +13,7 @@ namespace Ventilation.Components.Shared
         [Inject]
         IPatientManager _patientManager { get; set; }
         public PatientToFind? patientToFind = new();
-        PatientDetail patientFound = new();
+        PatientBase patientFound = new();
 
         private bool showPatient = false;
 
@@ -34,7 +35,7 @@ namespace Ventilation.Components.Shared
         {
           
 
-        }
+        } 
 
 
 

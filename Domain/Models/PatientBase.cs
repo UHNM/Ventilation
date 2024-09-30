@@ -1,9 +1,8 @@
 ﻿namespace Domain.Models
 {
-    public class PatientBase
+    public class PatientBase : PatientIdentity
     {
-        public int? Id { get; set; }
-        public int? InternalPatientId { get; set; }
+       
         public string? HospitalNumber { get; set; }
         public string? NHSNumber { get; set; }
         public string? Surname { get; set; }
@@ -16,6 +15,7 @@
         public DateOnly? DateofBirth { get; set; }
         public string? Telephone1 { get; set; }
         public string? Telephone2 { get; set; }
+        public string? CCG { get; set; }
 
     }
 }

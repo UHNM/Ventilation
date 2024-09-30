@@ -1,14 +1,14 @@
 ﻿
 namespace Domain.Entities.Complex
 {
-    public class PatientDetailCx : PatientBaseCx
+    public class PatientDetailCx : PatientIdentityCx
     {
         public DateTime? DischargeDate { get; set; }
         public DateTime? DateInitiated { get; set; }
         public int? PatientStatus { get; set; }
         public int? DischargeStatus { get; set; }
-        public string? CCG { get; set; }
-        public string? Diagnosis { get; set; }
+        public int? Diagnosis { get; set; }
+        public string? DiagnosisOther { get; set; }
         public int? Dependency { get; set; }
         public bool Tracheostomy { get; set; }
         public bool HomeVisit { get; set; }
@@ -16,5 +16,6 @@ namespace Domain.Entities.Complex
         public int? SmokingStatus { get; set; }
         public DateTime? PegDate { get; set; }
         public string? Comments { get; set; }
+        public DateTime? FundingStartDate { get; set; }
     }
 }

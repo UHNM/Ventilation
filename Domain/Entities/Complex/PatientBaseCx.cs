@@ -1,10 +1,8 @@
 ﻿
 namespace Domain.Entities.Complex
 {
-    public class PatientBaseCx
+    public class PatientBaseCx : PatientIdentityCx
     {
-        public int? Id { get; set; }
-        public int? InternalPatientId { get; set; }
         public string? HospitalNumber { get; set; }
         public string? NHSNumber { get; set; }
         public string? Surname { get; set; }
@@ -17,6 +15,7 @@ namespace Domain.Entities.Complex
         public DateOnly? DateofBirth { get; set; }
         public string? Telephone1 { get; set; }
         public string? Telephone2 { get; set; }
+        public string? CCG { get; set; }
 
     }
 }

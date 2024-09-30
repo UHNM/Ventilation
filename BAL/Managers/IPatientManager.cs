@@ -5,8 +5,10 @@ namespace BAL.Managers
 {
     public interface IPatientManager
     {
-        PatientDetail FindPatient(string hospitalNumber);
+        PatientBase FindPatient(string hospitalNumber);
 
-        PatientDetail GetPatient(int internalPatientId);
+        Task<PatientBase> GetPatient(int internalPatientId);
+
+        Task<PatientDetail> GetPatientDetail(int internalPatientId);
     }
 }

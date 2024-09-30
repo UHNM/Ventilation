@@ -5,9 +5,13 @@ namespace DAL.Repositories
 {
     public interface IPatientRepository
     {
-        PatientDetailCx FindPatient(string hospitalNumber);
+        PatientBaseCx FindPatient(string hospitalNumber);
 
-        PatientDetailCx GetPatient(int internalPatientId);
+       Task<PatientBaseCx> GetPatient(int internalPatientId);
+
+        Task<PatientDetailCx> GetPatientDetail(int internalPatientId);
+
+      
 
     }
 }

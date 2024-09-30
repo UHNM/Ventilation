@@ -16,11 +16,15 @@ namespace Ventilation.Components.Pages
         [Inject]
         IPatientManager _patientManager { get; set; }
 
-      Domain.Models.PatientDetail patient = new();
+      Domain.Models.PatientBase patient = new();
+        Domain.Models.PatientDetail patientDetail = new();
 
-        protected override void OnInitialized()
+        protected override async Task OnInitializedAsync()
         {
-              patient = _patientManager.GetPatient(InternalPatientId);
+          
+            patient = await _patientManager.GetPatient(InternalPatientId);
+            patientDetail = await  _patientManager.GetPatientDetail(InternalPatientId);
+
 
         }
 
