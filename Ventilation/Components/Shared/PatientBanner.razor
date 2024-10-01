@@ -1,0 +1,16 @@
+﻿@rendermode @(new InteractiveServerRenderMode(prerender:false));
+<ul class="list-group list-group-horizontal-sm">
+    <li class="list-group-item">
+        <span class="title">
+            @Patient.Surname, @Patient.Forename 
+        </span>
+    </li>
+    <li class="list-group-item"><span>NHS : </span>@Patient.NHSNumber </li>
+    <li class="list-group-item"><span>Hosp. Number : </span> @Patient.HospitalNumber </li>
+    <li class="list-group-item"><span>DoB: </span> @Patient.DateofBirth </li>
+    <li class="list-group-item"><span>Address: </span> @Patient.Address1, @Patient.Address2, @Patient.Address3, @Patient.Address4, @Patient.PostCode </li>
+   
+</ul>
+
+
+

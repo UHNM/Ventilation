@@ -1,0 +1,62 @@
+﻿body {
+    padding-top: 55px;
+    font-size: 13px;
+}
+
+.navbar-brand > img {
+    display: inline-block;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 10px;
+}
+
+.wisred {
+    color: red;
+}
+
+.wisblack {
+    color: red;
+}
+
+.wisblue {
+    color: blue;
+}
+
+.wisgreen {
+    color: green;
+}
+
+.wisgrey {
+    color: gray;
+}
+
+.wisamber {
+    color: #FFC200;
+}
+
+.patient-name {
+    color: #0066cc;
+    font-weight: bold;
+    border-bottom: solid 1px #ccc;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.contact-list {
+    border-bottom: solid 1px #ccc;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+#patientbanner .row {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.title{
+    font-size:larger;
+}

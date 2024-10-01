@@ -55,14 +55,13 @@ namespace DAL.Repositories.DefaultImplementations
             p.Id = 11111;
             p.InternalPatientId = 13131;
 
-
             p.PatientStatus = 1;
             p.DischargeDate = new DateTime(2024, 11, 8);
             p.DischargeStatus = 2;
             p.DateInitiated = new DateTime(2023, 6, 14);
             p.Diagnosis = 1;           
             p.DiagnosisOther = "Diagnosis Other";
-            p.Dependency = 3;
+            p.Dependency = 2;
             p.Tracheostomy = false;
             p.HomeService = true;
             p.HomeVisit = true;

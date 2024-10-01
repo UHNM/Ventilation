@@ -1,0 +1,180 @@
+﻿
+<EditForm Model="@PatientDetail" OnSubmit="OnSavePatient">
+    <div class="row">
+
+        <div class="col">
+
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">
+                    Date Initiated:
+                </label>
+                <div class="col-sm-8">
+                    <InputDate id="dateInitiated" @bind-Value="@PatientDetail.DateInitiated"></InputDate>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">
+                    Current Status:
+                </label>
+                <div class="col-sm-8">
+
+                    <InputSelect @bind-Value=@PatientDetail.PatientStatus>
+                        @if (@PatientDetail.PatientStatus is null)
+                        {
+                            <option value="">Not Selected</option>
+                        }
+                        else
+                        {
+                            <option value=@selectedStatus?.Id>@selectedStatus?.Name</option>
+                        }
+                        @foreach (var status in unSelectedStatuses)
+                        {
+                            <option value=@status.Id>@status.Name</option>
+                        }
+                       
+                    </InputSelect>
+
+
+                
+                </div>
+            </div>
+
+
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">
+                    Dependency:
+                </label>
+                <div class="col-sm-8">
+                    <InputSelect @bind-Value=@PatientDetail.Dependency>
+                        @if (@PatientDetail.Dependency is null)
+                        {
+                            <option value="">Not Selected</option>
+                        }
+                        else
+                        {
+                            <option value=@selectedDependency?.Id>@selectedStatus?.Id</option>
+                        }
+                        @foreach (var dependency in unSelectedDependencies)
+                        {
+                            <option value=@dependency.Id>@dependency.Id</option>
+                        }
+
+                    </InputSelect>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">
+                    Discharge Status:
+                </label>
+                <div class="col-sm-8">
+                    
+                    <InputNumber id="dischargeStatus" @bind-Value="@PatientDetail.DischargeStatus"></InputNumber>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">
+                    Diagnosis:
+                </label>
+                <div class="col-sm-8">
+                    <InputNumber id="diagnosis" @bind-Value="@PatientDetail.Diagnosis"></InputNumber>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">
+                    Diagnosis Other:
+                </label>
+                <div class="col-sm-8">
+                    <InputTextArea id="diagnosisother" @bind-Value="@PatientDetail.DiagnosisOther"></InputTextArea>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">
+                    Discharge Date:
+                </label>
+                <div class="col-sm-8">
+                    <InputDate id="dischargeDate" @bind-Value="@PatientDetail.DischargeDate"></InputDate>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+        <div class="col">
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">
+                    Tracheostomy:
+                </label>
+                <div class="col-sm-8">
+                    <InputCheckbox id="tracheostomy" @bind-Value="@PatientDetail.Tracheostomy"></InputCheckbox>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">
+                    Home Visit:
+                </label>
+                <div class="col-sm-8">
+                    <InputCheckbox id="homeVisit" @bind-Value="@PatientDetail.HomeVisit"></InputCheckbox>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">
+                    Home Service:
+                </label>
+                <div class="col-sm-8">
+                    <InputCheckbox id="homeService" @bind-Value="@PatientDetail.HomeService"></InputCheckbox>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">
+                    Smoking Status:
+                </label>
+                <div class="col-sm-8">
+                    <InputNumber id="homeService" @bind-Value="@PatientDetail.SmokingStatus"></InputNumber>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">
+                    Peg Date:
+                </label>
+                <div class="col-sm-8">
+                    <InputDate id="pegDate" @bind-Value="@PatientDetail.PegDate"></InputDate>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">
+                    Funding Start Date:
+                </label>
+                <div class="col-sm-8">
+                    <InputDate id="pegDate" @bind-Value="@PatientDetail.FundingStartDate"></InputDate>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">
+                    Comments:
+                </label>
+                <div class="col-sm-8">
+                    <InputTextArea id="comments" @bind-Value="@PatientDetail.Comments"></InputTextArea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <button Type="submit" class="btn btn-primary pull-right">Save</button>
+            </div>
+        </div>
+
+
+
+    </div>
+</EditForm>

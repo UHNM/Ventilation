@@ -16,22 +16,18 @@ namespace Ventilation.Components.Pages
         [Inject]
         IPatientManager _patientManager { get; set; }
 
-      Domain.Models.PatientBase patient = new();
+        Domain.Models.PatientBase patient = new();
         Domain.Models.PatientDetail patientDetail = new();
 
         protected override async Task OnInitializedAsync()
         {
-          
+            // do we want to get the patient and pass it to the banner, or pass the internalPatientId to the banner, and then let the banner get the data???
             patient = await _patientManager.GetPatient(InternalPatientId);
             patientDetail = await  _patientManager.GetPatientDetail(InternalPatientId);
 
 
         }
 
-        private void OnSavePatient(EditContext context)
-        {
-
-
-        }
+       
     }
 }

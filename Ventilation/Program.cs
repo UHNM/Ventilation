@@ -26,6 +26,7 @@ builder.Services.AddScoped<IPatientManager, PatientManager>();
 
 builder.Services.AddLocalization();
 builder.Services.AddBlazorBootstrap();
+builder.Services.AddHttpClient();
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
