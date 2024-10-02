@@ -1,4 +1,5 @@
 using BAL.Managers;
+using BlazorBootstrap;
 using Domain.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
@@ -14,12 +15,21 @@ namespace Ventilation.Components.Shared
     public partial class PatientAdditional
     {
         [Parameter]
-        public Domain.Models.PatientDetail PatientDetail { get; set; }
+        public PatientDetail? PatientDetail { get; set; }
 
         Dictionary<string, object> inputTextAreaAttributesComments = new Dictionary<string, object>();
 
         [Inject]
         IPatientManager _patientManager { get; set; }
+
+      
+        [Parameter]
+        public EventCallback<int?> OnPatientSaved { get; set; }
+
+
+        private string saveButtonText = "Save";
+
+
 
 
 
@@ -88,9 +98,13 @@ namespace Ventilation.Components.Shared
 
         protected override async Task OnInitializedAsync()
         {
+            //TODO: needs to be async due to component base, require further investigation
+            await Task.Delay(10);
 
             inputTextAreaAttributesComments.Add("rows", "4");
             inputTextAreaAttributesComments.Add("cols", "120");
+
+          
 
             // HttpClient client = new HttpClient();
             //var statuses = await client.GetFromJsonAsync<Lookup[]>("status.json");
@@ -189,14 +203,38 @@ namespace Ventilation.Components.Shared
         }
 
 
+       
+
+        protected override async Task OnParametersSetAsync()
+        {
+            //TODO: needs to be async due to component base, require further investigation
+            await Task.Delay(10);
+
+            if (PatientDetail.Id != null)
+            {
+                saveButtonText = "Update";
+            }
+
+        }
 
         private async Task OnSavePatient(EditContext context)
         {
             //The internalPatientId will always be populated, but if the id is null its an insert, otherwise an update
-            int patientId = await _patientManager.SavePatient((PatientDetail)context.Model);
-            var xx = "";
+            string message = "New Patient Added!";
+            
+            if(PatientDetail.Id != null)
+            {
+                 message = "Patient Updated!";
+            }
+           
+            
+            int? patientId = await _patientManager.SavePatient((PatientDetail)context.Model);
+          
+            await OnPatientSaved.InvokeAsync(patientId);
+
         }
 
+       
     }
 
     public class Lookup

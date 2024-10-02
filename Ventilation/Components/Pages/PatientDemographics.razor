@@ -10,18 +10,18 @@
   
     <Tab Title="Patient Detail" Active="true">
         <Content>
-            <PatientAdditional PatientDetail="@patientDetail"></PatientAdditional>
+            <PatientAdditional PatientDetail="@patientDetail" OnPatientSaved="PatientIdChange"></PatientAdditional>
         </Content>
     </Tab>
 
-    <Tab Title="Loans" >
+    <Tab Title="Loans" Disabled=@(!IsVentilationPatient)>
         <Content>
 
 
         </Content>
     </Tab>
 
-    <Tab Title="Activity">
+    <Tab Title="Activity" Disabled=@(!IsVentilationPatient)>
         <Content>
 
 
@@ -31,3 +31,4 @@
 </Tabs>
 
 
+<Toasts class="p-3" Messages="@messages" Placement="ToastsPlacement.BottomRight" />
