@@ -36,7 +36,7 @@ namespace DAL.Repositories.DefaultImplementations
             //if the patient is in the ventilation system, return all patient details
             //otherwise will just be Midas stuff
             PatientBaseCx p = new PatientBaseCx();
-            p.Id = 11111;
+            p.Id = null;
             p.InternalPatientId = 13131;
             p.HospitalNumber = "C111";
             p.NHSNumber = "999 8886 777";
@@ -69,7 +69,7 @@ namespace DAL.Repositories.DefaultImplementations
             //if the patient is in the ventilation system, return all patient details
             //otherwise will just be Midas stuff
             PatientDetailCx p = new PatientDetailCx();
-            p.Id = 11111;
+            p.Id = 1000;
             p.InternalPatientId = 13131;
 
             p.PatientStatus = 1;
