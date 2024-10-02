@@ -76,7 +76,9 @@ namespace BAL.Managers.DefaultImplementations
                 Patient.DischargeDate = Dto.DischargeDate;
                 Patient.DateInitiated = Dto.DateInitiated;
 
-                Patient.Diagnosis = Dto.Diagnosis;
+                Patient.DiagnosisCategory = Dto.DiagnosisCategory;
+                Patient.DiagnosisSubCategory = Dto.DiagnosisSubCategory;
+                Patient.DiagnosisOther = Dto.DiagnosisOther;
                 Patient.Dependency = Dto.Dependency;
                 Patient.Tracheostomy = Dto.Tracheostomy;
                 Patient.HomeService = Dto.HomeService;
@@ -85,6 +87,7 @@ namespace BAL.Managers.DefaultImplementations
                 Patient.PegDate = Dto.PegDate;
                 Patient.Comments = Dto.Comments;
                 Patient.FundingStartDate = Dto.FundingStartDate;
+                Patient.LoneWorker = Dto.LoneWorker;
 
                 return Patient;
             }

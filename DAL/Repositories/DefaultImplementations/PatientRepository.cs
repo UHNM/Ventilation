@@ -59,16 +59,18 @@ namespace DAL.Repositories.DefaultImplementations
             p.DischargeDate = new DateTime(2024, 11, 8);
             p.DischargeStatus = 2;
             p.DateInitiated = new DateTime(2023, 6, 14);
-            p.Diagnosis = 1;           
+            p.DiagnosisCategory = 1;
+            p.DiagnosisSubCategory = 2;           
             p.DiagnosisOther = "Diagnosis Other";
             p.Dependency = 2;
             p.Tracheostomy = false;
             p.HomeService = true;
             p.HomeVisit = true;
-            p.SmokingStatus = 4;
+            p.SmokingStatus = 3;
             p.PegDate = new DateTime(2024, 7, 11);
             p.FundingStartDate = new DateTime(2024, 3, 21);
             p.Comments = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque arcu odio, sagittis sit amet lobortis sed, sodales at ex. Phasellus convallis convallis feugiat. Nunc mi justo, laoreet dictum ultricies pharetra, euismod ac purus. Praesent ut feugiat ante. Nunc consequat enim ut massa tempus accumsan. Maecenas et dapibus felis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc tincidunt malesuada auctor. Sed vel venenatis metus. Nulla imperdiet, elit in finibus porttitor, ipsum nisl fermentum nisi, vitae dignissim nisi erat ut risus. Duis euismod lobortis lectus at dapibus. Nunc ex leo, cursus non neque in, egestas placerat libero. In massa arcu, suscipit ac placerat non, molestie ut diam.";
+            p.LoneWorker = true;
 
             await Task.Delay(200);
             return p;

@@ -14,65 +14,174 @@ namespace Ventilation.Components.Shared
         [Parameter]
         public Domain.Models.PatientDetail PatientDetail { get; set; }
 
-        
-        
-        private IEnumerable<Status> statuses = Enumerable.Empty<Status>();
-
-        private IEnumerable<Status> unSelectedStatuses =>
-        statuses.Where(s => s.Id != PatientDetail.PatientStatus);
-
-        Status? selectedStatus => PatientDetail.PatientStatus.HasValue ?
-                            statuses.First(d => d.Id == this.PatientDetail.PatientStatus) :
-                            default(Status);
-
-
-        private IEnumerable<Dependency> dependencies = Enumerable.Empty<Dependency>();
-
-        private IEnumerable<Dependency> unSelectedDependencies =>
-        dependencies.Where(s => s.Id != PatientDetail.Dependency);
-
-        Dependency? selectedDependency => PatientDetail.Dependency.HasValue ?
-                            dependencies.First(d => d.Id == this.PatientDetail.Dependency) :
-                            default(Dependency);
+        Dictionary<string, object> inputTextAreaAttributesComments = new Dictionary<string, object>();
 
 
 
 
+
+        //Patient Status
+        private IEnumerable<Lookup> statuses = Enumerable.Empty<Lookup>();
+
+        private IEnumerable<Lookup> unSelectedStatuses =>
+        statuses.Where(s => s.Key != PatientDetail.PatientStatus);
+
+        Lookup? selectedStatus => PatientDetail.PatientStatus.HasValue ?
+                            statuses.First(d => d.Key == this.PatientDetail.PatientStatus) :
+                            default(Lookup);
+
+        //Dependency
+        private IEnumerable<Lookup> dependencies = Enumerable.Empty<Lookup>();
+
+        private IEnumerable<Lookup> unSelectedDependencies =>
+        dependencies.Where(s => s.Key != PatientDetail.Dependency);
+
+        Lookup? selectedDependency => PatientDetail.Dependency.HasValue ?
+                            dependencies.First(d => d.Key == this.PatientDetail.Dependency) :
+                            default(Lookup);
+
+        //Diagnosis Category
+        private IEnumerable<Lookup> diagnosisCategories = Enumerable.Empty<Lookup>();
+
+        private IEnumerable<Lookup> unSelectedDiagnosisCategories =>
+        diagnosisCategories.Where(s => s.Key != PatientDetail.DiagnosisCategory);
+
+        Lookup? selectedDiagnosisCategory => PatientDetail.DiagnosisCategory.HasValue ?
+                            diagnosisCategories.First(d => d.Key == this.PatientDetail.DiagnosisCategory) :
+                            default(Lookup);
+
+        //Diagnosis Sub Category
+        private IEnumerable<Lookup> diagnosisSubCategories = Enumerable.Empty<Lookup>();
+
+        private IEnumerable<Lookup> unSelectedDiagnosisSubCategories =>
+        diagnosisSubCategories.Where(s => s.Key != PatientDetail.DiagnosisSubCategory);
+
+        Lookup? selectedDiagnosisSubCategory => PatientDetail.DiagnosisSubCategory.HasValue ?
+                            diagnosisSubCategories.First(d => d.Key == this.PatientDetail.DiagnosisSubCategory) :
+                            default(Lookup);
+
+        //Diagnosis Discharged Status
+        private IEnumerable<Lookup> dischargedStatuses = Enumerable.Empty<Lookup>();
+
+        private IEnumerable<Lookup> unSelectedDischargeStatuses =>
+        dischargedStatuses.Where(s => s.Key != PatientDetail.DischargeStatus);
+
+        Lookup? selectedDischargeStatus => PatientDetail.DischargeStatus.HasValue ?
+                            dischargedStatuses.First(d => d.Key == this.PatientDetail.DischargeStatus) :
+                            default(Lookup);
+
+
+        //Smoking Status
+        private IEnumerable<Lookup> smokingStatuses = Enumerable.Empty<Lookup>();
+
+        private IEnumerable<Lookup> unSelectedSmokingStatuses =>
+        smokingStatuses.Where(s => s.Key != PatientDetail.SmokingStatus);
+
+        Lookup? selectedSmokingStatus => PatientDetail.DischargeStatus.HasValue ?
+                            smokingStatuses.First(d => d.Key == this.PatientDetail.SmokingStatus) :
+                            default(Lookup);
 
 
 
         protected override async Task OnInitializedAsync()
         {
+
+            inputTextAreaAttributesComments.Add("rows", "4");
+            inputTextAreaAttributesComments.Add("cols", "120");
+
             // HttpClient client = new HttpClient();
-            //var employees = await client.GetFromJsonAsync<Employee[]>("status.json");
-
-            //statuses = Enumerable.Range(0, 2)
-            //    .Select(i => new Status { Id = i, Name = $"Name{i}" });
-
+            //var statuses = await client.GetFromJsonAsync<Lookup[]>("status.json");
 
 
             // no idea where the enums / lookups will come from yet
-           
-            Status s2 = new Status();
-            s2.Id = 1;
-            s2.Name = "Under Monitoring";
+            Lookup s2 = new Lookup();
+            s2.Key = 1;
+            s2.Value = "Under Monitoring";
 
-            Status s3 = new Status();
-            s3.Id = 2;
-            s3.Name = "On Machine";
+            Lookup s3 = new Lookup();
+            s3.Key = 2;
+            s3.Value = "On Machine";
            
             statuses = statuses.Append(s2);
             statuses = statuses.Append(s3);
 
-            Dependency d1 = new Dependency();
-            d1.Id = 1;
+            Lookup d1 = new Lookup();
+            d1.Key = 1;
+            d1.Value = "1";
 
-            Dependency d2 = new Dependency();
-            d2.Id = 2;
+            Lookup d2 = new Lookup();
+            d2.Key = 2;
+            d2.Value ="2";
 
             dependencies = dependencies.Append(d1);
             dependencies = dependencies.Append(d2);
 
+
+            Lookup c1 = new Lookup();
+            c1.Key = 1;
+            c1.Value = "MND";
+
+            Lookup c2 = new Lookup();
+            c2.Key = 2;
+            c2.Value = "COPD";
+
+            diagnosisCategories = diagnosisCategories.Append(c1);
+            diagnosisCategories = diagnosisCategories.Append(c2);
+
+            Lookup c3 = new Lookup();
+            c3.Key = 1;
+            c3.Value = "Sub Category 1";
+
+            Lookup c4 = new Lookup();
+            c4.Key = 2;
+            c4.Value = "Sub Category 2";
+
+            Lookup c5 = new Lookup();
+            c5.Key = 3;
+            c5.Value = "Sub Category 3";
+
+            diagnosisSubCategories = diagnosisSubCategories.Append(c3);
+            diagnosisSubCategories = diagnosisSubCategories.Append(c4);
+            diagnosisSubCategories = diagnosisSubCategories.Append(c5);
+
+
+            Lookup d5 = new Lookup();
+            d5.Key = 1;
+            d5.Value = "Discharged from Service";
+
+            Lookup d6 = new Lookup();
+            d6.Key = 2;
+            d6.Value = "RIP";
+
+            Lookup d7 = new Lookup();
+            d7.Key = 3;
+            d7.Value = "Transferred Sleep";
+
+            Lookup d8 = new Lookup();
+            d8.Key = 4;
+            d8.Value = "Transferred Other";
+
+            dischargedStatuses = dischargedStatuses.Append(d5);
+            dischargedStatuses = dischargedStatuses.Append(d6);
+            dischargedStatuses = dischargedStatuses.Append(d7);
+            dischargedStatuses = dischargedStatuses.Append(d8);
+
+
+            Lookup sm1 = new Lookup();
+            sm1.Key = 1;
+            sm1.Value = "Current Smoker";
+
+            Lookup sm2 = new Lookup();
+            sm2.Key = 2;
+            sm2.Value = "Ex Smoker";
+
+            Lookup sm3 = new Lookup();
+            sm3.Key = 3;
+            sm3.Value = "Non Smoker";
+
+            smokingStatuses = smokingStatuses.Append(sm1);
+            smokingStatuses = smokingStatuses.Append(sm2);
+            smokingStatuses = smokingStatuses.Append(sm3);
 
         }
 
@@ -86,16 +195,11 @@ namespace Ventilation.Components.Shared
 
     }
 
-    public class Status
+    public class Lookup
     {
-        public int? Id { get; set; }
-        public string? Name { get; set; }
+        public int? Key { get; set; }
+        public string? Value { get; set; }
     }
 
-    public class Dependency
-    {
-        public int? Id { get; set; }
-        //public string? Name { get; set; }
-    }
-
+   
 }
