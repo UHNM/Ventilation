@@ -6,24 +6,35 @@
 
 
 
-<Tabs>
+<Tabs EnableFadeEffect="true" @ref="tabs" NavStyle="NavStyle.Underline">
   
     <Tab Title="Patient Detail" Active="true">
+        <TitleTemplate>
+            <Icon Name="IconName.PersonFill" /> Patient
+        </TitleTemplate>
         <Content>
             <PatientAdditional PatientDetail="@patientDetail" OnPatientSaved="PatientIdChange"></PatientAdditional>
         </Content>
     </Tab>
 
-    <Tab Title="Loans" Disabled=@(!IsVentilationPatient)>
+    <Tab Title="Loans" Name="Loans" Disabled=@(!IsVentilationPatient)>
+        <TitleTemplate>
+            <Icon Name="IconName.Clipboard2PulseFill" /> Loans
+        </TitleTemplate>
         <Content>
-
-
+            <br/>
+            <h3>This is the loans tab</h3>
+           
         </Content>
     </Tab>
 
-    <Tab Title="Activity" Disabled=@(!IsVentilationPatient)>
+    <Tab Title="Activity" Name="Activity" Disabled=@(!IsVentilationPatient)>
+        <TitleTemplate>
+            <Icon Name="IconName.ArchiveFill" /> Activity
+        </TitleTemplate>
         <Content>
-
+            <br/>
+            <h3>This is the activity tab</h3>
 
         </Content>
     </Tab>

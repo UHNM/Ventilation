@@ -20,7 +20,7 @@ namespace Ventilation.Components.Pages
         Domain.Models.PatientDetail patientDetail = new();
         bool IsVentilationPatient = false;
         List<ToastMessage> messages = new List<ToastMessage>();
-
+        Tabs tabs = default!;
 
         protected override async Task OnInitializedAsync()
         {
@@ -45,10 +45,14 @@ namespace Ventilation.Components.Pages
             if (patientId != null)
             {
                 IsVentilationPatient = true;
+
                 StateHasChanged();
+               
+              
                 ShowMessage(ToastType.Success);
+                await tabs.ShowTabByNameAsync("Loans");
             }
-        
+
 
 
 
