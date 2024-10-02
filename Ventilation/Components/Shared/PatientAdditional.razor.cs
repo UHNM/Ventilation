@@ -1,3 +1,5 @@
+using BAL.Managers;
+using Domain.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Web;
@@ -16,7 +18,8 @@ namespace Ventilation.Components.Shared
 
         Dictionary<string, object> inputTextAreaAttributesComments = new Dictionary<string, object>();
 
-
+        [Inject]
+        IPatientManager _patientManager { get; set; }
 
 
 
@@ -187,10 +190,11 @@ namespace Ventilation.Components.Shared
 
 
 
-        private void OnSavePatient(EditContext context)
+        private async Task OnSavePatient(EditContext context)
         {
-
-
+            //The internalPatientId will always be populated, but if the id is null its an insert, otherwise an update
+            int patientId = await _patientManager.SavePatient((PatientDetail)context.Model);
+            var xx = "";
         }
 
     }

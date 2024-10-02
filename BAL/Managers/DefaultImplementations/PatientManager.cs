@@ -35,6 +35,14 @@ namespace BAL.Managers.DefaultImplementations
         }
 
 
+        public async Task<int> SavePatient(PatientDetail patient)
+        {
+            var dto = await _dynamicResponseRepository.SavePatient(patient);
+            return await Task.FromResult(dto);
+        }
+
+
+
         private static PatientBase GetPatientFromDto(PatientBaseCx Dto)
         {
             if (Dto != null)

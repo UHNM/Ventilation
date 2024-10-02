@@ -10,5 +10,7 @@ namespace BAL.Managers
         Task<PatientBase> GetPatient(int internalPatientId);
 
         Task<PatientDetail> GetPatientDetail(int internalPatientId);
+
+        Task<int> SavePatient(PatientDetail patient);
     }
 }

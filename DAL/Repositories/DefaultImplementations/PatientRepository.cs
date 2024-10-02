@@ -2,6 +2,7 @@
 using Domain.Entities.Complex;
 using System.Data.SqlClient;
 using System.Data;
+using Domain.Models;
 
 namespace DAL.Repositories.DefaultImplementations
 {
@@ -10,6 +11,22 @@ namespace DAL.Repositories.DefaultImplementations
         public PatientRepository(IVentilationContext context)
            : base(context)
         {
+        }
+
+
+        public async Task<int> SavePatient(PatientDetail patient)
+        {
+           //if the patient already has an Id , then update, otherwise insert
+           //return the new Id to the front end
+            
+            int Id = 1000;
+
+            await Task.Delay(200);
+            return Id;
+
+
+
+
         }
 
 

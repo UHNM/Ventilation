@@ -1,6 +1,6 @@
 ﻿namespace Domain.Models
 {
-    public class PatientDetail : PatientBase
+    public class PatientDetail : PatientIdentity
     {
         public DateTime? DischargeDate { get; set; }
         public DateTime? DateInitiated { get; set; }
