@@ -5,6 +5,6 @@ namespace DAL.Repositories
 {
     public interface IPatientListRepository
     {
-        IEnumerable<PatientListItemCx> GetPatientList();
+        Task<IEnumerable<PatientListItemCx>> GetPatientList();
     }
 }

@@ -12,7 +12,7 @@ namespace DAL.Repositories.DefaultImplementations
         }
 
 
-        public IEnumerable<PatientListItemCx> GetPatientList()
+        public async Task<IEnumerable<PatientListItemCx>> GetPatientList()
         {
             IEnumerable<PatientListItemCx> loans = new List<PatientListItemCx>();
          
@@ -121,7 +121,7 @@ namespace DAL.Repositories.DefaultImplementations
             l2.Loans = items2;
 
             loans = loans.Append(l2);
-
+            await Task.Delay(100);
             return loans;
         }
 

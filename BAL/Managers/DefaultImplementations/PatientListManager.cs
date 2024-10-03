@@ -16,10 +16,10 @@ namespace BAL.Managers.DefaultImplementations
             _dynamicResponseRepository = dynamicResponseRepository;
         }
 
-        public List<PatientListItem> GetPatientList()
+        public async Task<List<PatientListItem>> GetPatientList()
         {
-            var dto = _dynamicResponseRepository.GetPatientList();
-            return GetPatientListItemsFromDto(dto);
+            var dto = await _dynamicResponseRepository.GetPatientList();
+            return await Task.FromResult(GetPatientListItemsFromDto(dto));
         }
 
         private static List<PatientListItem> GetPatientListItemsFromDto(IEnumerable<PatientListItemCx> Dto)

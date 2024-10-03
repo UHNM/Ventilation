@@ -14,5 +14,7 @@ namespace DAL.Repositories
 
        Task<int> SavePatient(PatientDetail patient);
 
+
+
     }
 }

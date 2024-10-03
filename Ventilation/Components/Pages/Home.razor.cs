@@ -12,16 +12,17 @@ namespace Ventilation.Components.Pages
         [Inject]
         IPatientListManager _patientListManager { get; set; }
        
-        IQueryable<PatientListItem>? patientlist;
-        
-        
+       // IQueryable<PatientListItem>? patientlist;
+
+        List<Domain.Models.PatientListItem> patientList = new();
+
         VentilationModal ventilationModal => new VentilationModal();
 
 
-        protected override void OnInitialized()
+        protected override async Task OnInitializedAsync()
         {
-            var items = _patientListManager.GetPatientList(); ;
-            patientlist = (items).AsQueryable();
+            patientList = await _patientListManager.GetPatientList(); ;
+           // patientlist = (items).AsQueryable();
 
         }
 
