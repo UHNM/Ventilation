@@ -1,4 +1,5 @@
 ﻿
+using Domain.Entities.Complex;
 using Domain.Models;
 
 namespace BAL.Managers
@@ -12,5 +13,7 @@ namespace BAL.Managers
         Task<PatientDetail> GetPatientDetail(int internalPatientId);
 
         Task<int> SavePatient(PatientDetail patient);
+
+        Task<List<Loan>> GetPatientLoans(int? PatientId);
     }
 }

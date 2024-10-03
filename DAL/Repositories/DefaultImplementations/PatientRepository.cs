@@ -36,6 +36,7 @@ namespace DAL.Repositories.DefaultImplementations
             //if the patient is in the ventilation system, return all patient details
             //otherwise will just be Midas stuff
             PatientBaseCx p = new PatientBaseCx();
+            
             p.Id = null;
             p.InternalPatientId = 13131;
             p.HospitalNumber = "C111";
@@ -69,7 +70,7 @@ namespace DAL.Repositories.DefaultImplementations
             //if the patient is in the ventilation system, return all patient details
             //otherwise will just be Midas stuff
             PatientDetailCx p = new PatientDetailCx();
-            p.Id = 1000;
+            p.Id = null;
             p.InternalPatientId = 13131;
 
             p.PatientStatus = 1;
@@ -119,6 +120,51 @@ namespace DAL.Repositories.DefaultImplementations
 
 
             return p;
+        }
+
+
+
+        //get all loans for a ventilation patient id
+        public async Task<IEnumerable<LoanCx>> GetPatientLoans(int? PatientId)
+        {
+            IEnumerable<LoanCx> loans = new List<LoanCx>();
+
+            LoanCx s = new LoanCx();
+            s.SerialNumber = "Serial 1";
+            s.EquipmentName = "Nippy 1000";
+            s.Id = 1;
+            s.EquipmentId = 2;
+            s.ClinicalReference = "Clin Ref 1";
+            s.LoanDate = new DateTime(2024, 3, 16);
+            s.PatientId = 111111;
+            s.EquipmentType = "Ventilator";
+
+            LoanCx s1 = new LoanCx();
+            s1.SerialNumber = "Serial 2";
+            s1.EquipmentName = "Stellar";
+            s1.Id = 1;
+            s1.EquipmentId = 2;
+            s1.EquipmentType = "Ventilator";
+            s1.ClinicalReference = "Clin Ref 2";
+            s1.LoanDate = new DateTime(2024, 10, 30);
+            s1.PatientId = 111111;
+
+            LoanCx s4 = new LoanCx();
+            s4.SerialNumber = "Serial 5";
+            s4.EquipmentName = "Nippy 1000";
+            s4.EquipmentType = "Ventilator";
+            s4.Id = 1;
+            s4.EquipmentId = 2;
+            s4.ClinicalReference = "Clin Ref 99999";
+            s4.LoanDate = new DateTime(2024, 01, 07);
+            s4.PatientId = 111111;
+
+            loans = loans.Append(s);
+            loans = loans.Append(s1);
+            loans = loans.Append(s4);
+           
+            await Task.Delay(100);
+            return loans;
         }
 
     }

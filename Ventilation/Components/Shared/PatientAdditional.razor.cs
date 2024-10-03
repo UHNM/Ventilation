@@ -228,9 +228,9 @@ namespace Ventilation.Components.Shared
             }
            
             
-            int? patientId = await _patientManager.SavePatient((PatientDetail)context.Model);
+            int? Id = await _patientManager.SavePatient((PatientDetail)context.Model);
           
-            await OnPatientSaved.InvokeAsync(patientId);
+            await OnPatientSaved.InvokeAsync(Id);
 
         }
 

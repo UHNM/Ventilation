@@ -23,7 +23,11 @@
         </TitleTemplate>
         <Content>
             <br/>
-            <h3>This is the loans tab</h3>
+            @if(patientId != null)
+            {
+                <PatientLoans PatientId="@patientId"></PatientLoans>
+            }
+            
            
         </Content>
     </Tab>

@@ -102,7 +102,38 @@ namespace BAL.Managers.DefaultImplementations
             return null;
         }
 
+        public async Task<List<Loan>> GetPatientLoans(int? PatientId)
+        {
+            var dto = await _dynamicResponseRepository.GetPatientLoans(PatientId);
+            return await Task.FromResult(GetPatientLoansFromDto(dto));
+        }
 
+        private static List<Loan> GetPatientLoansFromDto(IEnumerable<LoanCx> Dto)
+        {
+            if (Dto != null)
+            {
+                List<Loan> Loans = new List<Loan>();
+
+              
+                    foreach (LoanCx loan in Dto)
+                    {
+                        Loan s = new Loan();
+                        s.PatientId = loan.PatientId;
+                        s.LoanDate = loan.LoanDate;
+                        s.Id = loan.Id;
+                        s.EquipmentId = loan.EquipmentId;
+                        s.EquipmentName = loan.EquipmentName;
+                        s.SerialNumber = loan.SerialNumber;
+                        s.ClinicalReference = loan.ClinicalReference;
+                        s.LoanDate = loan.LoanDate;
+                        s.EquipmentType = loan.EquipmentType;
+                        Loans.Add(s);
+                    }
+
+                return Loans;
+            }
+            return null;
+        }
 
 
     }

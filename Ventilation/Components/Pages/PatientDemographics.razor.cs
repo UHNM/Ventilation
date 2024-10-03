@@ -3,6 +3,7 @@ using BlazorBootstrap;
 using Domain.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
+using Models;
 using System.Reflection;
 
 namespace Ventilation.Components.Pages
@@ -12,6 +13,9 @@ namespace Ventilation.Components.Pages
 
         [Parameter]
         public int InternalPatientId { get; set; }
+
+        [Parameter]
+        public int? patientId { get; set; }
 
         [Inject]
         IPatientManager _patientManager { get; set; }
@@ -24,6 +28,7 @@ namespace Ventilation.Components.Pages
 
         protected override async Task OnInitializedAsync()
         {
+            patientId = null;
             // do we want to get the patient and pass it to the banner, or pass the internalPatientId to the banner, and then let the banner get the data???
             patient = await _patientManager.GetPatient(InternalPatientId);
 
@@ -31,30 +36,31 @@ namespace Ventilation.Components.Pages
             
             //if the patient has a Ventilation id then allow the loans and activity tabs
             if(patientDetail.Id != null) {
+                patientId = patientDetail.Id;
                 IsVentilationPatient = true;
                 StateHasChanged();
+            }
+            else
+            {
+                patientId = null;
             }
 
 
         }
 
         //Event callback from child component after saving additional information
-        protected async Task PatientIdChange(int? patientId)
+        protected async Task PatientIdChange(int? Id)
         {
             await Task.Delay(100);
-            if (patientId != null)
+            if (Id != null)
             {
+                patientId = Id;
                 IsVentilationPatient = true;
-
                 StateHasChanged();
-               
               
                 ShowMessage(ToastType.Success);
                 await tabs.ShowTabByNameAsync("Loans");
             }
-
-
-
 
         }
 
