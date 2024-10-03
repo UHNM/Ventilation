@@ -1,0 +1,24 @@
+﻿@rendermode InteractiveServer
+<Modal @ref="modal"
+       title="Add Loan"
+       UseStaticBackdrop="true"
+       CloseOnEscape="false"
+       Size="ModalSize.ExtraLarge"
+       OnHiding="OnModalHiding"
+       OnHidden="OnModalHidden"
+       OnHidePrevented="OnModalHidePrevented">
+
+    <BodyTemplate>
+
+    </BodyTemplate>
+
+    <FooterTemplate>
+        <Button Color="ButtonColor.Secondary" @onclick="OnHideModalClick">Close</Button>
+
+    </FooterTemplate>
+
+</Modal>
+
+<Button Color="ButtonColor.Success" @onclick="OnShowModalClick"><Icon Name="IconName.Globe2" /></Button>
+
+

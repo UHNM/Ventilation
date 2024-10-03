@@ -14,7 +14,7 @@ namespace Ventilation.Components.Shared
         [Inject]
         IPatientManager _patientManager { get; set; }
         List<Loan> patientLoans = new();
-
+        AddLoanModal loanModal => new AddLoanModal();
 
         protected override async Task OnInitializedAsync()
         {

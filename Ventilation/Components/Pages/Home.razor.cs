@@ -26,11 +26,11 @@ namespace Ventilation.Components.Pages
 
         }
 
-        private async Task OnAddPatientClick()
-        {
+        //private async Task OnAddPatientClick()
+        //{
           
-            ventilationModal.OnShowModalClick();
-        }
+        //    ventilationModal.OnShowModalClick();
+        //}
 
 
 

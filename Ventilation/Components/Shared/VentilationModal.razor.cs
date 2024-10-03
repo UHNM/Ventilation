@@ -19,12 +19,6 @@ namespace Ventilation.Components.Shared
 
         public async Task OnShowModalClick()
         {
-            //var parameters = new Dictionary<string, object>();
-            //parameters.Add("InternalPatientId", 321);
-            //await modal.ShowAsync<AddPatient>(title: "Add Patient", parameters: parameters);
-           
-            
-           // await modal.ShowAsync();
              await modal.ShowAsync<AddPatient>(title: "Add Patient");
         }
 

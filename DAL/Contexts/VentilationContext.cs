@@ -1,4 +1,4 @@
-﻿using Domain.Entities.Equipment;
+﻿//using Domain.Entities.Equipment;
 using System.Data.Entity;
 
 namespace DAL.Contexts
@@ -22,6 +22,6 @@ namespace DAL.Contexts
         }
 
 
-        public IDbSet<Equipment> Equipments { get; set; }
+        //public IDbSet<Equipment> Equipments { get; set; }
     }
 }
