@@ -7,6 +7,5 @@
         public string? EquipmentName { get; set; }
         public string? SerialNumber { get; set; }
         public string? ClinicalReference { get; set; }
-        public DateTime LoanDate { get; set; }
     }
 }

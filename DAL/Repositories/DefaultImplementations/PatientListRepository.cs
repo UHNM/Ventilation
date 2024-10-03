@@ -12,9 +12,9 @@ namespace DAL.Repositories.DefaultImplementations
         }
 
 
-        public IEnumerable<PatientLoanCx> GetPatientList()
+        public IEnumerable<PatientListItemCx> GetPatientList()
         {
-            IEnumerable<PatientLoanCx> loans = new List<PatientLoanCx>();
+            IEnumerable<PatientListItemCx> loans = new List<PatientListItemCx>();
          
             PatientBaseCx p = new PatientBaseCx();
             p.Id = 11111;
@@ -32,27 +32,31 @@ namespace DAL.Repositories.DefaultImplementations
             p.Telephone1 = "01782 444666";
             p.Telephone2 = "07704 789555";
 
-            StockItemCx s = new StockItemCx();
+            LoanCx s = new LoanCx();
             s.SerialNumber = "Serial 1";
             s.EquipmentName = "Nippy 1000";
             s.Id = 1;
             s.EquipmentId = 2;
             s.ClinicalReference = "Clin Ref 1";
             s.LoanDate = new DateTime(2024, 3, 16);
+            s.PatientId = 111111;
+            s.EquipmentType = "Ventilator";
 
-            StockItemCx s1 = new StockItemCx();
+            LoanCx s1 = new LoanCx();
             s1.SerialNumber = "Serial 2";
-            s1.EquipmentName = "Another Vent";
+            s1.EquipmentName = "Stellar";
             s1.Id = 1;
             s1.EquipmentId = 2;
+            s1.EquipmentType = "Ventilator";
             s1.ClinicalReference = "Clin Ref 2";
             s1.LoanDate = new DateTime(2024, 10, 30);
+            s1.PatientId = 111111;
 
-            PatientLoanCx l1 = new PatientLoanCx();
+            PatientListItemCx l1 = new PatientListItemCx();
 
             l1.Patient = p;
 
-            List<StockItemCx>? items1 = new List<StockItemCx>();
+            List<LoanCx>? items1 = new List<LoanCx>();
             items1.Add(s);
             items1.Add(s1);
             l1.Loans = items1;
@@ -62,7 +66,7 @@ namespace DAL.Repositories.DefaultImplementations
 
 
             PatientBaseCx p1 = new PatientBaseCx();
-            p1.Id = 11111;
+            p1.Id = 222222;
             p1.InternalPatientId = 13131;
             p1.HospitalNumber = "J13452";
             p1.NHSNumber = "444 4444 555";
@@ -77,33 +81,40 @@ namespace DAL.Repositories.DefaultImplementations
             p.Telephone1 = "01782 444666";
             p.Telephone2 = "07704 789555";
 
-            StockItemCx s2 = new StockItemCx();
+            LoanCx s2 = new LoanCx();
             s2.SerialNumber = "Serial 3";
-            s2.EquipmentName = "CPAP Mask";
+            s2.EquipmentName = "Neb 1";
+            s1.EquipmentType = "Ventilator";
             s2.Id = 1;
             s2.EquipmentId = 2;
             s2.ClinicalReference = "Clin Ref 33232";
             s2.LoanDate = new DateTime(2023, 7, 21);
+            s2.PatientId = 222222;
 
-            StockItemCx s3 = new StockItemCx();
+            LoanCx s3 = new LoanCx();
             s3.SerialNumber = "Serial 4";
             s3.EquipmentName = "A different Vent";
+            s3.EquipmentType = "Ventilator";
             s3.Id = 1;
             s3.EquipmentId = 2;
             s3.ClinicalReference = "Clin Ref 5345345";
             s3.LoanDate = new DateTime(2024, 01, 19);
+            s3.PatientId = 333333;
 
-            StockItemCx s4 = new StockItemCx();
+            LoanCx s4 = new LoanCx();
             s4.SerialNumber = "Serial 5";
             s4.EquipmentName = "Nippy 1000";
+            s4.EquipmentType = "Ventilator";
             s4.Id = 1;
             s4.EquipmentId = 2;
             s4.ClinicalReference = "Clin Ref 99999";
             s4.LoanDate = new DateTime(2024, 01, 07);
-            PatientLoanCx l2 = new PatientLoanCx();
+            s4.PatientId = 222222;
+
+            PatientListItemCx l2 = new PatientListItemCx();
             l2.Patient = p1;
 
-            List<StockItemCx>? items2 = new List<StockItemCx>();
+            List<LoanCx>? items2 = new List<LoanCx>();
             items2.Add(s2);
             items2.Add(s3);
             items2.Add(s4);

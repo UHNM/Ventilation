@@ -95,7 +95,7 @@ namespace DAL.Repositories.DefaultImplementations
 
         public PatientBaseCx FindPatient(string hospitalNumber)
         {
-            //Enumerable<PatientLoanCx> loans = new List<PatientLoanCx>();
+         
 
             //if the patient is in the ventilation system, return all patient details
             //otherwise will just be Midas stuff

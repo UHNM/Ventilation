@@ -1,9 +1,6 @@
-﻿
-using Domain.Entities.Complex;
-
-namespace Domain.Models
+﻿namespace Domain.Models
 {
-    public class PatientLoan
+    public class PatientListItem
     {
         public PatientBase? Patient { get; set; }
         public List<Loan>? Loans { get; set; }

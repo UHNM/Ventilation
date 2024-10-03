@@ -16,23 +16,23 @@ namespace BAL.Managers.DefaultImplementations
             _dynamicResponseRepository = dynamicResponseRepository;
         }
 
-        public List<PatientLoan> GetPatientList()
+        public List<PatientListItem> GetPatientList()
         {
             var dto = _dynamicResponseRepository.GetPatientList();
-            return GetPatientLoanFromDto(dto);
+            return GetPatientListItemsFromDto(dto);
         }
 
-        private static List<PatientLoan> GetPatientLoanFromDto(IEnumerable<PatientLoanCx> Dto)
+        private static List<PatientListItem> GetPatientListItemsFromDto(IEnumerable<PatientListItemCx> Dto)
         {
             if (Dto != null)
             {
-                List<PatientLoan> PatientLoans = new List<PatientLoan>();
+                List<PatientListItem> PatientItems = new List<PatientListItem>();
 
-                foreach (PatientLoanCx item in Dto)
+                foreach (PatientListItemCx item in Dto)
                 {
-                   PatientLoan Loan = new PatientLoan();
+                    PatientListItem Loan = new PatientListItem();
                     PatientBase Patient= new PatientBase();
-                    List<StockItem> StockItems = new List<StockItem>();
+                    List<Loan> Loans = new List<Loan>();
 
                     Patient.InternalPatientId = item.Patient.InternalPatientId;
                     Patient.Id = item.Patient.Id;
@@ -50,25 +50,25 @@ namespace BAL.Managers.DefaultImplementations
                     Patient.Telephone1 = item.Patient.Telephone1;
 
 
-                    foreach (StockItemCx stock in item.Loans)
+                    foreach (LoanCx stock in item.Loans)
                     {
-                        StockItem s = new StockItem();
+                        Loan s = new Loan();
                         s.Id = stock.Id;
                         s.EquipmentId = stock.EquipmentId;
                         s.EquipmentName = stock.EquipmentName;
                         s.SerialNumber = stock.SerialNumber;
                         s.ClinicalReference = stock.ClinicalReference;   
                         s.LoanDate = stock.LoanDate;
-                        StockItems.Add(s);
+                        Loans.Add(s);
                     }
 
                     Loan.Patient = Patient;
-                    Loan.Loans = StockItems;
-                    PatientLoans.Add(Loan);
+                    Loan.Loans = Loans;
+                    PatientItems.Add(Loan);
                        
                 }
 
-                return PatientLoans;
+                return PatientItems;
             }
             return null;
         }

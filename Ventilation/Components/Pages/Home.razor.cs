@@ -1,5 +1,6 @@
 using BAL.Managers;
 using BlazorBootstrap;
+using Domain.Models;
 using Microsoft.AspNetCore.Components;
 using System.Reflection;
 using Ventilation.Components.Shared;
@@ -11,7 +12,9 @@ namespace Ventilation.Components.Pages
         [Inject]
         IPatientListManager _patientListManager { get; set; }
        
-        IQueryable<Domain.Models.PatientLoan>? patientlist;
+        IQueryable<PatientListItem>? patientlist;
+        
+        
         VentilationModal ventilationModal => new VentilationModal();
 
 
