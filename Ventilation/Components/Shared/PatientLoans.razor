@@ -1,3 +1,10 @@
-﻿<h3>Patient Loans</h3>
+﻿<div>
+
+    @foreach (var loan in patientLoans)
+    {
+        <PatientLoanItem loan="loan" ></PatientLoanItem>
+    }
+
+</div>
 
 

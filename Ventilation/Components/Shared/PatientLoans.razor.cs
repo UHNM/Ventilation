@@ -1,4 +1,5 @@
 using BAL.Managers;
+using Domain.Entities.Complex;
 using Domain.Models;
 using Microsoft.AspNetCore.Components;
 using Models;
@@ -12,12 +13,13 @@ namespace Ventilation.Components.Shared
 
         [Inject]
         IPatientManager _patientManager { get; set; }
-        List<Loan> loans = new();
+        List<Loan> patientLoans = new();
 
 
         protected override async Task OnInitializedAsync()
         {
-            loans = await _patientManager.GetPatientLoans(PatientId);
+            patientLoans = await _patientManager.GetPatientLoans(PatientId);
+            
         }
 
 

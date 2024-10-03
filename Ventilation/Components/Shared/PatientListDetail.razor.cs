@@ -8,15 +8,15 @@ namespace Ventilation.Components.Shared
         [Parameter]
         public PatientListItem? paramPatientListItem { get; set; }
 
-        private PatientListItem? Model { get; set; }
+      //  private PatientListItem? Model { get; set; }
 
-        [Parameter]
-        public string paramLoan { get; set; }
+      //  [Parameter]
+      //  public string paramLoan { get; set; }
 
         protected override void OnInitialized()
         {
-            Model = new PatientListItem();
-            Model = paramPatientListItem;
+          //  Model = new PatientListItem();
+          //  Model = paramPatientListItem;
 
 
         }
