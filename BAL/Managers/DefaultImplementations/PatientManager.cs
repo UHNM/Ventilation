@@ -125,8 +125,10 @@ namespace BAL.Managers.DefaultImplementations
                         s.EquipmentName = loan.EquipmentName;
                         s.SerialNumber = loan.SerialNumber;
                         s.ClinicalReference = loan.ClinicalReference;
+                        s.ServiceDate = loan.ServiceDate;
                         s.LoanDate = loan.LoanDate;
                         s.EquipmentType = loan.EquipmentType;
+                        s.SupplierName = loan.SupplierName;
                         Loans.Add(s);
                     }
 

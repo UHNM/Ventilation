@@ -15,13 +15,11 @@ builder.Services.AddScoped<IVentilationContext, VentilationContext>();
 //Repositories
 builder.Services.AddScoped<IEquipmentRepository, EquipmentRepository>();
 builder.Services.AddScoped<IPatientListRepository, PatientListRepository>();
-builder.Services.AddScoped<IEquipmentTypeRepository, EquipmentTypeRepository>();
 builder.Services.AddScoped<IPatientRepository, PatientRepository>();
 
 //Managers
 builder.Services.AddScoped<IEquipmentManager, EquipmentManager>();
 builder.Services.AddScoped<IPatientListManager, PatientListManager>();
-builder.Services.AddScoped<IEquipmentTypeManager, EquipmentTypeManager>();
 builder.Services.AddScoped<IPatientManager, PatientManager>();
 
 builder.Services.AddLocalization();

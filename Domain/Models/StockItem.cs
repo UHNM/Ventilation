@@ -1,12 +1,13 @@
-﻿namespace Domain.Models
+﻿using Domain.Entities.Complex;
+
+namespace Domain.Models
 {
-    public class StockItem
+    public class StockItem : EquipmentBase
     {
         public int Id { get; set; }
-        public int EquipmentId { get; set; }
-        public string? EquipmentName { get; set; }
-        public string? EquipmentType { get; set; }
-        public string? SerialNumber { get; set; }
         public string? ClinicalReference { get; set; }
+        public DateTime ServiceDate { get; set; }
+
+
     }
 }
