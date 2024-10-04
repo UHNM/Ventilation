@@ -1,3 +1,4 @@
+using BAL.Managers;
 using Domain.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
@@ -11,6 +12,9 @@ namespace Ventilation.Components.Shared.AddLoan
 
         [Parameter]
         public int? patientId { get; set; }
+
+        [Inject]
+        IPatientManager _patientManager { get; set; }
 
         public Loan? loanDetail = new();
 
@@ -36,8 +40,9 @@ namespace Ventilation.Components.Shared.AddLoan
 
         private async Task OnSaveLoan(EditContext context)
         {
-            await Task.Delay(100);
-
+            int? Id = await _patientManager.SavePatientLoan((Loan)context.Model);
+            var yy = "";
+           // await OnPatientSaved.InvokeAsync(Id);
 
         }
 

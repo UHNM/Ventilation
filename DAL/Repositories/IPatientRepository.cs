@@ -14,6 +14,8 @@ namespace DAL.Repositories
 
        Task<int> SavePatient(PatientDetail patient);
 
+       Task<int> SavePatientLoan(Loan loan);
+
        Task<IEnumerable<LoanCx>> GetPatientLoans(int? PatientId);
       
 

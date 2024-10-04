@@ -42,6 +42,12 @@ namespace BAL.Managers.DefaultImplementations
         }
 
 
+        public async Task<int> SavePatientLoan(Loan loan)
+        {
+            var dto = await _dynamicResponseRepository.SavePatientLoan(loan);
+            return await Task.FromResult(dto);
+        }
+
 
         private static PatientBase GetPatientFromDto(PatientBaseCx Dto)
         {

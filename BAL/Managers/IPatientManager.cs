@@ -14,6 +14,8 @@ namespace BAL.Managers
 
         Task<int> SavePatient(PatientDetail patient);
 
+        Task<int> SavePatientLoan(Loan loan);
+
         Task<List<Loan>> GetPatientLoans(int? PatientId);
     }
 }

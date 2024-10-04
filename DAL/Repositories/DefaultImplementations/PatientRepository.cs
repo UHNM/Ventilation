@@ -29,6 +29,20 @@ namespace DAL.Repositories.DefaultImplementations
 
         }
 
+        public async Task<int> SavePatientLoan(Loan loan)
+        {
+           //Add a new loan and return the new Loan Id
+
+            int Id = 123456;
+
+            await Task.Delay(200);
+            return Id;
+
+
+
+
+        }
+
 
 
         public async Task<PatientBaseCx> GetPatient(int internalPatientId)
