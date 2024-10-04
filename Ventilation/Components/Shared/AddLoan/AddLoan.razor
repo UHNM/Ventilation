@@ -1,0 +1,8 @@
+﻿@using Ventilation.Components.Shared
+<h4>Patient:@PatientId</h4>
+<FindStock OnStockSelected="StockSelected"></FindStock>
+
+@if (stockItemSelected != null)
+{
+    <AddLoanForm stockItem="@stockItemSelected" patientId="@PatientId"></AddLoanForm>
+}

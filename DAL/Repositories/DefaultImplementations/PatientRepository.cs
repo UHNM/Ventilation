@@ -130,9 +130,10 @@ namespace DAL.Repositories.DefaultImplementations
             IEnumerable<LoanCx> loans = new List<LoanCx>();
 
             LoanCx s = new LoanCx();
+            s.LoanId = 1;
             s.SerialNumber = "Serial 1";
             s.EquipmentName = "Nippy 1000";
-            s.Id = 1;
+            s.StockId = 1;
             s.EquipmentId = 2;
             s.ClinicalReference = "Clin Ref 1";
             s.LoanDate = new DateTime(2024, 3, 16);
@@ -140,9 +141,10 @@ namespace DAL.Repositories.DefaultImplementations
             s.EquipmentType = "Ventilator";
 
             LoanCx s1 = new LoanCx();
+            s1.LoanId = 2;
             s1.SerialNumber = "Serial 2";
             s1.EquipmentName = "Stellar";
-            s1.Id = 1;
+            s1.StockId = 2;
             s1.EquipmentId = 2;
             s1.EquipmentType = "Ventilator";
             s1.ClinicalReference = "Clin Ref 2";
@@ -150,10 +152,11 @@ namespace DAL.Repositories.DefaultImplementations
             s1.PatientId = 111111;
 
             LoanCx s4 = new LoanCx();
+            s4.LoanId = 5;
             s4.SerialNumber = "Serial 5";
             s4.EquipmentName = "Some Nebulizer";
             s4.EquipmentType = "Nebulizer";
-            s4.Id = 1;
+            s4.StockId = 3;
             s4.EquipmentId = 2;
             s4.ClinicalReference = "Clin Ref 99999";
             s4.LoanDate = new DateTime(2024, 01, 07);

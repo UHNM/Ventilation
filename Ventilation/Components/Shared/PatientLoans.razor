@@ -1,5 +1,5 @@
-﻿
-<span class="pull-right"> <AddLoanModal></AddLoanModal></span>
+﻿@using Ventilation.Components.Shared.AddLoan
+<span class="pull-right"> <AddLoanModal PatientId="@PatientId"></AddLoanModal></span>
 <div>
 
     @foreach (var loan in patientLoans)

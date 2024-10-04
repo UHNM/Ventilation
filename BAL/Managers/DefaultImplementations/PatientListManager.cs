@@ -53,7 +53,8 @@ namespace BAL.Managers.DefaultImplementations
                     foreach (LoanCx stock in item.Loans)
                     {
                         Loan s = new Loan();
-                        s.Id = stock.Id;
+                        s.LoanId = stock.LoanId;
+                        s.StockId = stock.StockId;
                         s.EquipmentId = stock.EquipmentId;
                         s.EquipmentName = stock.EquipmentName;
                         s.SerialNumber = stock.SerialNumber;

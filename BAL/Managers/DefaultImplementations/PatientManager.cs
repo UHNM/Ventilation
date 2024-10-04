@@ -118,9 +118,10 @@ namespace BAL.Managers.DefaultImplementations
                     foreach (LoanCx loan in Dto)
                     {
                         Loan s = new Loan();
+                        s.LoanId = loan.LoanId;
                         s.PatientId = loan.PatientId;
                         s.LoanDate = loan.LoanDate;
-                        s.Id = loan.Id;
+                        s.StockId = loan.StockId;
                         s.EquipmentId = loan.EquipmentId;
                         s.EquipmentName = loan.EquipmentName;
                         s.SerialNumber = loan.SerialNumber;

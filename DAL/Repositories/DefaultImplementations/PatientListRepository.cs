@@ -33,9 +33,10 @@ namespace DAL.Repositories.DefaultImplementations
             p.Telephone2 = "07704 789555";
 
             LoanCx s = new LoanCx();
+            s.LoanId = 1;
             s.SerialNumber = "Serial 1";
             s.EquipmentName = "Nippy 1000";
-            s.Id = 1;
+            s.StockId = 1;
             s.EquipmentId = 2;
             s.ClinicalReference = "Clin Ref 1";
             s.LoanDate = new DateTime(2024, 3, 16);
@@ -43,9 +44,10 @@ namespace DAL.Repositories.DefaultImplementations
             s.EquipmentType = "Ventilator";
 
             LoanCx s1 = new LoanCx();
+            s1.LoanId = 2;
             s1.SerialNumber = "Serial 2";
             s1.EquipmentName = "Stellar";
-            s1.Id = 1;
+            s1.StockId = 1;
             s1.EquipmentId = 2;
             s1.EquipmentType = "Ventilator";
             s1.ClinicalReference = "Clin Ref 2";
@@ -82,30 +84,33 @@ namespace DAL.Repositories.DefaultImplementations
             p.Telephone2 = "07704 789555";
 
             LoanCx s2 = new LoanCx();
+            s2.LoanId = 2;
             s2.SerialNumber = "Serial 3";
             s2.EquipmentName = "Neb 1";
             s1.EquipmentType = "Ventilator";
-            s2.Id = 1;
+            s2.StockId = 555;
             s2.EquipmentId = 2;
             s2.ClinicalReference = "Clin Ref 33232";
             s2.LoanDate = new DateTime(2023, 7, 21);
             s2.PatientId = 222222;
 
             LoanCx s3 = new LoanCx();
+            s3.LoanId = 3;
             s3.SerialNumber = "Serial 4";
             s3.EquipmentName = "A different Vent";
             s3.EquipmentType = "Ventilator";
-            s3.Id = 1;
+            s3.StockId = 45645;
             s3.EquipmentId = 2;
             s3.ClinicalReference = "Clin Ref 5345345";
             s3.LoanDate = new DateTime(2024, 01, 19);
             s3.PatientId = 333333;
 
             LoanCx s4 = new LoanCx();
+            s4.LoanId = 4;
             s4.SerialNumber = "Serial 5";
             s4.EquipmentName = "Nippy 1000";
             s4.EquipmentType = "Ventilator";
-            s4.Id = 1;
+            s4.StockId = 1;
             s4.EquipmentId = 2;
             s4.ClinicalReference = "Clin Ref 99999";
             s4.LoanDate = new DateTime(2024, 01, 07);
