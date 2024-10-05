@@ -30,6 +30,7 @@ namespace Ventilation.Components.Pages
         {
             patientId = null;
             // do we want to get the patient and pass it to the banner, or pass the internalPatientId to the banner, and then let the banner get the data???
+            
             patient = await _patientManager.GetPatient(InternalPatientId);
 
             patientDetail = await  _patientManager.GetPatientDetail(InternalPatientId);
@@ -54,7 +55,10 @@ namespace Ventilation.Components.Pages
             await Task.Delay(100);
             if (Id != null)
             {
+
                 patientId = Id;
+
+
                 IsVentilationPatient = true;
                 StateHasChanged();
               

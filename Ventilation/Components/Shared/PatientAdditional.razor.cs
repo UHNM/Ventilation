@@ -226,10 +226,17 @@ namespace Ventilation.Components.Shared
             {
                  message = "Patient Updated!";
             }
-           
-            
-            int? Id = await _patientManager.SavePatient((PatientDetail)context.Model);
           
+            int? Id = await _patientManager.SavePatient((PatientDetail)context.Model);
+
+            ////TODO: need to pass the newly created PatientDetail object back to the parent
+            ////Options, 1. Just creat a new PatientDetail object here from the Model and add the Id, 2. return the PatientDetail object from the save 3. Do a get PatientDetail method after the save once we have the Id
+            
+            //PatientBase p = new PatientBase();
+            //p.Id = Id;
+            //p.InternalPatientId = PatientDetail.InternalPatientId;
+           
+
             await OnPatientSaved.InvokeAsync(Id);
 
         }

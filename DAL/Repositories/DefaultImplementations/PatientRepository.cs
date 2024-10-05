@@ -47,8 +47,7 @@ namespace DAL.Repositories.DefaultImplementations
 
         public async Task<PatientBaseCx> GetPatient(int internalPatientId)
         {
-            //if the patient is in the ventilation system, return all patient details
-            //otherwise will just be Midas stuff
+           
             PatientBaseCx p = new PatientBaseCx();
             
             p.Id = null;
