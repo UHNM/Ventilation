@@ -1,8 +1,52 @@
 ﻿@using Ventilation.Components.Shared
-<h4>Patient:@PatientId</h4>
-<FindStock OnStockSelected="StockSelected"></FindStock>
+@rendermode @(new InteractiveServerRenderMode(prerender:false));
 
-@if (stockItemSelected != null)
-{
-    <AddLoanForm stockItem="@stockItemSelected" patientId="@PatientId"></AddLoanForm>
-}
+<h4>Patient:@PatientId</h4>
+<Tabs EnableFadeEffect="true" @ref="tabs" NavStyle="NavStyle.Underline">
+
+    <Tab Title="Loan" Active="true">
+        <TitleTemplate>
+            <Icon Name="IconName.PersonFill" /> Loan
+        </TitleTemplate>
+        <Content>
+            <br/>
+            <FindStock OnStockSelected="StockSelected"></FindStock>
+
+            @if (stockItemSelected != null)
+            {
+                <AddLoanForm stockItem="@stockItemSelected" patientId="@PatientId" OnLoanSaved="LoanIdChanged"></AddLoanForm>
+            }
+        </Content>
+    </Tab>
+
+    <Tab Title="Prescriptions" Name="Prescription" Disabled=@(!patientLoanCreated)>
+        <TitleTemplate>
+            <Icon Name="IconName.Clipboard2PulseFill" /> Prescriptions
+        </TitleTemplate>
+        <Content>
+            <br />
+          <h3>Prescription</h3>
+
+
+        </Content>
+    </Tab>
+
+    <Tab Title="Consumables" Name="Consumables" Disabled=@(!patientLoanCreated)>
+        <TitleTemplate>
+            <Icon Name="IconName.ArchiveFill" /> Consumables
+        </TitleTemplate>
+        <Content>
+            <br />
+            <h3>This is the consumables tab</h3>
+
+        </Content>
+    </Tab>
+
+</Tabs>
+
+
+<Toasts class="p-3" Messages="@messages" AutoHide="true" Delay="3000" Placement="ToastsPlacement.BottomRight" />
+
+
+
+
