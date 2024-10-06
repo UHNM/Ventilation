@@ -4,7 +4,7 @@ using Domain.Entities.Complex;
 using Domain.Models;
 using Microsoft.AspNetCore.Components;
 using Models;
-using Ventilation.Components.Shared.LoanFolder;
+using Ventilation.Components.Shared.LoanComponents;
 
 namespace Ventilation.Components.Shared
 {
@@ -32,7 +32,7 @@ namespace Ventilation.Components.Shared
             var parameters = new Dictionary<string, object>();
             parameters.Add("PatientId", PatientId);
       
-            await modal.ShowAsync<Ventilation.Components.Shared.LoanFolder.AddLoan>(title: "Add Loan for Patient: " + PatientId, parameters: parameters);
+            await modal.ShowAsync<Ventilation.Components.Shared.LoanComponents.AddLoan>(title: "Add Loan for Patient: " + PatientId, parameters: parameters);
         }
 
         private async Task OnHideModalClick()

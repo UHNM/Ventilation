@@ -2,7 +2,7 @@ using BlazorBootstrap;
 using Domain.Models;
 using Microsoft.AspNetCore.Components;
 
-namespace Ventilation.Components.Shared.LoanFolder
+namespace Ventilation.Components.Shared.LoanComponents
 {
     public partial class AddLoan
     {

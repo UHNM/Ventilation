@@ -3,7 +3,6 @@ using Domain.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using System.Reflection;
-using Ventilation.Components.Shared.LoanFolder;
 
 namespace Ventilation.Components.Shared
 {
@@ -27,7 +26,7 @@ namespace Ventilation.Components.Shared
             var parameters = new Dictionary<string, object>();
             parameters.Add("PatientId", loan.PatientId);
             
-            await modal.ShowAsync<Ventilation.Components.Shared.LoanFolder.AddLoan>(title: "Edit Loan for Patient: " + loan.PatientId, parameters: parameters);
+            await modal.ShowAsync<Ventilation.Components.Shared.LoanComponents.AddLoan>(title: "Edit Loan for Patient: " + loan.PatientId, parameters: parameters);
         }
 
         private async Task OnHideModalClick()
