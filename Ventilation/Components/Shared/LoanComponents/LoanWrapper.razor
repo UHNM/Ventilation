@@ -13,7 +13,7 @@
 
             @if (stockItemSelected != null)
             {
-                <AddLoanForm stockItem="@stockItemSelected" patientId="@PatientId" OnLoanSaved="LoanIdChanged"></AddLoanForm>
+                <LoanForm stockItem="@stockItemSelected" patientId="@PatientId" OnLoanSaved="LoanIdChanged"></LoanForm>
             }
         </Content>
     </Tab>

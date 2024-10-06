@@ -16,7 +16,7 @@ namespace Ventilation.Components.Shared
         [Inject]
         IPatientManager _patientManager { get; set; }
         List<Loan> patientLoans = new();
-       // AddLoanModal loanModal => new AddLoanModal();
+   
         private Modal modal = default!;
 
 
@@ -32,7 +32,7 @@ namespace Ventilation.Components.Shared
             var parameters = new Dictionary<string, object>();
             parameters.Add("PatientId", PatientId);
       
-            await modal.ShowAsync<Ventilation.Components.Shared.LoanComponents.AddLoan>(title: "Add Loan for Patient: " + PatientId, parameters: parameters);
+            await modal.ShowAsync<Ventilation.Components.Shared.LoanComponents.LoanWrapper>(title: "Add Loan for Patient: " + PatientId, parameters: parameters);
         }
 
         private async Task OnHideModalClick()

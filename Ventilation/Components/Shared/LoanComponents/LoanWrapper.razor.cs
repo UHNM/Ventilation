@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace Ventilation.Components.Shared.LoanComponents
 {
-    public partial class AddLoan
+    public partial class LoanWrapper
     {
         [Parameter] public int PatientId { get; set; }
 

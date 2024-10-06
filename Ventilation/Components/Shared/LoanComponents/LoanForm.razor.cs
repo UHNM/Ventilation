@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Components.Forms;
 
 namespace Ventilation.Components.Shared.LoanComponents
 {
-    public partial class AddLoanForm
+    public partial class LoanForm
     {
         [Parameter]
         public StockItem? stockItem { get; set; }

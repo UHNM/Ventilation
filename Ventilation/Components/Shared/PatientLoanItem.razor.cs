@@ -26,7 +26,7 @@ namespace Ventilation.Components.Shared
             var parameters = new Dictionary<string, object>();
             parameters.Add("PatientId", loan.PatientId);
             
-            await modal.ShowAsync<Ventilation.Components.Shared.LoanComponents.AddLoan>(title: "Edit Loan for Patient: " + loan.PatientId, parameters: parameters);
+            await modal.ShowAsync<Ventilation.Components.Shared.LoanComponents.LoanWrapper>(title: "Edit Loan for Patient: " + loan.PatientId, parameters: parameters);
         }
 
         private async Task OnHideModalClick()
