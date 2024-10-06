@@ -8,6 +8,10 @@ namespace Ventilation.Components.Shared.LoanComponents
     {
         [Parameter] public int PatientId { get; set; }
 
+        //if an edit we will have a loan object passed in, if a new loan, the object will be null
+        [Parameter] public Loan? paramLoan { get; set; }
+
+
         StockItem? stockItemSelected = new();
         Tabs tabs = default!;
         bool patientLoanCreated = false;
@@ -32,12 +36,11 @@ namespace Ventilation.Components.Shared.LoanComponents
         }
 
         //Event callback from child component after saving the loan form
-        protected async Task LoanIdChanged(Loan? Loan)
+        protected async Task LoanIdChanged(Loan? UpdateLoan)
         {
-            await Task.Delay(100);
-            if (Loan != null)
+            if (UpdateLoan != null)
             {
-                loan = Loan;
+                loan = UpdateLoan;
                 patientLoanCreated = true;
                 StateHasChanged();
 

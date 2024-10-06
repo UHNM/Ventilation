@@ -25,7 +25,8 @@ namespace Ventilation.Components.Shared
         {
             var parameters = new Dictionary<string, object>();
             parameters.Add("PatientId", loan.PatientId);
-            
+            parameters.Add("paramLoan", loan);
+
             await modal.ShowAsync<Ventilation.Components.Shared.LoanComponents.LoanWrapper>(title: "Edit Loan for Patient: " + loan.PatientId, parameters: parameters);
         }
 
