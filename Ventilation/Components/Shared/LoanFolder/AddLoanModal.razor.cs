@@ -2,7 +2,7 @@ using BlazorBootstrap;
 using Microsoft.AspNetCore.Components;
 
 
-namespace Ventilation.Components.Shared.AddLoan
+namespace Ventilation.Components.Shared.LoanFolder
 {
     public partial class AddLoanModal
     {
@@ -11,10 +11,11 @@ namespace Ventilation.Components.Shared.AddLoan
         [Parameter]
         public int? PatientId { get; set; }
 
-        public async Task OnShowModalClick()
+        public async Task OnAddLoanClick()
         {
             var parameters = new Dictionary<string, object>();
             parameters.Add("PatientId", PatientId);
+
             await modal.ShowAsync<AddLoan>(title: "Loan", parameters: parameters);
         }
 
@@ -25,19 +26,6 @@ namespace Ventilation.Components.Shared.AddLoan
         }
 
 
-        private void OnModalHiding()
-        {
-
-        }
-
-        private void OnModalHidden()
-        {
-
-        }
-
-        private void OnModalHidePrevented()
-        {
-
-        }
+       
     }
 }

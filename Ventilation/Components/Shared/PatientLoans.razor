@@ -1,5 +1,24 @@
-﻿@using Ventilation.Components.Shared.AddLoan
+﻿@using Ventilation.Components.Shared.LoanFolder
+<Modal @ref="modal"
+       UseStaticBackdrop="true"
+       CloseOnEscape="false"
+       Size="ModalSize.ExtraLarge">
+
+    <BodyTemplate>
+
+    </BodyTemplate>
+
+    <FooterTemplate>
+        <Button Color="ButtonColor.Secondary" @onclick="OnHideModalClick">Close</Button>
+
+    </FooterTemplate>
+
+</Modal>
+
 <span class="pull-right"> <AddLoanModal PatientId="@PatientId"></AddLoanModal></span>
+
+<Button Color="ButtonColor.Success" @onclick="OnAddLoanClick" Size="ButtonSize.Small"><Icon Name="IconName.Globe2" /></Button>
+
 <div>
 
     @foreach (var loan in patientLoans)

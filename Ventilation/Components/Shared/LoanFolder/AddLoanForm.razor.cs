@@ -3,7 +3,7 @@ using Domain.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 
-namespace Ventilation.Components.Shared.AddLoan
+namespace Ventilation.Components.Shared.LoanFolder
 {
     public partial class AddLoanForm
     {

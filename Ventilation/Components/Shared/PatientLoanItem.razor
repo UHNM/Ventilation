@@ -1,7 +1,24 @@
 ﻿@rendermode InteractiveServer
+@using Ventilation.Components.Shared.LoanFolder
+<Modal @ref="modal"
+       UseStaticBackdrop="true"
+       CloseOnEscape="false"
+       Size="ModalSize.ExtraLarge">
+
+    <BodyTemplate>
+
+    </BodyTemplate>
+
+    <FooterTemplate>
+        <Button Color="ButtonColor.Secondary" @onclick="OnHideModalClick">Close</Button>
+
+    </FooterTemplate>
+
+</Modal>
+
 <div class="border border-dark">
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-3">
             <div class="form-group row">
                 <label class="col-sm-6 col-form-label">
                     @loan!.EquipmentType 
@@ -24,50 +41,67 @@
             </div>
         </div>
 
-        <div class="col-sm-6">
+        <div class="col-sm-8">
             <div class="container">
-                <div class="row">
-                    <div class="col-sm">
-                        Name
-                    </div>
-                    <div class="col-sm">
-                        Serial No.
-                    </div>
-                    <div class="col-sm">
-                        Clinical Ref.
-                    </div>
-                    <div class="col-sm">
-                        Loan Date
-                    </div>
-                </div>
+                <Tabs EnableFadeEffect="true" @ref="tabs" NavStyle="NavStyle.Underline">
+                    <Tab Title="Prescriptions" Active="true">
+                        <TitleTemplate>
+                            <Icon Name="IconName.BookmarkHeartFill" /> Prescriptions
+                        </TitleTemplate>
+                        <Content>
+                            <br/>
+                                            <div class="row">
+                                                <div class="col-sm">
+                                                    Prescript 1
+                                                </div>
+                                                <div class="col-sm">
+                                                    Prescript 2
+                                                </div>
+                                                <div class="col-sm">
+                                                    Prescript 3
+                                                </div>
+                                                <div class="col-sm">
+                                                    Prescript 4
+                                                </div>
+                                            </div>
+
+           
+                        </Content>
+                    </Tab>
+                    <Tab Title="Consumables" Name="Consumables">
+                        <TitleTemplate>
+                           <Icon Name="IconName.BagPlusFill" /> Consumables
+                        </TitleTemplate>
+                        <Content>
+                            <br />
+                            <div class="row">
+                                <div class="col-sm">
+                                   Consumables 1
+                                </div>
+                                <div class="col-sm">
+                                   Consumables 2
+                                </div>
+                                <div class="col-sm">
+                                   Consumables 3
+                                </div>
+                                <div class="col-sm">
+                                   Consumables 4
+                                </div>
+                            </div>
+       
+
+
+                        </Content>
+                    </Tab>
+                </Tabs>
+             
             </div>
-
-
-         @*    @foreach (var loan in paramPatientListItem!.Loans)
-            {
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm">
-                            @loan.EquipmentName
-                        </div>
-                        <div class="col-sm">
-                            @loan.SerialNumber
-                        </div>
-                        <div class="col-sm">
-                            @loan.ClinicalReference
-                        </div>
-                        <div class="col-sm">
-                            @loan.LoanDate
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-            } *@
-
+        </div>
+        <div class="col-sm-1">
+            <br/>
+            <Button Color="ButtonColor.Warning" Size="ButtonSize.Small" @onclick="OnEditLoanClick">
+                <Icon Name="IconName.PostcardFill"></Icon>
+            </Button>
         </div>
 
     </div>
