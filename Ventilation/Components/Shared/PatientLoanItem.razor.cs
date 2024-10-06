@@ -10,6 +10,11 @@ namespace Ventilation.Components.Shared
     {
         [Parameter]
         public Loan? loan { get; set; }
+
+
+        [Parameter]
+        public Domain.Models.PatientBase? Patient { get; set; }
+
         Tabs tabs = default!;
         private Modal modal = default!;
 
@@ -27,7 +32,7 @@ namespace Ventilation.Components.Shared
             parameters.Add("PatientId", loan.PatientId);
             parameters.Add("paramLoan", loan);
 
-            await modal.ShowAsync<Ventilation.Components.Shared.LoanComponents.LoanWrapper>(title: "Edit Loan for Patient: " + loan.PatientId, parameters: parameters);
+            await modal.ShowAsync<Ventilation.Components.Shared.LoanComponents.LoanWrapper>(title: "Edit Loan for Patient: " + Patient.Surname + "," + Patient.Forename + " (" + Patient.HospitalNumber + ")", parameters: parameters);
         }
 
         private async Task OnHideModalClick()

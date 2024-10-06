@@ -50,7 +50,7 @@ namespace DAL.Repositories.DefaultImplementations
            
             PatientBaseCx p = new PatientBaseCx();
             
-            p.Id = null;
+            p.Id = 111111;
             p.InternalPatientId = 13131;
             p.HospitalNumber = "C111";
             p.NHSNumber = "999 8886 777";

@@ -30,7 +30,7 @@ namespace Ventilation.Components.Pages
         {
             patientId = null;
             // do we want to get the patient and pass it to the banner, or pass the internalPatientId to the banner, and then let the banner get the data???
-            
+            // we may need to pass the patient object to the modal for the loans
             patient = await _patientManager.GetPatient(InternalPatientId);
 
             patientDetail = await  _patientManager.GetPatientDetail(InternalPatientId);
@@ -58,6 +58,8 @@ namespace Ventilation.Components.Pages
 
                 patientId = Id;
 
+                //if we have added a new patient, the patient Id of the patient within the ventilation system will have changed, it would have been null previously
+                patient.Id = Id;
 
                 IsVentilationPatient = true;
                 StateHasChanged();
