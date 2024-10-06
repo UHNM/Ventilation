@@ -6,7 +6,7 @@ namespace Domain.Models
     {
         public int StockId { get; set; }
         public string? ClinicalReference { get; set; }
-        public DateTime ServiceDate { get; set; }
+        public DateTime? ServiceDate { get; set; }
 
 
     }

@@ -14,13 +14,21 @@ namespace Ventilation.Components.Shared.LoanComponents
 
         StockItem? stockItemSelected = new();
         Tabs tabs = default!;
-        bool patientLoanCreated = false;
+        bool hasLoanId = false;
         Loan? loan = null;
         List<ToastMessage> messages = new List<ToastMessage>();
 
+       
+        
         protected override void OnInitialized()
         {
             stockItemSelected = null;
+
+            //if we are passing a loan object in then we have an edit, otherwise an add
+            if (paramLoan != null)
+            {
+                hasLoanId = true;
+            }
         }
 
         //Event callback from child component after saving additional information
@@ -41,7 +49,7 @@ namespace Ventilation.Components.Shared.LoanComponents
             if (UpdateLoan != null)
             {
                 loan = UpdateLoan;
-                patientLoanCreated = true;
+                hasLoanId = true;
                 StateHasChanged();
 
                 ShowMessage(ToastType.Success);

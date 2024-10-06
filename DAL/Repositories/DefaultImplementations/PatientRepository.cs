@@ -31,7 +31,7 @@ namespace DAL.Repositories.DefaultImplementations
 
         public async Task<int> SavePatientLoan(Loan loan)
         {
-           //Add a new loan and return the new Loan Id
+           //if tyhe loan Id is null do an insert, if not do an update. return the Loan Id
 
             int Id = 123456;
 
@@ -143,15 +143,16 @@ namespace DAL.Repositories.DefaultImplementations
             IEnumerable<LoanCx> loans = new List<LoanCx>();
 
             LoanCx s = new LoanCx();
-            s.LoanId = 1;
-            s.SerialNumber = "Serial 1";
-            s.EquipmentName = "Nippy 1000";
-            s.StockId = 1;
+            s.LoanId = 1000;
+            s.SerialNumber = "Serial";
+            s.EquipmentName = "Stellar";
+            s.StockId = 99;
             s.EquipmentId = 2;
-            s.ClinicalReference = "Clin Ref 1";
+            s.ClinicalReference = "Clin Ref";
             s.LoanDate = new DateTime(2024, 3, 16);
             s.PatientId = 111111;
             s.EquipmentType = "Ventilator";
+            s.ServiceDate = new DateTime(2026, 3, 25);
 
             LoanCx s1 = new LoanCx();
             s1.LoanId = 2;
@@ -163,6 +164,7 @@ namespace DAL.Repositories.DefaultImplementations
             s1.ClinicalReference = "Clin Ref 2";
             s1.LoanDate = new DateTime(2024, 10, 30);
             s1.PatientId = 111111;
+            s1.ServiceDate = null;
 
             LoanCx s4 = new LoanCx();
             s4.LoanId = 5;
@@ -174,6 +176,7 @@ namespace DAL.Repositories.DefaultImplementations
             s4.ClinicalReference = "Clin Ref 99999";
             s4.LoanDate = new DateTime(2024, 01, 07);
             s4.PatientId = 111111;
+            s4.ServiceDate = null;
 
             loans = loans.Append(s);
             loans = loans.Append(s1);

@@ -9,16 +9,30 @@
         </TitleTemplate>
         <Content>
             <br/>
-            <FindStock OnStockSelected="StockSelected"></FindStock>
-
-            @if (stockItemSelected != null)
-            {
-                <LoanForm stockItem="@stockItemSelected" patientId="@PatientId" OnLoanSaved="LoanIdChanged"></LoanForm>
+            @* If paramLoan is null its an add, so show find stock component *@
+            @if(paramLoan == null){
+                <FindStock OnStockSelected="StockSelected"></FindStock>
             }
+
+            
+            @if ((stockItemSelected != null && paramLoan == null))
+                {
+                <LoanForm stockItem="@stockItemSelected" paramLoan="@paramLoan" patientId="@PatientId" OnLoanSaved="LoanIdChanged"></LoanForm>
+            }
+            else
+            {
+                @if(paramLoan != null)
+                {
+                    <LoanForm stockItem="@null" paramLoan="@paramLoan" patientId="@PatientId" OnLoanSaved="LoanIdChanged"></LoanForm>
+                }
+
+            }
+
+           
         </Content>
     </Tab>
 
-    <Tab Title="Prescriptions" Name="Prescription" Disabled=@(!patientLoanCreated)>
+    <Tab Title="Prescriptions" Name="Prescription" Disabled=@(!hasLoanId)>
         <TitleTemplate>
             <Icon Name="IconName.Clipboard2PulseFill" /> Prescriptions
         </TitleTemplate>
@@ -30,7 +44,7 @@
         </Content>
     </Tab>
 
-    <Tab Title="Consumables" Name="Consumables" Disabled=@(!patientLoanCreated)>
+    <Tab Title="Consumables" Name="Consumables" Disabled=@(!hasLoanId)>
         <TitleTemplate>
             <Icon Name="IconName.ArchiveFill" /> Consumables
         </TitleTemplate>

@@ -13,6 +13,9 @@ namespace Ventilation.Components.Shared.LoanComponents
         [Parameter]
         public int? patientId { get; set; }
 
+        //if an edit we will have a loan object passed in, if a new loan, the object will be null
+        [Parameter] public Loan? paramLoan { get; set; }
+
         [Inject]
         IPatientManager _patientManager { get; set; }
 
@@ -24,7 +27,19 @@ namespace Ventilation.Components.Shared.LoanComponents
 
         protected override void OnInitialized()
         {
-            if(loanDetail != null)
+            var xx = paramLoan;
+
+           if(paramLoan != null)
+            {
+                loanDetail.PatientId = patientId;
+                loanDetail.StockId = paramLoan.StockId;
+                loanDetail.ClinicalReference = paramLoan.ClinicalReference;
+                loanDetail.ServiceDate = paramLoan.ServiceDate;
+                loanDetail.EquipmentName = paramLoan.EquipmentName;
+                loanDetail.SerialNumber = paramLoan.SerialNumber;
+                loanDetail.LoanDate = paramLoan.LoanDate;
+            }
+            else
             {
                 loanDetail.PatientId = patientId;
                 loanDetail.StockId = stockItem.StockId;
@@ -32,12 +47,7 @@ namespace Ventilation.Components.Shared.LoanComponents
                 loanDetail.ServiceDate = stockItem.ServiceDate;
                 loanDetail.EquipmentName = stockItem.EquipmentName;
                 loanDetail.SerialNumber = stockItem.SerialNumber;
-                loanDetail.LoanDate = loanDetail.LoanDate;
-
-
-                loanDetail.LoanDate = null; ; //new DateTime(2023, 10, 4);
-              
-
+                loanDetail.LoanDate = null; 
             }
           
         }
@@ -52,11 +62,11 @@ namespace Ventilation.Components.Shared.LoanComponents
             l.LoanId = Id;
             l.LoanDate = loanDetail.LoanDate;
             l.PatientId = patientId;
-            l.StockId = stockItem.StockId;
-            l.ClinicalReference = stockItem.ClinicalReference;
-            l.ServiceDate = stockItem.ServiceDate;
-            l.EquipmentName = stockItem.EquipmentName;
-            l.SerialNumber = stockItem.SerialNumber;
+            l.StockId = loanDetail.StockId;
+            l.ClinicalReference = loanDetail.ClinicalReference;
+            l.ServiceDate = loanDetail.ServiceDate;
+            l.EquipmentName = loanDetail.EquipmentName;
+            l.SerialNumber = loanDetail.SerialNumber;
             l.LoanDate = loanDetail.LoanDate;
 
             await OnLoanSaved.InvokeAsync(l);
