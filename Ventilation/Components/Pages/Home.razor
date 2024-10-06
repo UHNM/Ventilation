@@ -4,6 +4,22 @@
 
 <PageTitle>Ventilation System</PageTitle>
 
+<Modal @ref="modal"
+       UseStaticBackdrop="true"
+       CloseOnEscape="false"
+       Size="ModalSize.ExtraLarge">
+
+    <BodyTemplate>
+
+    </BodyTemplate>
+
+    <FooterTemplate>
+        <Button Color="ButtonColor.Secondary" @onclick="OnHideModalClick">Close</Button>
+
+    </FooterTemplate>
+
+</Modal>
+
 <div class="container">
     <div class="row">
         <div class="col-sm">
@@ -13,9 +29,7 @@
             
         </div>
         <div class="col-sm">
-            <span class="pull-right"> <VentilationModal></VentilationModal></span>
-           
-            @*  <Button Color="ButtonColor.Success" @onclick="OnAddPatientClick"><Icon Name="IconName.PersonPlus" /></Button> *@
+             <Button Color="ButtonColor.Success" Size="ButtonSize.Small" @onclick="OnAddPatientClick"><Icon Name="IconName.PersonPlus" /></Button>
         </div>
     </div>
 </div>

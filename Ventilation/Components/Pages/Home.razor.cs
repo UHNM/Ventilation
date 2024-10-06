@@ -11,29 +11,29 @@ namespace Ventilation.Components.Pages
     {
         [Inject]
         IPatientListManager _patientListManager { get; set; }
-       
-       // IQueryable<PatientListItem>? patientlist;
+
+        private Modal modal = default!;
 
         List<Domain.Models.PatientListItem> patientList = new();
 
-        VentilationModal ventilationModal => new VentilationModal();
 
 
         protected override async Task OnInitializedAsync()
         {
             patientList = await _patientListManager.GetPatientList(); ;
-           // patientlist = (items).AsQueryable();
-
+       
         }
 
-        //private async Task OnAddPatientClick()
-        //{
-          
-        //    ventilationModal.OnShowModalClick();
-        //}
+        private async Task OnHideModalClick()
+        {
+            await modal.HideAsync();
+        }
 
 
-
+        public async Task OnAddPatientClick()
+        {
+            await modal.ShowAsync<AddPatient>(title: "Add Patient");
+        }
 
 
     }
