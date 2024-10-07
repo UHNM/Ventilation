@@ -5,7 +5,8 @@ namespace Domain.Entities.Complex
     {
         public int Id { get; set; }
         public DateTime PrescriptionDate { get; set; }
-        public int EquipmentId { get; set; } //do we need this
+        public int? LoanId { get; set; }
+       // public List<PrescriptionPropertyCx>? PrescriptionProperties { get; set; }
 
     }
 }

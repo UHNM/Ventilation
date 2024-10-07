@@ -17,6 +17,7 @@ builder.Services.AddScoped<IEquipmentRepository, EquipmentRepository>();
 builder.Services.AddScoped<IPatientListRepository, PatientListRepository>();
 builder.Services.AddScoped<IPatientRepository, PatientRepository>();
 builder.Services.AddScoped<IStockRepository, StockRepository>();
+builder.Services.AddScoped<ILoanRepository, LoanRepository>();
 
 
 //Managers
@@ -24,6 +25,7 @@ builder.Services.AddScoped<IEquipmentManager, EquipmentManager>();
 builder.Services.AddScoped<IPatientListManager, PatientListManager>();
 builder.Services.AddScoped<IPatientManager, PatientManager>();
 builder.Services.AddScoped<IStockManager, StockManager>();
+builder.Services.AddScoped<ILoanManager, LoanManager>();
 
 
 builder.Services.AddLocalization();

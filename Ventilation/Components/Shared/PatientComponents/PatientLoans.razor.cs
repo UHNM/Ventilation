@@ -11,9 +11,6 @@ namespace Ventilation.Components.Shared.PatientComponents
 {
     public partial class PatientLoans
     {
-        //[Parameter]
-        //public int? PatientId { get; set; }
-
         [Parameter]
         public PatientBase? Patient { get; set; }
 

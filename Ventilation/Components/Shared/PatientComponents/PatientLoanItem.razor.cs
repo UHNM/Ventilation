@@ -1,3 +1,5 @@
+using BAL.Managers;
+using BAL.Managers.DefaultImplementations;
 using BlazorBootstrap;
 using Domain.Models;
 using Microsoft.AspNetCore.Components;
@@ -15,13 +17,17 @@ namespace Ventilation.Components.Shared.PatientComponents
         [Parameter]
         public PatientBase? Patient { get; set; }
 
+        [Inject]
+        ILoanManager _loanManager { get; set; }
+        List<Prescription> loanPrescriptions = new();
+
         Tabs tabs = default!;
         private Modal modal = default!;
 
 
-        protected override void OnInitialized()
+        protected override async Task OnInitializedAsync()
         {
-
+            loanPrescriptions = await _loanManager.GetPrescriptionsForALoan(loan.LoanId);
 
 
         }

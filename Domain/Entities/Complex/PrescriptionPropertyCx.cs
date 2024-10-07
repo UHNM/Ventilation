@@ -1,10 +1,8 @@
 ﻿
 namespace Domain.Entities.Complex
 {
-    public class PrescriptionPropertyCx
+    public class PrescriptionPropertyCx : EquipmentPropertyCx
     {
         public int Id { get; set; }
-        public int? EquipmentPropertyId { get; set; }
-        public string? EquipmentPropertyValue { get; set; }
     }
 }

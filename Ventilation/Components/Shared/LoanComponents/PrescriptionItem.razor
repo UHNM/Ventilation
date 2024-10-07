@@ -1,0 +1,27 @@
+﻿
+       
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                    @paramPrescription.PrescriptionDate
+                    </div>
+                    <div class="col-sm-2">
+                    @paramPrescription.LoanId
+                    </div>
+                    <div class="col-sm-2">
+                    @paramPrescription.Id
+                    </div>
+                      @if (paramIsEdit == true)
+                        {
+                            <div class="col-sm-2">
+                      
+                                    <Button Color="ButtonColor.Warning" Size="ButtonSize.Small" @onclick="OnEditPrescriptionClick">
+                                        <Icon Name="IconName.Activity"></Icon>
+                                    </Button>
+                       
+                       
+                            </div>
+                        }
+                </div>
+            </div>
+

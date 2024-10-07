@@ -1,3 +1,4 @@
+using BAL.Managers;
 using BlazorBootstrap;
 using Domain.Models;
 using Microsoft.AspNetCore.Components;
@@ -18,9 +19,11 @@ namespace Ventilation.Components.Shared.LoanComponents
         Loan? loan = null;
         List<ToastMessage> messages = new List<ToastMessage>();
 
-       
-        
-        protected override void OnInitialized()
+        [Inject]
+        ILoanManager _loanManager { get; set; }
+        List<Prescription> loanPrescriptions = new();
+
+        protected override async Task OnInitializedAsync()
         {
             stockItemSelected = null;
 
@@ -28,7 +31,11 @@ namespace Ventilation.Components.Shared.LoanComponents
             if (paramLoan != null)
             {
                 hasLoanId = true;
+                loanPrescriptions = await _loanManager.GetPrescriptionsForALoan(paramLoan.LoanId);
+                var xx = "";
             }
+
+         
         }
 
         //Event callback from child component after saving additional information
@@ -49,6 +56,7 @@ namespace Ventilation.Components.Shared.LoanComponents
             if (UpdateLoan != null)
             {
                 loan = UpdateLoan;
+                loanPrescriptions = await _loanManager.GetPrescriptionsForALoan(loan.LoanId);
                 hasLoanId = true;
                 StateHasChanged();
 

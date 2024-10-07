@@ -13,8 +13,6 @@ namespace DAL.Repositories.DefaultImplementations
         {
         }
 
-
-        //Search by clinicalTechref should be unique but will require other fields to search on
         public async Task<IEnumerable<StockItemCx>> FindStock(string clinicalTechRef)
         {
             IEnumerable<StockItemCx> stockItems = new List<StockItemCx>();
