@@ -1,10 +1,10 @@
-﻿using Domain.Models.EquipmentDetails;
+﻿using Domain.Models;
 
 namespace BAL.Managers
 {
     public interface IEquipmentManager
     {
-        //List<Equipment> GetEquipmentList();
-       
+        Task<List<EquipmentProperty>> GetEquipmentProperties(int? equipmentId);
+
     }
 }

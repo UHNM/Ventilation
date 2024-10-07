@@ -1,32 +1,38 @@
-﻿<div class="border border-dark">
-    <div>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    Prescription Date
-                </div>
-                <div class="col-sm-2">
-                    Loan Id
-                </div>
-                <div class="col-sm-2">
-                    Id
-                </div>
-               
+﻿@if (paramPrescriptions.Count != 0){
+    <div class="border border-dark">
+        <div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        Prescription Date
+                    </div>
+                    <div class="col-sm-2">
+                        Loan Id
+                    </div>
+                    <div class="col-sm-2">
+                        Id
+                    </div>
+
                     @if (paramIsEdit == true)
                     {
-                    <div class="col-sm-2">Edit
-                    </div>
+                        <div class="col-sm-2">
+                            Edit
+                        </div>
                     }
-                  
-               
-            </div>
-        </div>
 
-        @foreach (var p in paramPrescriptions)
-        {
-            <PrescriptionItem paramPrescription=@p paramIsEdit=@paramIsEdit></PrescriptionItem>
-        }
-   </div>
-</div>
+
+                </div>
+            </div>
+
+            @foreach (var p in paramPrescriptions)
+            {
+                <PrescriptionItem paramPrescription=@p paramIsEdit=@paramIsEdit></PrescriptionItem>
+            }
+        </div>
+    </div>
+}
+
+
+
 
 

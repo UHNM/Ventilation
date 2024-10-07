@@ -67,6 +67,13 @@ namespace Ventilation.Components.Shared.LoanComponents
         }
 
 
+
+        private async Task OnAddPrescriptionClick()
+        {
+            await Task.Delay(100);
+        }
+
+
         private void ShowMessage(ToastType toastType) => messages.Add(CreateSaveMessage(toastType));
 
         private ToastMessage CreateSaveMessage(ToastType toastType)

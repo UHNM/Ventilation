@@ -4,6 +4,6 @@ namespace DAL.Repositories
 {
     public interface IEquipmentRepository
     {
-       // EquipmentBaseCx FindEquipment(string equipmentName);
+        Task<IEnumerable<EquipmentPropertyCx>> GetEquipmentProperties(int? equipmentId);
     }
 }

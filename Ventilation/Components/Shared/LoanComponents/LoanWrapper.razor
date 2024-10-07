@@ -39,7 +39,15 @@
         </TitleTemplate>
         <Content>
             <br />
-            <PrescriptionList paramPrescriptions=@loanPrescriptions paramIsEdit="true"></PrescriptionList>
+        
+                <Button Color="ButtonColor.Success" Size="ButtonSize.Small" @onclick="OnAddPrescriptionClick">
+                    <Icon Name="IconName.PostcardFill"></Icon>
+                </Button>
+
+                 <PrescriptionList paramPrescriptions=@loanPrescriptions paramIsEdit="true"></PrescriptionList>
+            
+         
+           
         </Content>
     </Tab>
 

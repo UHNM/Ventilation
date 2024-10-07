@@ -27,8 +27,7 @@ namespace Ventilation.Components.Shared.LoanComponents
 
         protected override void OnInitialized()
         {
-            var xx = paramLoan;
-
+         
            if(paramLoan != null)
             {
                 loanDetail.PatientId = patientId;
