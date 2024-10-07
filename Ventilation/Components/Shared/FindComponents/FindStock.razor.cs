@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.QuickGrid;
 
-namespace Ventilation.Components.Shared
+namespace Ventilation.Components.Shared.FindComponents
 {
     public partial class FindStock
     {
@@ -24,8 +24,8 @@ namespace Ventilation.Components.Shared
         protected async Task OnFindClick(EditContext context)
         {
             stockitemsFound = await _stockManager.FindStock(((StockToFind)context.Model).ClinicalTechRef);
-            stockList =  stockitemsFound.AsQueryable();
-          
+            stockList = stockitemsFound.AsQueryable();
+
 
         }
 
@@ -36,7 +36,7 @@ namespace Ventilation.Components.Shared
 
         private async Task SelectStockClick(StockItem item)
         {
-           
+
 
             await OnStockSelected.InvokeAsync(item);
         }

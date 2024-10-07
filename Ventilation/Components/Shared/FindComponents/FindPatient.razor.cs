@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using System.Reflection;
 
-namespace Ventilation.Components.Shared
+namespace Ventilation.Components.Shared.FindComponents
 {
     public partial class FindPatient
     {
@@ -18,7 +18,7 @@ namespace Ventilation.Components.Shared
         private bool showPatient = false;
 
 
-        
+
         private void OnFindClick(EditContext context)
         {
             patientFound = _patientManager.FindPatient(((PatientToFind)context.Model).HospitalNumber);
@@ -33,9 +33,9 @@ namespace Ventilation.Components.Shared
 
         private void OnSavePatient(EditContext context)
         {
-          
 
-        } 
+
+        }
 
 
 

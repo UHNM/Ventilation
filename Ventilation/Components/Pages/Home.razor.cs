@@ -3,7 +3,7 @@ using BlazorBootstrap;
 using Domain.Models;
 using Microsoft.AspNetCore.Components;
 using System.Reflection;
-using Ventilation.Components.Shared;
+using Ventilation.Components.Shared.PatientComponents;
 
 namespace Ventilation.Components.Pages
 {

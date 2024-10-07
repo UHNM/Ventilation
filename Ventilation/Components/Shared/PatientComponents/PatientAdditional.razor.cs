@@ -7,10 +7,9 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Net.Http.Json;
-
 using static System.Net.WebRequestMethods;
 
-namespace Ventilation.Components.Shared
+namespace Ventilation.Components.Shared.PatientComponents
 {
     public partial class PatientAdditional
     {
@@ -22,7 +21,7 @@ namespace Ventilation.Components.Shared
         [Inject]
         IPatientManager _patientManager { get; set; }
 
-      
+
         [Parameter]
         public EventCallback<int?> OnPatientSaved { get; set; }
 
@@ -40,8 +39,8 @@ namespace Ventilation.Components.Shared
         statuses.Where(s => s.Key != PatientDetail.PatientStatus);
 
         Lookup? selectedStatus => PatientDetail.PatientStatus.HasValue ?
-                            statuses.First(d => d.Key == this.PatientDetail.PatientStatus) :
-                            default(Lookup);
+                            statuses.First(d => d.Key == PatientDetail.PatientStatus) :
+                            default;
 
         //Dependency
         private IEnumerable<Lookup> dependencies = Enumerable.Empty<Lookup>();
@@ -50,8 +49,8 @@ namespace Ventilation.Components.Shared
         dependencies.Where(s => s.Key != PatientDetail.Dependency);
 
         Lookup? selectedDependency => PatientDetail.Dependency.HasValue ?
-                            dependencies.First(d => d.Key == this.PatientDetail.Dependency) :
-                            default(Lookup);
+                            dependencies.First(d => d.Key == PatientDetail.Dependency) :
+                            default;
 
         //Diagnosis Category
         private IEnumerable<Lookup> diagnosisCategories = Enumerable.Empty<Lookup>();
@@ -60,8 +59,8 @@ namespace Ventilation.Components.Shared
         diagnosisCategories.Where(s => s.Key != PatientDetail.DiagnosisCategory);
 
         Lookup? selectedDiagnosisCategory => PatientDetail.DiagnosisCategory.HasValue ?
-                            diagnosisCategories.First(d => d.Key == this.PatientDetail.DiagnosisCategory) :
-                            default(Lookup);
+                            diagnosisCategories.First(d => d.Key == PatientDetail.DiagnosisCategory) :
+                            default;
 
         //Diagnosis Sub Category
         private IEnumerable<Lookup> diagnosisSubCategories = Enumerable.Empty<Lookup>();
@@ -70,8 +69,8 @@ namespace Ventilation.Components.Shared
         diagnosisSubCategories.Where(s => s.Key != PatientDetail.DiagnosisSubCategory);
 
         Lookup? selectedDiagnosisSubCategory => PatientDetail.DiagnosisSubCategory.HasValue ?
-                            diagnosisSubCategories.First(d => d.Key == this.PatientDetail.DiagnosisSubCategory) :
-                            default(Lookup);
+                            diagnosisSubCategories.First(d => d.Key == PatientDetail.DiagnosisSubCategory) :
+                            default;
 
         //Diagnosis Discharged Status
         private IEnumerable<Lookup> dischargedStatuses = Enumerable.Empty<Lookup>();
@@ -80,8 +79,8 @@ namespace Ventilation.Components.Shared
         dischargedStatuses.Where(s => s.Key != PatientDetail.DischargeStatus);
 
         Lookup? selectedDischargeStatus => PatientDetail.DischargeStatus.HasValue ?
-                            dischargedStatuses.First(d => d.Key == this.PatientDetail.DischargeStatus) :
-                            default(Lookup);
+                            dischargedStatuses.First(d => d.Key == PatientDetail.DischargeStatus) :
+                            default;
 
 
         //Smoking Status
@@ -91,8 +90,8 @@ namespace Ventilation.Components.Shared
         smokingStatuses.Where(s => s.Key != PatientDetail.SmokingStatus);
 
         Lookup? selectedSmokingStatus => PatientDetail.DischargeStatus.HasValue ?
-                            smokingStatuses.First(d => d.Key == this.PatientDetail.SmokingStatus) :
-                            default(Lookup);
+                            smokingStatuses.First(d => d.Key == PatientDetail.SmokingStatus) :
+                            default;
 
 
 
@@ -104,7 +103,7 @@ namespace Ventilation.Components.Shared
             inputTextAreaAttributesComments.Add("rows", "4");
             inputTextAreaAttributesComments.Add("cols", "120");
 
-          
+
 
             // HttpClient client = new HttpClient();
             //var statuses = await client.GetFromJsonAsync<Lookup[]>("status.json");
@@ -118,7 +117,7 @@ namespace Ventilation.Components.Shared
             Lookup s3 = new Lookup();
             s3.Key = 2;
             s3.Value = "On Machine";
-           
+
             statuses = statuses.Append(s2);
             statuses = statuses.Append(s3);
 
@@ -128,7 +127,7 @@ namespace Ventilation.Components.Shared
 
             Lookup d2 = new Lookup();
             d2.Key = 2;
-            d2.Value ="2";
+            d2.Value = "2";
 
             dependencies = dependencies.Append(d1);
             dependencies = dependencies.Append(d2);
@@ -203,7 +202,7 @@ namespace Ventilation.Components.Shared
         }
 
 
-       
+
 
         protected override async Task OnParametersSetAsync()
         {
@@ -221,27 +220,27 @@ namespace Ventilation.Components.Shared
         {
             //The internalPatientId will always be populated, but if the id is null its an insert, otherwise an update
             string message = "New Patient Added!";
-            
-            if(PatientDetail.Id != null)
+
+            if (PatientDetail.Id != null)
             {
-                 message = "Patient Updated!";
+                message = "Patient Updated!";
             }
-          
+
             int? Id = await _patientManager.SavePatient((PatientDetail)context.Model);
 
             ////TODO: need to pass the newly created PatientDetail object back to the parent
             ////Options, 1. Just creat a new PatientDetail object here from the Model and add the Id, 2. return the PatientDetail object from the save 3. Do a get PatientDetail method after the save once we have the Id
-            
+
             //PatientBase p = new PatientBase();
             //p.Id = Id;
             //p.InternalPatientId = PatientDetail.InternalPatientId;
-           
+
 
             await OnPatientSaved.InvokeAsync(Id);
 
         }
 
-       
+
     }
 
     public class Lookup
@@ -250,5 +249,5 @@ namespace Ventilation.Components.Shared
         public string? Value { get; set; }
     }
 
-   
+
 }

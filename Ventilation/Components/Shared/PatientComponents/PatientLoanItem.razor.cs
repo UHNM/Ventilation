@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using System.Reflection;
 
-namespace Ventilation.Components.Shared
+namespace Ventilation.Components.Shared.PatientComponents
 {
     public partial class PatientLoanItem
     {
@@ -13,7 +13,7 @@ namespace Ventilation.Components.Shared
 
 
         [Parameter]
-        public Domain.Models.PatientBase? Patient { get; set; }
+        public PatientBase? Patient { get; set; }
 
         Tabs tabs = default!;
         private Modal modal = default!;
@@ -21,7 +21,7 @@ namespace Ventilation.Components.Shared
 
         protected override void OnInitialized()
         {
-           
+
 
 
         }
@@ -32,7 +32,7 @@ namespace Ventilation.Components.Shared
             parameters.Add("PatientId", loan.PatientId);
             parameters.Add("paramLoan", loan);
 
-            await modal.ShowAsync<Ventilation.Components.Shared.LoanComponents.LoanWrapper>(title: "Edit Loan for Patient: " + Patient.Surname + "," + Patient.Forename + " (" + Patient.HospitalNumber + ")", parameters: parameters);
+            await modal.ShowAsync<LoanComponents.LoanWrapper>(title: "Edit Loan for Patient: " + Patient.Surname + "," + Patient.Forename + " (" + Patient.HospitalNumber + ")", parameters: parameters);
         }
 
         private async Task OnHideModalClick()

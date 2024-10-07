@@ -7,7 +7,7 @@ using Models;
 using System.Diagnostics;
 using Ventilation.Components.Shared.LoanComponents;
 
-namespace Ventilation.Components.Shared
+namespace Ventilation.Components.Shared.PatientComponents
 {
     public partial class PatientLoans
     {
@@ -15,12 +15,12 @@ namespace Ventilation.Components.Shared
         //public int? PatientId { get; set; }
 
         [Parameter]
-        public Domain.Models.PatientBase? Patient { get; set; }
+        public PatientBase? Patient { get; set; }
 
         [Inject]
         IPatientManager _patientManager { get; set; }
         List<Loan> patientLoans = new();
-   
+
         private Modal modal = default!;
 
 
@@ -29,7 +29,7 @@ namespace Ventilation.Components.Shared
         {
             patientLoans = await _patientManager.GetPatientLoans(Patient.Id);
 
-            
+
         }
 
         private async Task OnAddLoanClick()
