@@ -39,15 +39,9 @@
         </TitleTemplate>
         <Content>
             <br />
-        
-                <Button Color="ButtonColor.Success" Size="ButtonSize.Small" @onclick="OnAddPrescriptionClick">
-                    <Icon Name="IconName.PostcardFill"></Icon>
-                </Button>
-
-                 <PrescriptionList paramPrescriptions=@loanPrescriptions paramIsEdit="true"></PrescriptionList>
-            
-         
-           
+            <CascadingValue Value="@paramLoan">
+            <PrescriptionWrapper></PrescriptionWrapper>
+            </CascadingValue>
         </Content>
     </Tab>
 

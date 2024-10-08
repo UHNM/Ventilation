@@ -1,0 +1,9 @@
+﻿@using Ventilation.Components.Shared
+@rendermode @(new InteractiveServerRenderMode(prerender:false));
+
+
+<Button Color="ButtonColor.Success" Size="ButtonSize.Small" @onclick="OnAddPrescriptionClick">
+    <Icon Name="IconName.PostcardFill"></Icon>
+</Button>
+
+<PrescriptionList paramPrescriptions=@loanPrescriptions paramIsEdit="true"></PrescriptionList>
