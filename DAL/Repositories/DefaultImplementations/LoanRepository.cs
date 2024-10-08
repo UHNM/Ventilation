@@ -18,12 +18,14 @@ namespace DAL.Repositories.DefaultImplementations
 
             PrescriptionCx p = new PrescriptionCx();
             p.Id = 1;
+            p.EquipmentId = 1000;
             p.PrescriptionDate = new DateTime(2024, 09, 23);
             p.LoanId = loanId;
             p.EquipmentId = 2000;
 
             PrescriptionCx p1 = new PrescriptionCx();
             p1.Id = 2;
+            p1.EquipmentId = 2000;
             p1.PrescriptionDate = new DateTime(2024, 07, 23);
             p1.LoanId = loanId;
             p1.EquipmentId = 3000;

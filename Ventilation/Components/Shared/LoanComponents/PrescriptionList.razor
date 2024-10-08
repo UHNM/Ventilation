@@ -1,4 +1,7 @@
-﻿@if (paramPrescriptions.Count != 0){
+﻿
+
+
+@if (paramPrescriptions.Count != 0){
     <div class="border border-dark">
         <div>
             <div class="container">
@@ -26,7 +29,7 @@
 
             @foreach (var p in paramPrescriptions)
             {
-                <PrescriptionItem paramPrescription=@p paramIsEdit=@paramIsEdit></PrescriptionItem>
+                <PrescriptionItem paramPrescription=@p paramIsEdit=@paramIsEdit OnPrescriptionSelected="PrescriptionSelected"></PrescriptionItem>
             }
         </div>
     </div>

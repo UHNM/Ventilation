@@ -13,9 +13,13 @@ namespace Ventilation.Components.Shared.LoanComponents
         [Parameter]
         public bool? paramIsEdit { get; set; }
 
+        [Parameter]
+        public EventCallback<Prescription?> OnPrescriptionSelected { get; set; }
+
         private async Task OnEditPrescriptionClick()
         {
-            var xx = "";
+            var xx = paramPrescription;
+            await OnPrescriptionSelected.InvokeAsync(paramPrescription);
         }
 
     }
