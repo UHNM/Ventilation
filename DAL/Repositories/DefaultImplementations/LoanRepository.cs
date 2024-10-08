@@ -20,11 +20,13 @@ namespace DAL.Repositories.DefaultImplementations
             p.Id = 1;
             p.PrescriptionDate = new DateTime(2024, 09, 23);
             p.LoanId = loanId;
+            p.EquipmentId = 2000;
 
             PrescriptionCx p1 = new PrescriptionCx();
             p1.Id = 2;
             p1.PrescriptionDate = new DateTime(2024, 07, 23);
             p1.LoanId = loanId;
+            p1.EquipmentId = 3000;
 
             prescriptions = prescriptions.Append(p);
             prescriptions = prescriptions.Append(p1);
