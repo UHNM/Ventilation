@@ -39,16 +39,22 @@ namespace BAL.Managers.DefaultImplementations
             foreach (EquipmentProperty equipprop in equipProperties)
             {
                 PrescriptionQuestion q = new PrescriptionQuestion();
-                q.EquipmentProperty = equipprop;
+                q.Id = equipprop.Id;
+                q.EquipmentId = equipprop.EquipmentId;
+                q.Required = equipprop.Required;    
+                q.uiControlType = equipprop.uiControlType;
+                q.Type = equipprop.Type;
+                q.Order = equipprop.Order;
+                q.DisplayName = equipprop.DisplayName;
 
                 foreach (PrescriptionProperty resp in prescProperties)
                 {
                     if(equipprop.Id == resp.EquipmentPropertyId)
                     {
-                        q.PrescriptionQuestionResponseInteger = resp.PrescriptionPropertyResponseInteger;
-                        q.PrescriptionQuestionResponseBool = resp.PrescriptionPropertyResponseBool;
-                        q.PrescriptionQuestionResponseString = resp.PrescriptionPropertyResponseString;
-                        q.PrescriptionQuestionResponseDateTime = resp.PrescriptionPropertyResponseDateTime;
+                        q.ResponseInteger = resp.PrescriptionPropertyResponseInteger;
+                        q.ResponseBool = resp.PrescriptionPropertyResponseBool;
+                        q.ResponseString = resp.PrescriptionPropertyResponseString;
+                        q.ResponseDateTime = resp.PrescriptionPropertyResponseDateTime;
                     }
                 }
             prescriptionQuestions.Add(q);

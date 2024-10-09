@@ -1,0 +1,25 @@
+﻿@using Ventilation.Components.Shared.Form;
+@using Ventilation.Components.Shared.Form.Controls
+@rendermode InteractiveServer
+
+@switch (viewModelProperty.uiControlType)
+{
+    case "inputtext":
+        <InputTextControl viewModelProperty=@viewModelProperty></InputTextControl>
+    break;
+    case "inputnumber":
+        <InputNumberControl viewModelProperty=@viewModelProperty></InputNumberControl>
+        break;
+
+    case "checkbox":
+        <span>render checkbox</span>
+    break;
+    case "dropdownlist":
+        <span>render dropdownlist</span>
+        break;
+  default:
+        <span>probably render textbox</span>
+    break;
+}
+
+

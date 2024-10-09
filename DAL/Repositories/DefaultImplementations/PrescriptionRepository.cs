@@ -57,7 +57,7 @@ namespace DAL.Repositories.DefaultImplementations
             q.DisplayName = "Mode";
             q.EquipmentId = 1000;
             q.Required = true;
-            q.uiControlType = "TextBox";
+            q.uiControlType = "inputtext";
             q.Type = "string";
             q.Order = 1;
 
@@ -66,7 +66,7 @@ namespace DAL.Repositories.DefaultImplementations
             q2.DisplayName = "Oxygen";
             q2.EquipmentId = 1000;
             q2.Required = true;
-            q2.uiControlType = "TextBox";
+            q2.uiControlType = "inputnumber";
             q2.Type = "int";
             q2.Order = 2;
 
@@ -76,7 +76,7 @@ namespace DAL.Repositories.DefaultImplementations
             q3.DisplayName = "Pressure";
             q3.EquipmentId = 1000;
             q3.Required = false;
-            q3.uiControlType = "TextBox";
+            q3.uiControlType = "inputtext";
             q3.Type = "string";
             q3.Order = 3;
 

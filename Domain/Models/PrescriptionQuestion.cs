@@ -1,12 +1,12 @@
 ﻿
 namespace Domain.Models
 {
-    public class PrescriptionQuestion
+    public class PrescriptionQuestion : EquipmentProperty
     {
-        public EquipmentProperty EquipmentProperty                  { get; set; }
-        public int? PrescriptionQuestionResponseInteger             { get; set; }
-        public string? PrescriptionQuestionResponseString           { get; set; }
-        public bool? PrescriptionQuestionResponseBool               { get; set; }
-        public DateTime? PrescriptionQuestionResponseDateTime       { get; set; }
+     
+        public int? ResponseInteger             { get; set; }
+        public string? ResponseString           { get; set; }
+        public bool? ResponseBool               { get; set; }
+        public DateTime? ResponseDateTime       { get; set; }
     }
 }
