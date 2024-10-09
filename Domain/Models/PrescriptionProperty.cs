@@ -1,7 +1,7 @@
 ﻿
-namespace Domain.Entities.Complex
+namespace Domain.Models
 {
-    public class PrescriptionPropertyCx
+    public class PrescriptionProperty
     {
         public int Id { get; set; }
         public int? EquipmentPropertyId { get; set; }

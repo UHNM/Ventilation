@@ -32,9 +32,14 @@ namespace BAL.Managers.DefaultImplementations
                 foreach (EquipmentPropertyCx equip in Dto)
                 {
                     EquipmentProperty s = new EquipmentProperty();
-                    s.EquipmentId  = equip.EquipmentId;
-                   // s.EquipmentPropertyName = equip.EquipmentPropertyName;
-                   // s.EquipmentPropertyValue = equip.EquipmentPropertyValue;
+                    s.Id = equip.Id;
+                    s.EquipmentId = equip.EquipmentId;
+                    s.Required = equip.Required;
+                    s.uiControlType = equip.uiControlType;
+                    s.Type = equip.Type;
+                    s.Order = equip.Order;
+                    s.DisplayName = equip.DisplayName;  
+                   
                     equipProperties.Add(s);
                 }
 

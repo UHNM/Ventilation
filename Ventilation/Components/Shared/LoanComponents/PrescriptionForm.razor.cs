@@ -6,13 +6,16 @@ namespace Ventilation.Components.Shared.LoanComponents
 {
     public partial class PrescriptionForm
     {
+        [CascadingParameter]
+        public Loan? paramLoan { get; set; }
+
         [Parameter]
         public Prescription? paramPrescription { get; set; }
 
         [Inject]
-        IEquipmentManager _equipmentManager { get; set; }
+        IPrescriptionManager _prescriptionManager { get; set; }
 
-        List<EquipmentProperty> equipmentProperties = new();
+        List<PrescriptionQuestion> prescriptionQuestions = new();
 
 
         protected override async Task OnInitializedAsync()
@@ -20,9 +23,16 @@ namespace Ventilation.Components.Shared.LoanComponents
 
             if (paramPrescription != null)
             {
-                //should we pass in the Prescription Id also
-                equipmentProperties = await _equipmentManager.GetEquipmentProperties(paramPrescription.EquipmentId);
+                //if an edit, pass in the prescription id
+                prescriptionQuestions = await _prescriptionManager.GetPrescriptionQuestions(paramPrescription.EquipmentId, paramPrescription.Id);
                 var xx = "";
+            }
+            else
+            {
+                //if new then won't have a prescription so pass the equipment id from the loan and leave the prescription Id as null
+                prescriptionQuestions = await _prescriptionManager.GetPrescriptionQuestions(paramLoan.EquipmentId, null);
+                var yy = "";
+
             }
 
 

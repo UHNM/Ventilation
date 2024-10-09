@@ -15,22 +15,33 @@ namespace DAL.Repositories.DefaultImplementations
             IEnumerable<EquipmentPropertyCx> EquipProperties = new List<EquipmentPropertyCx>();
 
             EquipmentPropertyCx q = new EquipmentPropertyCx();
-            q.Id = 1;
+            
+            q.Id = 100;
+            q.DisplayName = "Mode";
             q.EquipmentId = 1000;
-          //  q.EquipmentPropertyName = "Mode";
-          //  q.EquipmentPropertyValue = "My Mode"; //not sure if we need this or if its the prescription property value
-
+            q.Required = true;
+            q.uiControlType = "TextBox";
+            q.Type = "string";
+            q.Order = 1;
+         
             EquipmentPropertyCx q2 = new EquipmentPropertyCx();
-            q2.Id = 2;
+            q2.Id = 101;
+            q2.DisplayName = "Oxygen";
             q2.EquipmentId = 1000;
-         //   q2.EquipmentPropertyName = "IPAP";
-         //   q2.EquipmentPropertyValue = "My IPAP"; //not sure if we need this or if its the prescription property value
+            q2.Required = true;
+            q2.uiControlType = "TextBox";
+            q2.Type = "int";
+            q2.Order = 2;
+
 
             EquipmentPropertyCx q3 = new EquipmentPropertyCx();
-            q3.Id = 3;
+            q3.Id = 102;
+            q3.DisplayName = "Pressure";
             q3.EquipmentId = 1000;
-          //  q3.EquipmentPropertyName = "Idle Time";
-          //  q3.EquipmentPropertyValue = "My Idle Time !!"; //not sure if we need this or if its the prescription property value
+            q3.Required = false;
+            q3.uiControlType = "TextBox";
+            q3.Type = "string";
+            q3.Order = 3;
 
             EquipProperties = EquipProperties.Append(q);
             EquipProperties = EquipProperties.Append(q2);
