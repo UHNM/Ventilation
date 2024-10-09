@@ -32,6 +32,7 @@ namespace BAL.Managers.DefaultImplementations
                 {
                     Prescription p  = new Prescription();
                     p.Id = prescription.Id;
+                    p.EquipmentId = prescription.EquipmentId;
                     p.LoanId    = prescription.LoanId;
                     p.PrescriptionDate = prescription.PrescriptionDate;
                     prescriptions.Add(p);

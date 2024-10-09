@@ -1,9 +1,18 @@
 ﻿@using Ventilation.Components.Shared
 @rendermode @(new InteractiveServerRenderMode(prerender:false));
 
+<div class="container">
+    <div>
+        Loan: @paramLoan.EquipmentName (@paramLoan.ClinicalReference)
+    </div>
+    <div>
+        <Button Color="ButtonColor.Success" Size="ButtonSize.Small" @onclick="OnAddPrescriptionClick">
+            <Icon Name="IconName.PostcardFill"></Icon>
+        </Button>
+    </div>
+</div>
 
-<Button Color="ButtonColor.Success" Size="ButtonSize.Small" @onclick="OnAddPrescriptionClick">
-    <Icon Name="IconName.PostcardFill"></Icon>
-</Button>
 
-<PrescriptionList paramPrescriptions=@loanPrescriptions paramIsEdit="true"></PrescriptionList>
+    <CascadingValue Value="@UserClickedAdd">
+      <PrescriptionList paramPrescriptions=@loanPrescriptions paramIsEdit="true" OnPrescriptionSelected="PrescriptionSelected"></PrescriptionList>
+    </CascadingValue>

@@ -9,18 +9,21 @@ namespace Ventilation.Components.Shared.LoanComponents
         [CascadingParameter]
         public Loan? paramLoan { get; set; }
         
-        //[CascadingParameter]
-        //public bool? hasLoanId { get; set; }
+       
+        public bool? AddPrescription { get; set; }
 
         [Inject]
         ILoanManager _loanManager { get; set; }
         List<Prescription> loanPrescriptions = new();
 
+        public bool? UserClickedAdd { get; set; }
+
         protected override async Task OnInitializedAsync()
         {
             loanPrescriptions = null;
+            UserClickedAdd = false;
 
-
+            var xx = paramLoan;
         }
 
         protected override async Task OnParametersSetAsync()
@@ -42,6 +45,17 @@ namespace Ventilation.Components.Shared.LoanComponents
         private async Task OnAddPrescriptionClick()
         {
             await Task.Delay(100);
+            UserClickedAdd = true;
+        }
+
+        protected async Task PrescriptionSelected(Prescription? p)
+        {
+            await Task.Delay(100);
+
+            StateHasChanged();
+           
+
+
         }
 
     }

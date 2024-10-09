@@ -33,8 +33,8 @@ namespace BAL.Managers.DefaultImplementations
                 {
                     EquipmentProperty s = new EquipmentProperty();
                     s.EquipmentId  = equip.EquipmentId;
-                    s.EquipmentPropertyName = equip.EquipmentPropertyName;
-                    s.EquipmentPropertyValue = equip.EquipmentPropertyValue;
+                   // s.EquipmentPropertyName = equip.EquipmentPropertyName;
+                   // s.EquipmentPropertyValue = equip.EquipmentPropertyValue;
                     equipProperties.Add(s);
                 }
 

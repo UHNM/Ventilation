@@ -50,7 +50,11 @@
                         </TitleTemplate>
                         <Content>
                             <br/>
-                            <PrescriptionList paramPrescriptions=@loanPrescriptions paramIsEdit="false"></PrescriptionList>
+                            <CascadingValue Value="@loan">
+                             <CascadingValue Value="false">
+                                <PrescriptionList paramPrescriptions=@loanPrescriptions paramIsEdit="false"></PrescriptionList>
+                             </CascadingValue>
+                            </CascadingValue>
                         </Content>
                     </Tab>
                     <Tab Title="Consumables" Name="Consumables">

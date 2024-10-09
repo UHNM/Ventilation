@@ -24,6 +24,7 @@ namespace Ventilation.Components.Shared.PatientComponents
         Tabs tabs = default!;
         private Modal modal = default!;
 
+       
 
         protected override async Task OnInitializedAsync()
         {

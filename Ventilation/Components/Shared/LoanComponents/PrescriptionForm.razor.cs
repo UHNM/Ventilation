@@ -20,8 +20,8 @@ namespace Ventilation.Components.Shared.LoanComponents
 
             if (paramPrescription != null)
             {
-                //need the equipmentId in the prescription
-                equipmentProperties = await _equipmentManager.GetEquipmentProperties(1234);
+                //should we pass in the Prescription Id also
+                equipmentProperties = await _equipmentManager.GetEquipmentProperties(paramPrescription.EquipmentId);
                 var xx = "";
             }
 

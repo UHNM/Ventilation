@@ -35,6 +35,19 @@
         </div>
     }
 
+    @if (prescriptionSelected != null && paramLoan != null)
+    {
+        <PrescriptionForm paramPrescription="@prescriptionSelected"></PrescriptionForm>
+    }
+    else
+    {
+        @if (paramLoan != null && UserClickedAdd == true)
+        {
+            <PrescriptionForm paramPrescription="@null"></PrescriptionForm>
+
+        }
+    }
+
 }
 
 

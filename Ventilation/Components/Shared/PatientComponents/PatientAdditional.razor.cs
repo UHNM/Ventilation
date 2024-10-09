@@ -135,30 +135,46 @@ namespace Ventilation.Components.Shared.PatientComponents
 
             Lookup c1 = new Lookup();
             c1.Key = 1;
-            c1.Value = "MND";
+            c1.Value = "Neuromuscular disease";
 
             Lookup c2 = new Lookup();
             c2.Key = 2;
-            c2.Value = "COPD";
+            c2.Value = "Motor Neurone Disease";
+
+            Lookup c3 = new Lookup();
+            c3.Key = 3;
+            c3.Value = "Chronic airways Disease";
+
+            Lookup c4 = new Lookup();
+            c4.Key = 4;
+            c4.Value = "Musculoskeletal";
+
+
+            Lookup c5 = new Lookup();
+            c5.Key = 5;
+            c5.Value = "Obesity and Obesity related disease";
 
             diagnosisCategories = diagnosisCategories.Append(c1);
             diagnosisCategories = diagnosisCategories.Append(c2);
+            diagnosisCategories = diagnosisCategories.Append(c3);
+            diagnosisCategories = diagnosisCategories.Append(c4);
+            diagnosisCategories = diagnosisCategories.Append(c5);
 
-            Lookup c3 = new Lookup();
-            c3.Key = 1;
-            c3.Value = "Sub Category 1";
+            Lookup c6 = new Lookup();
+            c6.Key = 1;
+            c6.Value = "Sub Category 1";
 
-            Lookup c4 = new Lookup();
-            c4.Key = 2;
-            c4.Value = "Sub Category 2";
+            Lookup c7 = new Lookup();
+            c7.Key = 2;
+            c7.Value = "Sub Category 2";
 
-            Lookup c5 = new Lookup();
-            c5.Key = 3;
-            c5.Value = "Sub Category 3";
+            Lookup c8 = new Lookup();
+            c8.Key = 3;
+            c8.Value = "Sub Category 3";
 
-            diagnosisSubCategories = diagnosisSubCategories.Append(c3);
-            diagnosisSubCategories = diagnosisSubCategories.Append(c4);
-            diagnosisSubCategories = diagnosisSubCategories.Append(c5);
+            diagnosisSubCategories = diagnosisSubCategories.Append(c6);
+            diagnosisSubCategories = diagnosisSubCategories.Append(c7);
+            diagnosisSubCategories = diagnosisSubCategories.Append(c8);
 
 
             Lookup d5 = new Lookup();
