@@ -6,7 +6,7 @@ namespace Domain.Models
      
         public int? ResponseInteger             { get; set; }
         public string? ResponseString           { get; set; }
-        public bool? ResponseBool               { get; set; }
+        public bool ResponseBool               { get; set; }
         public DateTime? ResponseDateTime       { get; set; }
     }
 }

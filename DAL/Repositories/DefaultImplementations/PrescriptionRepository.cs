@@ -19,7 +19,7 @@ namespace DAL.Repositories.DefaultImplementations
             p.Id = 1;
             p.EquipmentPropertyId = 100; //Mode Property
             p.PrescriptionPropertyResponseString = "The Mode is set"; //we know the equipment property type is a string
-            p.PrescriptionPropertyResponseBool = null;
+            p.PrescriptionPropertyResponseBool = false; //inputcheckbox needs to handle null
             p.PrescriptionPropertyResponseInteger = null;
             p.PrescriptionPropertyResponseDateTime = null;
 
@@ -27,7 +27,7 @@ namespace DAL.Repositories.DefaultImplementations
             p1.Id = 2;
             p1.EquipmentPropertyId = 101; //Oxygen Property
             p1.PrescriptionPropertyResponseString = null;
-            p1.PrescriptionPropertyResponseBool = null;
+            p1.PrescriptionPropertyResponseBool = false; //inputcheckbox needs to handle null
             p1.PrescriptionPropertyResponseInteger = 80;
             p1.PrescriptionPropertyResponseDateTime = null;
 
@@ -35,13 +35,22 @@ namespace DAL.Repositories.DefaultImplementations
             p2.Id = 3;
             p2.EquipmentPropertyId = 102; //Pressure Property
             p2.PrescriptionPropertyResponseString = null; // required for the property is false, no value was set
-            p2.PrescriptionPropertyResponseBool = null;
+            p2.PrescriptionPropertyResponseBool = false; //inputcheckbox needs to handle null
             p2.PrescriptionPropertyResponseInteger = null;
             p2.PrescriptionPropertyResponseDateTime = null;
+
+            PrescriptionPropertyCx p3 = new PrescriptionPropertyCx();
+            p3.Id = 4;
+            p3.EquipmentPropertyId = 103; //bool Property
+            p3.PrescriptionPropertyResponseString = null;
+            p3.PrescriptionPropertyResponseBool = true; //inputcheckbox needs to handle null
+            p3.PrescriptionPropertyResponseInteger = null;
+            p3.PrescriptionPropertyResponseDateTime = null;
 
             PrescrProperties = PrescrProperties.Append(p);
             PrescrProperties = PrescrProperties.Append(p1);
             PrescrProperties = PrescrProperties.Append(p2);
+            PrescrProperties = PrescrProperties.Append(p3);
 
             await Task.Delay(100);
             return await Task.FromResult(PrescrProperties);
@@ -80,9 +89,19 @@ namespace DAL.Repositories.DefaultImplementations
             q3.Type = "string";
             q3.Order = 3;
 
+            EquipmentPropertyCx q4 = new EquipmentPropertyCx();
+            q4.Id = 103;
+            q4.DisplayName = "Some Check Box";
+            q4.EquipmentId = 1000;
+            q4.Required = false;
+            q4.uiControlType = "inputcheckbox";
+            q4.Type = "bool";
+            q4.Order = 4;
+
             EquipProperties = EquipProperties.Append(q);
             EquipProperties = EquipProperties.Append(q2);
             EquipProperties = EquipProperties.Append(q3);
+            EquipProperties = EquipProperties.Append(q4);
 
             await Task.Delay(100);
             return await Task.FromResult(EquipProperties);

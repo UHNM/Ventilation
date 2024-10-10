@@ -37,7 +37,6 @@ namespace Ventilation.Components.Shared.LoanComponents
             {
                 //if new then won't have a prescription so pass the equipment id from the loan and leave the prescription Id as null
                 detail = await _prescriptionManager.GetPrescriptionQuestions(paramLoan.EquipmentId, null, paramLoan.LoanId);
-                var yy = "";
             }
         }
 
