@@ -1,0 +1,16 @@
+﻿@rendermode InteractiveServer
+
+<div class="form-group mb-1">
+    <label>@controlLabel</label>
+    <InputSelect @bind-Value=@viewModelProperty.ResponseString>
+        @if (controlOptions != null){
+            @foreach (var option in controlOptions)
+            {
+                <option value=@option.Value>@option.Text</option>
+            }
+        }
+       
+       
+    </InputSelect>
+
+</div>

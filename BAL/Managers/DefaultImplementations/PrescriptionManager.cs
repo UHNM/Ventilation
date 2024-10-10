@@ -50,6 +50,7 @@ namespace BAL.Managers.DefaultImplementations
                 q.Type = equipprop.Type;
                 q.Order = equipprop.Order;
                 q.DisplayName = equipprop.DisplayName;
+                q.Options = equipprop.Options;
 
                 foreach (PrescriptionProperty resp in prescProperties)
                 {
@@ -99,6 +100,27 @@ namespace BAL.Managers.DefaultImplementations
                     s.Type = equip.Type;
                     s.Order = equip.Order;
                     s.DisplayName = equip.DisplayName;
+
+                    if(equip.Options != null)
+                    {
+                        List<PropertyOption> options = new List<PropertyOption>();
+
+                        foreach (EquipmentPropertyOptionCx eq in equip.Options)
+                        {
+                            PropertyOption o = new PropertyOption();
+                            o.PropertyId = eq.EquipmentPropertyId;
+                            o.Value = eq.Value;
+                            o.Text = eq.Text;
+                            o.Ordinal = eq.Ordinal;
+                            options.Add(o);
+                        }
+                        s.Options = options;
+
+                    }
+                    else
+                    {
+                        s.Options = null;
+                    }
 
                     equipProperties.Add(s);
                 }

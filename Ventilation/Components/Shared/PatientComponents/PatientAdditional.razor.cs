@@ -31,7 +31,7 @@ namespace Ventilation.Components.Shared.PatientComponents
 
 
 
-
+        //TODO: where are the lookup values for patient details going to be stored?
         //Patient Status
         private IEnumerable<Lookup> statuses = Enumerable.Empty<Lookup>();
 
