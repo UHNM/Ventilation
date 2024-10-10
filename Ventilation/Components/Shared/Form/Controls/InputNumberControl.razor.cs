@@ -10,13 +10,14 @@ namespace Ventilation.Components.Shared.Form.Controls
 
         public string? controlType { get; set; }
         public string? controlLabel { get; set; }
-        public int? controlValue { get; set; }
-
+       
         protected override void OnInitialized()
         {
             controlType = viewModelProperty.uiControlType;
             controlLabel = viewModelProperty.DisplayName;
-            controlValue = viewModelProperty.ResponseInteger;
+           
+            //setting the bind-value of the control to a variable didn't save to the model, therefore leave as responsestring
+            //controlValue = viewModelProperty.ResponseInteger;
         }
     }
 }

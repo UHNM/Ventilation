@@ -18,7 +18,8 @@ namespace Ventilation.Components.Shared.LoanComponents
         [Inject]
         IPrescriptionManager _prescriptionManager { get; set; }
 
-        List<PrescriptionQuestion> prescriptionQuestions = new();
+        // List<PrescriptionQuestion> prescriptionQuestions = new();
+        PrescriptionDetail detail = new();
 
         //to delete
         public Loan? loanDetail = new();
@@ -29,21 +30,24 @@ namespace Ventilation.Components.Shared.LoanComponents
             if (paramPrescription != null)
             {
                 //if an edit, pass in the prescription id
-                prescriptionQuestions = await _prescriptionManager.GetPrescriptionQuestions(paramPrescription.EquipmentId, paramPrescription.Id);
+                detail = await _prescriptionManager.GetPrescriptionQuestions(paramPrescription.EquipmentId, paramPrescription.Id, paramLoan.LoanId);
                 var xx = "";
             }
             else
             {
                 //if new then won't have a prescription so pass the equipment id from the loan and leave the prescription Id as null
-                prescriptionQuestions = await _prescriptionManager.GetPrescriptionQuestions(paramLoan.EquipmentId, null);
+                detail = await _prescriptionManager.GetPrescriptionQuestions(paramLoan.EquipmentId, null, paramLoan.LoanId);
                 var yy = "";
             }
         }
 
         private async Task OnSavePrescription(EditContext context)
         {
-           //save the prescription
-
+            //save the prescription
+            var tt = "";
         }
+
+      
+
     }
 }

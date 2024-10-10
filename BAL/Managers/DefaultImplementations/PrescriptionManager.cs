@@ -15,7 +15,11 @@ namespace BAL.Managers.DefaultImplementations
             _dynamicResponseRepository = dynamicResponseRepository;
         }
 
-        public async Task<List<PrescriptionQuestion>> GetPrescriptionQuestions(int? equipmentId, int? prescriptionId)
+        // need the prescription Id for an edit
+        // need the equipment Id to get all the properties for a piece of equipment for an add
+        // need the loan Id to link a new prescription to a loan
+        //public async Task<List<PrescriptionQuestion>> GetPrescriptionQuestions(int? equipmentId, int? prescriptionId, int? loanId)
+        public async Task<PrescriptionDetail> GetPrescriptionQuestions(int? equipmentId, int? prescriptionId, int? loanId)
         {
             var prescriptionEquipmentProperties =  _dynamicResponseRepository.GetPrescriptionEquipmentProperties(equipmentId);
             var prescriptionPropertyResponses = _dynamicResponseRepository.GetPrescriptionResponses(prescriptionId);
@@ -60,7 +64,23 @@ namespace BAL.Managers.DefaultImplementations
             prescriptionQuestions.Add(q);
             }
 
-            return prescriptionQuestions;
+
+            //we now have a list of Prescription questions together with any responses against the questions
+            //need a prescription detail mode to bind the form against
+            PrescriptionDetail detail = new PrescriptionDetail();
+            if (prescriptionId != null)
+            {
+                detail.PrescriptionId = prescriptionId;
+            }
+            else
+            {
+                detail.PrescriptionId = null;
+            }
+
+            detail.LoanId = loanId;
+            detail.Questions = prescriptionQuestions;
+
+            return detail;
         }
 
         private static List<EquipmentProperty> GetEquipmentPropertyFromDto(IEnumerable<EquipmentPropertyCx> Dto)

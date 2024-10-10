@@ -2,17 +2,17 @@
 @rendermode InteractiveServer
 
 
-    @* <EditForm Model="@loanDetail" OnSubmit="OnSavePrescription"> *@
-
-        @foreach (var qu in prescriptionQuestions)
+<EditForm Model="@detail" OnSubmit="OnSavePrescription">
+    @if(detail.Questions != null)
+    {
+        @foreach (var qu in detail.Questions)
         {
-            <ControlWrapper viewModelProperty=@qu>
-            </ControlWrapper>
+         <ControlWrapper viewModelProperty=@qu>
+         </ControlWrapper>
         }
-
-             
-       @*  <button Type="submit" class="btn btn-primary">Save</button> *@
-   @*  </EditForm> *@
+    }
+    <button Type="submit" class="btn btn-primary">Save</button>
+</EditForm>
 
 
    

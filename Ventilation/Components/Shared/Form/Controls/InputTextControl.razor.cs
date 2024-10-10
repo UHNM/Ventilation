@@ -13,13 +13,13 @@ namespace Ventilation.Components.Shared.Form.Controls
 
         public string? controlType { get; set; }
         public string? controlLabel { get; set; }
-        public string? controlValue { get; set; }
+        
 
         protected override void  OnInitialized()
         {
             controlType = viewModelProperty.uiControlType;
             controlLabel = viewModelProperty.DisplayName;
-            controlValue = viewModelProperty.ResponseString;
+           
         }
     }
 }
