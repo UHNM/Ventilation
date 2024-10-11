@@ -1,3 +1,18 @@
-﻿<h3>ConsumableWrapper</h3>
+﻿@using Ventilation.Components.Shared
+@rendermode @(new InteractiveServerRenderMode(prerender:false));
+
+<div class="container">
+    <div>
+        Loan: @paramLoan.EquipmentName (@paramLoan.ClinicalReference)
+    </div>
+    <div>
+        <Button Color="ButtonColor.Success" Size="ButtonSize.Small" @onclick="OnAddConsumableClick">
+            <Icon Name="IconName.PostcardFill"></Icon>
+        </Button>
+    </div>
+</div>
 
 
+    <CascadingValue Value="@UserClickedAdd">
+    <ConsumableList paramConsumables=@loanConsumables paramIsEdit="true" ></ConsumableList>
+    </CascadingValue>
