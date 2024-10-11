@@ -153,5 +153,11 @@ namespace BAL.Managers.DefaultImplementations
             }
             return null;
         }
+
+        public async Task<int> SavePrescription(PrescriptionDetail prescription)
+        {
+            var dto = await _dynamicResponseRepository.SavePrescription(prescription);
+            return await Task.FromResult(dto);
+        }
     }
 }

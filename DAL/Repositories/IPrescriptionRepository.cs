@@ -1,5 +1,6 @@
 ﻿
 using Domain.Entities.Complex;
+using Domain.Models;
 
 namespace DAL.Repositories
 {
@@ -8,5 +9,8 @@ namespace DAL.Repositories
         Task<IEnumerable<PrescriptionPropertyCx>> GetPrescriptionResponses(int? prescriptionId);
 
         Task<IEnumerable<EquipmentPropertyCx>> GetPrescriptionEquipmentProperties(int? equipmentId);
+
+        Task<int> SavePrescription(PrescriptionDetail prescription);
     }
+
 }

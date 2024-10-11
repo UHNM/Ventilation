@@ -1,5 +1,6 @@
 ﻿using DAL.Contexts;
 using Domain.Entities.Complex;
+using Domain.Models;
 
 namespace DAL.Repositories.DefaultImplementations
 {
@@ -153,6 +154,21 @@ namespace DAL.Repositories.DefaultImplementations
 
             await Task.Delay(100);
             return await Task.FromResult(EquipProperties);
+        }
+
+        public async Task<int> SavePrescription(PrescriptionDetail prescription)
+        {
+            //if the prescription already has an Id , then update, otherwise insert
+            //return the new Id to the front end
+
+            int Id = 1000;
+
+            await Task.Delay(200);
+            return Id;
+
+
+
+
         }
 
     }

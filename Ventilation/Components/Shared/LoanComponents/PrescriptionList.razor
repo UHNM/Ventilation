@@ -37,7 +37,7 @@
 
     @if (prescriptionSelected != null && paramLoan != null)
     {
-        <PrescriptionForm paramPrescription="@prescriptionSelected"></PrescriptionForm>
+        <PrescriptionForm paramPrescription="@prescriptionSelected" OnPrescriptionChanged="OnPrescriptionChanged"></PrescriptionForm>
     }
     else
     {

@@ -1,5 +1,6 @@
 using BAL.Managers;
 using BAL.Managers.DefaultImplementations;
+using BlazorBootstrap;
 using Domain.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
@@ -18,8 +19,11 @@ namespace Ventilation.Components.Shared.LoanComponents
         [Inject]
         IPrescriptionManager _prescriptionManager { get; set; }
 
-        // List<PrescriptionQuestion> prescriptionQuestions = new();
+        List<ToastMessage> messages = new List<ToastMessage>();
         PrescriptionDetail detail = new();
+
+        [Parameter]
+        public EventCallback<int?> OnPrescriptionChanged { get; set; }
 
         //to delete
         public Loan? loanDetail = new();
@@ -43,10 +47,28 @@ namespace Ventilation.Components.Shared.LoanComponents
         private async Task OnSavePrescription(EditContext context)
         {
             //save the prescription
-            var tt = "";
+            int? Id = await _prescriptionManager.SavePrescription((PrescriptionDetail)context.Model);
+
+            //show Toast
+            ShowMessage(ToastType.Success);
+
+            //let the parent component know to refresh the prescription lisr
+            await OnPrescriptionChanged.InvokeAsync(Id);
+           
         }
 
-      
+
+
+        private void ShowMessage(ToastType toastType) => messages.Add(CreateSaveMessage(toastType));
+
+        private ToastMessage CreateSaveMessage(ToastType toastType)
+    => new ToastMessage
+    {
+        Type = toastType,
+        Message = $"Prescription Saved!",
+    }
+    ;
+
 
     }
 }

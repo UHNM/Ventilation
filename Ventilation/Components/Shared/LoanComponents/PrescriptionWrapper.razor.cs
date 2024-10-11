@@ -51,12 +51,24 @@ namespace Ventilation.Components.Shared.LoanComponents
         protected async Task PrescriptionSelected(Prescription? p)
         {
             await Task.Delay(100);
-
             StateHasChanged();
-           
+        }
 
+
+        //Event callback from child component after saving the prescription form
+        protected async Task OnPrescriptionListChanged(int? PrescriptionId)
+        {
+            if (PrescriptionId != null)
+            {
+                StateHasChanged();
+                
+                //user has updated or created a new prescription so refresh the data
+                loanPrescriptions = await _loanManager.GetPrescriptionsForALoan(paramLoan.LoanId);
+            }
 
         }
+
+
 
     }
 }

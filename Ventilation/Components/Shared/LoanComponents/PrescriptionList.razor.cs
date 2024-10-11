@@ -1,5 +1,6 @@
 using BAL.Managers;
 using BAL.Managers.DefaultImplementations;
+using BlazorBootstrap;
 using Domain.Models;
 using Microsoft.AspNetCore.Components;
 
@@ -21,6 +22,9 @@ namespace Ventilation.Components.Shared.LoanComponents
 
         [Parameter]
         public EventCallback<Prescription?> OnPrescriptionSelected { get; set; }
+
+        [Parameter]
+        public EventCallback<int?> OnPrescriptionListChanged { get; set; }
 
         Prescription? prescriptionSelected = new();
 
@@ -46,7 +50,19 @@ namespace Ventilation.Components.Shared.LoanComponents
 
         }
 
-        
+        //Event callback from child component after saving the prescription form
+        protected async Task OnPrescriptionChanged(int? PrescriptionId)
+        {
+            if (PrescriptionId != null)
+            {
+                StateHasChanged();
+                //let the parent component know to refresh the prescription lisr
+                await OnPrescriptionListChanged.InvokeAsync(PrescriptionId);
+            }
+
+        }
+
+
 
     }
 }
