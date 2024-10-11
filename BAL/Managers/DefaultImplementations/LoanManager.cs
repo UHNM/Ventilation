@@ -22,6 +22,12 @@ namespace BAL.Managers.DefaultImplementations
             return await Task.FromResult(GetPrescriptionFromDto(dto));
         }
 
+        public async Task<List<Consumable>> GetConsumablesForALoan(int? loanId)
+        {
+            var dto = await _dynamicResponseRepository.GetConsumablesForALoan(loanId);
+            return await Task.FromResult(GetConsumableFromDto(dto));
+        }
+
         private static List<Prescription> GetPrescriptionFromDto(IEnumerable<PrescriptionCx> Dto)
         {
             if (Dto != null)
@@ -39,6 +45,33 @@ namespace BAL.Managers.DefaultImplementations
                 }
 
                 return prescriptions;
+            }
+            return null;
+        }
+
+        private static List<Consumable> GetConsumableFromDto(IEnumerable<ConsumableCx> Dto)
+        {
+            if (Dto != null)
+            {
+                List<Consumable> consumables = new List<Consumable>();
+
+                foreach (ConsumableCx consumable in Dto)
+                {
+                    Consumable c = new Consumable();
+                    c.Id = consumable.Id;
+                    c.EquipmentId = consumable.EquipmentId;
+                    c.EquipmentName = consumable.EquipmentName;
+                    c.EquipmentType = consumable.EquipmentType;
+                    c.LoanId = consumable.LoanId;
+                    c.ConsumableDate = consumable.ConsumableDate;
+                    c.SupplierName = consumable.SupplierName;
+                    c.SerialNumber = consumable.SerialNumber;
+                    c.DeliveryMethod = consumable.DeliveryMethod;
+                    c.Comments = consumable.Comments;
+                    consumables.Add(c);
+                }
+
+                return consumables;
             }
             return null;
         }

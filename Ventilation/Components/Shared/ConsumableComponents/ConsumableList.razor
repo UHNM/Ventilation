@@ -1,0 +1,64 @@
+﻿@using Ventilation.Components.Shared.ConsumableComponents
+@if (paramConsumables != null)
+{
+    @if (paramConsumables.Count != 0)
+    {
+        <div class="border border-dark">
+            <div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            Date Given
+                        </div>
+                        <div class="col-sm-2">
+                            Type
+                        </div>
+                        <div class="col-sm-2">
+                            Name
+                        </div>
+                        <div class="col-sm-2">
+                            Delivery Method
+                        </div>
+
+
+                        @if (paramIsEdit == true)
+                        {
+                            <div class="col-sm-2">
+                                Edit
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+              
+
+                @foreach (var c in paramConsumables)
+                {
+                   <ConsumableItem paramConsumable=@c paramIsEdit=false></ConsumableItem>
+                }
+            </div>
+        </div>
+    }
+
+   @*  @if (prescriptionSelected != null && paramLoan != null)
+    {
+        <PrescriptionForm paramPrescription="@prescriptionSelected" OnPrescriptionChanged="OnPrescriptionChanged"></PrescriptionForm>
+    }
+    else
+    {
+        @if (paramLoan != null && UserClickedAdd == true)
+        {
+            <PrescriptionForm paramPrescription="@null"></PrescriptionForm>
+
+        }
+    } *@
+
+}
+
+
+
+
+
+
+

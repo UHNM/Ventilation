@@ -20,6 +20,7 @@ namespace Ventilation.Components.Shared.PatientComponents
         [Inject]
         ILoanManager _loanManager { get; set; }
         List<Prescription> loanPrescriptions = new();
+        List<Consumable> loanConsumables = new();
 
         Tabs tabs = default!;
         private Modal modal = default!;
@@ -29,7 +30,7 @@ namespace Ventilation.Components.Shared.PatientComponents
         protected override async Task OnInitializedAsync()
         {
             loanPrescriptions = await _loanManager.GetPrescriptionsForALoan(loan.LoanId);
-
+            loanConsumables = await _loanManager.GetConsumablesForALoan(loan.LoanId);
 
         }
 

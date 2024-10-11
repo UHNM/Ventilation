@@ -19,6 +19,7 @@ builder.Services.AddScoped<IPatientRepository, PatientRepository>();
 builder.Services.AddScoped<IStockRepository, StockRepository>();
 builder.Services.AddScoped<ILoanRepository, LoanRepository>();
 builder.Services.AddScoped<IPrescriptionRepository, PrescriptionRepository>();
+builder.Services.AddScoped<IConsumableRepository, ConsumableRepository>();
 
 
 //Managers
@@ -28,6 +29,7 @@ builder.Services.AddScoped<IPatientManager, PatientManager>();
 builder.Services.AddScoped<IStockManager, StockManager>();
 builder.Services.AddScoped<ILoanManager, LoanManager>();
 builder.Services.AddScoped<IPrescriptionManager, PrescriptionManager>();
+builder.Services.AddScoped<IConsumableManager, ConsumableManager>();
 
 
 builder.Services.AddLocalization();

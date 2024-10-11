@@ -1,4 +1,6 @@
 ﻿@using Ventilation.Components.Shared
+@using Ventilation.Components.Shared.ConsumableComponents
+
 @rendermode @(new InteractiveServerRenderMode(prerender:false));
 
 <Tabs EnableFadeEffect="true" @ref="tabs" NavStyle="NavStyle.Underline">
@@ -51,7 +53,7 @@
         </TitleTemplate>
         <Content>
             <br />
-            <h3>This is the consumables tab</h3>
+           <ConsumableWrapper></ConsumableWrapper>
 
         </Content>
     </Tab>
