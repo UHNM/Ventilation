@@ -11,10 +11,12 @@ namespace Ventilation.Components.Shared.ConsumableComponents
         [Parameter]
         public bool? paramIsEdit { get; set; }
 
+        [Parameter]
+        public EventCallback<Consumable?> OnConsumableSelected { get; set; }
+
         private async Task OnEditConsumableClick()
         {
-            await Task.Delay(100);
-         //  await OnPrescriptionSelected.InvokeAsync(paramPrescription);
+           await OnConsumableSelected.InvokeAsync(paramConsumable);
         }
 
     }

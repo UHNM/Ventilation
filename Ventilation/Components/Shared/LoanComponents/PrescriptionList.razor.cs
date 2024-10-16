@@ -31,13 +31,8 @@ namespace Ventilation.Components.Shared.LoanComponents
         protected override async Task OnInitializedAsync()
         {
             prescriptionSelected = null;
-            
-        }
+            await Task.Delay(100);
 
-
-        protected override async Task OnParametersSetAsync()
-        {
-            
         }
 
         //Event callback from child component after saving additional information

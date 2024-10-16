@@ -64,8 +64,11 @@
                         </TitleTemplate>
                         <Content>
                             <br />
-                            <ConsumableList paramConsumables=@loanConsumables paramIsEdit="false"></ConsumableList>
-
+                             <CascadingValue Value="@loan">
+                                <CascadingValue Value="false">
+                                    <ConsumableList paramConsumables=@loanConsumables paramIsEdit="false"></ConsumableList>
+                                </CascadingValue>
+                            </CascadingValue>
 
 
                         </Content>

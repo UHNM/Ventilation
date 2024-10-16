@@ -35,24 +35,24 @@
 
                 @foreach (var c in paramConsumables)
                 {
-                   <ConsumableItem paramConsumable=@c paramIsEdit=false></ConsumableItem>
+                    <ConsumableItem paramConsumable=@c paramIsEdit=@paramIsEdit OnConsumableSelected="ConsumableSelected"></ConsumableItem>
                 }
             </div>
         </div>
     }
 
-   @*  @if (prescriptionSelected != null && paramLoan != null)
+    @if (consumableSelected != null && paramLoan != null)
     {
-        <PrescriptionForm paramPrescription="@prescriptionSelected" OnPrescriptionChanged="OnPrescriptionChanged"></PrescriptionForm>
+        <ConsumableForm paramConsumable="@consumableSelected" ></ConsumableForm>
     }
     else
     {
         @if (paramLoan != null && UserClickedAdd == true)
         {
-            <PrescriptionForm paramPrescription="@null"></PrescriptionForm>
+            <ConsumableForm paramConsumable="@null"></ConsumableForm>
 
         }
-    } *@
+    }
 
 }
 

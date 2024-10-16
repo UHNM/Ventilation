@@ -18,7 +18,6 @@ namespace Ventilation.Components.Shared.LoanComponents
 
         private async Task OnEditPrescriptionClick()
         {
-           
             await OnPrescriptionSelected.InvokeAsync(paramPrescription);
         }
 

@@ -38,5 +38,11 @@ namespace Ventilation.Components.Shared.ConsumableComponents
             await Task.Delay(100);
             UserClickedAdd = true;
         }
+
+        protected async Task ConsumableSelected(Consumable? c)
+        {
+            await Task.Delay(100);
+            StateHasChanged();
+        }
     }
 }
