@@ -52,7 +52,7 @@ namespace Ventilation.Components.Shared.ConsumableComponents
             {
                 StateHasChanged();
 
-                //user has updated or created a new consumable so refresh the data
+                //user has updated or created a new consumable so refresh the data...
                 loanConsumables = await _loanManager.GetConsumablesForALoan(paramLoan.LoanId);
             }
 
