@@ -35,7 +35,7 @@ namespace Ventilation.Components.Shared.LoanComponents
             {
                 //if an edit, pass in the prescription id
                 detail = await _prescriptionManager.GetPrescriptionQuestions(paramPrescription.EquipmentId, paramPrescription.Id, paramLoan.LoanId);
-                var xx = "";
+              
             }
             else
             {

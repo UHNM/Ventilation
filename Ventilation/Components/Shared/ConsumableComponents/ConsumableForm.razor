@@ -1,3 +1,36 @@
-﻿<h3>ConsumableForm</h3>
+﻿@rendermode InteractiveServer
 
+<EditForm Model="@consumableDetail" OnSubmit="OnSaveConsumable">
+    <br/>
+    
+    <div class="form-group mb-1">
+        <label>Type</label>
+        <InputText id="equipmentType" class="form-control" @bind-Value="@consumableDetail.EquipmentType"></InputText>
+    </div>
+
+    <div class="form-group mb-1">
+        <label>Name</label>
+        <InputText id="equipmentName" class="form-control" @bind-Value="@consumableDetail.EquipmentName"></InputText>
+    </div>
+
+    <div class="form-group mb-1">
+        <label>Delivery Method</label>
+        <InputText id="equipmentName" class="form-control" @bind-Value="@consumableDetail.DeliveryMethod"></InputText>
+    </div>
+
+
+    <div class="form-group mb-1">
+        <label>Consumable Date</label>
+        <InputDate id="consumableDate" class="form-control" @bind-Value="@consumableDetail.ConsumableDate"></InputDate>
+    </div>
+
+    <div class="form-group mb-1">
+        <label>Comments</label>
+        <InputTextArea id="comments" class="form-control" @attributes="inputTextAreaAttributesComments" @bind-Value="@consumableDetail.Comments"></InputTextArea>
+    </div>
+    
+    <div>
+     <button Type="submit" class="btn btn-primary pull-right">Save</button>
+    </div>
+</EditForm>
 
