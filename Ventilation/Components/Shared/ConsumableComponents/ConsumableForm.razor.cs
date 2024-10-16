@@ -9,7 +9,7 @@ namespace Ventilation.Components.Shared.ConsumableComponents
 {
     public partial class ConsumableForm
     {
-        [CascadingParameter]
+        [Parameter]
         public Loan? paramLoan { get; set; }
 
         [Parameter]
@@ -22,7 +22,12 @@ namespace Ventilation.Components.Shared.ConsumableComponents
         public EventCallback<int?> OnConsumableChanged { get; set; }
 
         List<ToastMessage> messages = new List<ToastMessage>();
-        Consumable consumableDetail = new();
+        ConsumableDetail consumableDetail = new();
+        Consumable? consumable = new Consumable();
+        List<EquipmentType> typeOptions = new List<EquipmentType>();
+        List<LookUp> deliveryOptions = new List<LookUp>();
+        List<EquipmentBase> equipOptions = new List<EquipmentBase>();
+
 
         //[Parameter]
         //public EventCallback<int?> OnConsumableChanged { get; set; }
@@ -30,23 +35,33 @@ namespace Ventilation.Components.Shared.ConsumableComponents
 
         protected override async Task OnInitializedAsync()
         {
+            consumable = null;
             //TODO: remove all the task.Delays!!
             await Task.Delay(100);
             inputTextAreaAttributesComments.Add("rows", "4");
             inputTextAreaAttributesComments.Add("cols", "120");
 
-
-
+          
             if (paramConsumable != null)
             {
                 //if an edit, pass in the prescription id
-                consumableDetail = await _consumableManager.GetConsumable(paramConsumable.Id);
-               
+                consumableDetail = await _consumableManager.GetConsumable(paramConsumable.Id, paramLoan.LoanId);
+                
+                //TODO: Are we storing Lookup values as key or just the text???
+                consumable = consumableDetail.ConsumableSummary;
+                typeOptions = consumableDetail.EquipmentTypes;
+                deliveryOptions = consumableDetail.DeliveryMethods;
+                equipOptions = consumableDetail.EquipmentList;
             }
             else
             {
                 //if new then won't have a prescription so pass the equipment id from the loan and leave the prescription Id as null
-              //  detail = await _prescriptionManager.GetPrescriptionQuestions(paramLoan.EquipmentId, null, paramLoan.LoanId);
+                consumableDetail = await _consumableManager.GetConsumable(null, paramLoan.LoanId);
+                consumable = consumableDetail.ConsumableSummary;
+                typeOptions = consumableDetail.EquipmentTypes;
+                deliveryOptions = consumableDetail.DeliveryMethods;
+                equipOptions = consumableDetail.EquipmentList;
+
             }
         }
 
@@ -55,12 +70,7 @@ namespace Ventilation.Components.Shared.ConsumableComponents
         private async Task OnSaveConsumable(EditContext context)
         {
             Task.Delay(100);
-
-           
-
             int? Id = await _consumableManager.SaveConsumable((Consumable)context.Model);
-
-         
             await OnConsumableChanged.InvokeAsync(Id);
 
         }

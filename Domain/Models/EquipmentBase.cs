@@ -8,6 +8,6 @@ namespace Domain.Models
         public string? EquipmentType { get; set; }
         public string? SerialNumber { get; set; }
         public string? SupplierName { get; set; }
-
+        public int? EquipmentTypeId { get; set; }
     }
 }

@@ -5,7 +5,9 @@ namespace DAL.Repositories
 {
     public interface IConsumableRepository
     {
-        Task<ConsumableCx> GetConsumable(int consumableId);
+        //covers a get for both new and edit, if a new, we won't have a consumable Id
+
+        Task<ConsumableDetailCx> GetConsumable(int? consumableId, int? loanId);
 
         Task<int> SaveConsumable(Consumable consumable);
 

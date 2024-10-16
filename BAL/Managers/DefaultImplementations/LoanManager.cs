@@ -62,6 +62,7 @@ namespace BAL.Managers.DefaultImplementations
                     c.EquipmentId = consumable.EquipmentId;
                     c.EquipmentName = consumable.EquipmentName;
                     c.EquipmentType = consumable.EquipmentType;
+                    c.EquipmentTypeId = consumable.EquipmentTypeId;
                     c.LoanId = consumable.LoanId;
                     c.ConsumableDate = consumable.ConsumableDate;
                     c.SupplierName = consumable.SupplierName;

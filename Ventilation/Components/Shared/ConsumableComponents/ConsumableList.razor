@@ -43,13 +43,13 @@
 
     @if (consumableSelected != null && paramLoan != null)
     {
-        <ConsumableForm paramConsumable="@consumableSelected" OnConsumableChanged="OnConsumableChanged"></ConsumableForm>
+        <ConsumableForm paramLoan="@paramLoan" paramConsumable="@consumableSelected" OnConsumableChanged="OnConsumableChanged"></ConsumableForm>
     }
     else
     {
         @if (paramLoan != null && UserClickedAdd == true)
         {
-            <ConsumableForm paramConsumable="@null" OnConsumableChanged="OnConsumableChanged"></ConsumableForm>
+            <ConsumableForm paramLoan="@paramLoan" paramConsumable="@null" OnConsumableChanged="OnConsumableChanged"></ConsumableForm>
 
         }
     }

@@ -49,6 +49,7 @@ namespace DAL.Repositories.DefaultImplementations
             c.SupplierName = "Siemens";
             c.SerialNumber = "serial1";
             c.EquipmentType = "Mask";
+            c.EquipmentTypeId = 80;
             c.DeliveryMethod = "Courier";
             c.Comments = "I can add a comment to say that the courier was Royal Mail";
       
@@ -61,6 +62,7 @@ namespace DAL.Repositories.DefaultImplementations
             c1.SupplierName = "phillips";
             c1.SerialNumber = "122345";
             c1.EquipmentType = "Tubing";
+            c1.EquipmentTypeId = 81;
             c1.DeliveryMethod = "Post";
             c1.Comments = "sent to home address";
 
@@ -73,6 +75,7 @@ namespace DAL.Repositories.DefaultImplementations
             c2.SupplierName = "phillips";
             c2.SerialNumber = "465456456";
             c2.EquipmentType = "Filter";
+            c2.EquipmentTypeId = 82;
             c2.DeliveryMethod = "Collected";
             c2.Comments = "ward staff will coolect, patient is taking home with them";
 

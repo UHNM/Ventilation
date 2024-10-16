@@ -5,7 +5,7 @@ namespace BAL.Managers
 {
     public interface IConsumableManager
     {
-        Task<Consumable> GetConsumable(int consumableId);
+        Task<ConsumableDetail> GetConsumable(int? consumableId, int? loanId);
         Task<int> SaveConsumable(Consumable consumabe);
 
     }

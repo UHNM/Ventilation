@@ -42,7 +42,7 @@ namespace DAL.Repositories.DefaultImplementations
             s.LoanDate = new DateTime(2024, 3, 16);
             s.PatientId = 111111;
             s.EquipmentType = "Ventilator";
-
+            s.EquipmentTypeId = 50;
             LoanCx s1 = new LoanCx();
             s1.LoanId = 2;
             s1.SerialNumber = "Serial 2";
@@ -50,6 +50,7 @@ namespace DAL.Repositories.DefaultImplementations
             s1.StockId = 1;
             s1.EquipmentId = 2;
             s1.EquipmentType = "Ventilator";
+            s.EquipmentTypeId = 50;
             s1.ClinicalReference = "Clin Ref 2";
             s1.LoanDate = new DateTime(2024, 10, 30);
             s1.PatientId = 111111;
@@ -88,6 +89,7 @@ namespace DAL.Repositories.DefaultImplementations
             s2.SerialNumber = "Serial 3";
             s2.EquipmentName = "Neb 1";
             s1.EquipmentType = "Ventilator";
+            s.EquipmentTypeId = 50;
             s2.StockId = 555;
             s2.EquipmentId = 2;
             s2.ClinicalReference = "Clin Ref 33232";
@@ -99,6 +101,7 @@ namespace DAL.Repositories.DefaultImplementations
             s3.SerialNumber = "Serial 4";
             s3.EquipmentName = "A different Vent";
             s3.EquipmentType = "Ventilator";
+            s.EquipmentTypeId = 50;
             s3.StockId = 45645;
             s3.EquipmentId = 2;
             s3.ClinicalReference = "Clin Ref 5345345";
@@ -110,6 +113,7 @@ namespace DAL.Repositories.DefaultImplementations
             s4.SerialNumber = "Serial 5";
             s4.EquipmentName = "Nippy 1000";
             s4.EquipmentType = "Ventilator";
+            s.EquipmentTypeId = 50;
             s4.StockId = 1;
             s4.EquipmentId = 2;
             s4.ClinicalReference = "Clin Ref 99999";

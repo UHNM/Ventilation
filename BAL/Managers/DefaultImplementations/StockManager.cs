@@ -34,6 +34,7 @@ namespace BAL.Managers.DefaultImplementations
                     s.ClinicalReference = stock.ClinicalReference;
                     s.EquipmentId = stock.EquipmentId;
                     s.EquipmentType = stock.EquipmentType;
+                    s.EquipmentTypeId = stock.EquipmentTypeId;
                     s.EquipmentName = stock.EquipmentName;
                     s.SupplierName = stock.SupplierName;
                     s.SerialNumber = stock.SerialNumber;

@@ -152,6 +152,7 @@ namespace DAL.Repositories.DefaultImplementations
             s.LoanDate = new DateTime(2024, 3, 16);
             s.PatientId = 111111;
             s.EquipmentType = "Ventilator";
+            s.EquipmentTypeId = 50;
             s.ServiceDate = new DateTime(2026, 3, 25);
 
             LoanCx s1 = new LoanCx();
@@ -161,6 +162,7 @@ namespace DAL.Repositories.DefaultImplementations
             s1.StockId = 2;
             s1.EquipmentId = 2;
             s1.EquipmentType = "Ventilator";
+            s.EquipmentTypeId = 50;
             s1.ClinicalReference = "Clin Ref 2";
             s1.LoanDate = new DateTime(2024, 10, 30);
             s1.PatientId = 111111;
@@ -171,6 +173,7 @@ namespace DAL.Repositories.DefaultImplementations
             s4.SerialNumber = "Serial 5";
             s4.EquipmentName = "Some Nebulizer";
             s4.EquipmentType = "Nebulizer";
+            s.EquipmentTypeId = 51;
             s4.StockId = 3;
             s4.EquipmentId = 2;
             s4.ClinicalReference = "Clin Ref 99999";

@@ -49,7 +49,7 @@ namespace Ventilation.Components.Shared.ConsumableComponents
             {
                 StateHasChanged();
                 //let the parent component know to refresh the prescription lisr
-                await OnConsumableListChanged.InvokeAsync(ConsumableId);
+         //       await OnConsumableListChanged.InvokeAsync(ConsumableId);
             }
 
         }

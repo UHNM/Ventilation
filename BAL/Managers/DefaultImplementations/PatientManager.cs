@@ -135,6 +135,7 @@ namespace BAL.Managers.DefaultImplementations
                         s.ServiceDate = loan.ServiceDate;
                         s.LoanDate = loan.LoanDate;
                         s.EquipmentType = loan.EquipmentType;
+                        s.EquipmentTypeId = loan.EquipmentTypeId;
                         s.SupplierName = loan.SupplierName;
                         Loans.Add(s);
                     }

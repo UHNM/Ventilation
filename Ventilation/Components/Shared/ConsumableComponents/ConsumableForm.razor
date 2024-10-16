@@ -1,36 +1,69 @@
 ﻿@rendermode InteractiveServer
+<h3></h3>
 
-<EditForm Model="@consumableDetail" OnSubmit="OnSaveConsumable">
     <br/>
-    
-    <div class="form-group mb-1">
-        <label>Type</label>
-        <InputText id="equipmentType" class="form-control" @bind-Value="@consumableDetail.EquipmentType"></InputText>
-    </div>
+    @if (@consumable != null)
+    {
+    <EditForm Model="@consumableDetail" OnSubmit="OnSaveConsumable">
+        
+        <div class="form-group mb-1">
+            <label>Type</label>
+            <InputSelect class="form-control" @bind-Value=@consumable.EquipmentTypeId>
+                @if (typeOptions != null)
+                {
+                    @foreach (var option in typeOptions)
+                    {
+                        <option value=@option.Id>@option.EquipmentTypeName</option>
+                    }
+                }
+            </InputSelect>
 
-    <div class="form-group mb-1">
-        <label>Name</label>
-        <InputText id="equipmentName" class="form-control" @bind-Value="@consumableDetail.EquipmentName"></InputText>
-    </div>
+           
+        </div>
 
-    <div class="form-group mb-1">
-        <label>Delivery Method</label>
-        <InputText id="equipmentName" class="form-control" @bind-Value="@consumableDetail.DeliveryMethod"></InputText>
-    </div>
+        <div class="form-group mb-1">
+            <label>Name</label>
+            <InputSelect class="form-control" @bind-Value=@consumable.EquipmentId>
+                @if (equipOptions != null)
+                {
+                    @foreach (var option in equipOptions)
+                    {
+                        <option value=@option.EquipmentId>@option.EquipmentName</option>
+                    }
+                }
+            </InputSelect>
+           @*  <InputText id="equipmentName" class="form-control" @bind-Value="@consumable.EquipmentName"></InputText> *@
+        </div>
+
+        <div class="form-group mb-1">
+            <label>Delivery Method</label>
+            <InputSelect class="form-control" @bind-Value=@consumable.DeliveryMethod>
+                @if (deliveryOptions != null)
+                {
+                    @foreach (var option in deliveryOptions)
+                    {
+                        <option value=@option.Value>@option.Value</option>
+                    }
+                }
+            </InputSelect>
+           @*  <InputText id="equipmentName" class="form-control" @bind-Value="@consumable.DeliveryMethod"></InputText> *@
+        </div>
 
 
-    <div class="form-group mb-1">
-        <label>Consumable Date</label>
-        <InputDate id="consumableDate" class="form-control" @bind-Value="@consumableDetail.ConsumableDate"></InputDate>
-    </div>
+        <div class="form-group mb-1">
+            <label>Consumable Date</label>
+            <InputDate id="consumableDate" class="form-control" @bind-Value="@consumable.ConsumableDate"></InputDate>
+        </div>
 
-    <div class="form-group mb-1">
-        <label>Comments</label>
-        <InputTextArea id="comments" class="form-control" @attributes="inputTextAreaAttributesComments" @bind-Value="@consumableDetail.Comments"></InputTextArea>
-    </div>
-    
-    <div>
-     <button Type="submit" class="btn btn-primary pull-right">Save</button>
-    </div>
-</EditForm>
+        <div class="form-group mb-1">
+            <label>Comments</label>
+            <InputTextArea id="comments" class="form-control" @attributes="inputTextAreaAttributesComments" @bind-Value="@consumable.Comments"></InputTextArea>
+        </div>
+
+        <div>
+            <button Type="submit" class="btn btn-primary pull-right">Save</button>
+        </div>
+    </EditForm>
+    }
+
 

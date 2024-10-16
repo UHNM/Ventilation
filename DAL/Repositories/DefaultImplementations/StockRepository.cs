@@ -22,6 +22,7 @@ namespace DAL.Repositories.DefaultImplementations
             s.ClinicalReference = "XYZ 123";
             s.EquipmentId = 2;
             s.EquipmentType = "Ventilator";
+            s.EquipmentTypeId = 50;
             s.EquipmentName = "Stellar";
             s.SupplierName = "Phillips";
             s.SerialNumber = "999";
@@ -32,6 +33,7 @@ namespace DAL.Repositories.DefaultImplementations
             s1.ClinicalReference = "XYZ 456";
             s1.EquipmentId = 3;
             s1.EquipmentType = "Ventilator";
+            s.EquipmentTypeId = 50;
             s1.EquipmentName = "Nippy 1000";
             s1.SupplierName = "Siemens";
             s1.SerialNumber = "888";
