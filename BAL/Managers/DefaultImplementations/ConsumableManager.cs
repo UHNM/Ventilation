@@ -2,6 +2,7 @@
 using DAL.Repositories;
 using Domain.Entities.Complex;
 using Domain.Models;
+using System.Runtime.Versioning;
 
 namespace BAL.Managers.DefaultImplementations
 {
@@ -43,6 +44,12 @@ namespace BAL.Managers.DefaultImplementations
                 return Consumable;
             }
             return null;
+        }
+
+        public async Task<int> SaveConsumable(Consumable consumable)
+        {
+            var dto = await _dynamicResponseRepository.SaveConsumable(consumable);
+            return await Task.FromResult(dto);
         }
     }
 }

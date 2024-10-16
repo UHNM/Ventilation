@@ -21,6 +21,9 @@ namespace Ventilation.Components.Shared.ConsumableComponents
         [Parameter]
         public EventCallback<Consumable?> OnConsumableSelected { get; set; }
 
+        [Parameter]
+        public EventCallback<int?> OnConsumableListChanged { get; set; }
+
         Consumable? consumableSelected = new();
 
         protected override async Task OnInitializedAsync()
@@ -36,6 +39,18 @@ namespace Ventilation.Components.Shared.ConsumableComponents
             StateHasChanged();
             await OnConsumableSelected.InvokeAsync(c);
 
+
+        }
+
+        //Event callback from child component after saving the prescription form
+        protected async Task OnConsumableChanged(int? ConsumableId)
+        {
+            if (ConsumableId != null)
+            {
+                StateHasChanged();
+                //let the parent component know to refresh the prescription lisr
+                await OnConsumableListChanged.InvokeAsync(ConsumableId);
+            }
 
         }
 

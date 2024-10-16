@@ -44,5 +44,18 @@ namespace Ventilation.Components.Shared.ConsumableComponents
             await Task.Delay(100);
             StateHasChanged();
         }
+
+        //Event callback from child component after saving the consumable form
+        protected async Task OnConsumableListChanged(int? ConsumableId)
+        {
+            if (ConsumableId != null)
+            {
+                StateHasChanged();
+
+                //user has updated or created a new consumable so refresh the data
+                loanConsumables = await _loanManager.GetConsumablesForALoan(paramLoan.LoanId);
+            }
+
+        }
     }
 }

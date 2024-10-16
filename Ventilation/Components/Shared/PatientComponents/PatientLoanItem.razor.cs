@@ -48,5 +48,30 @@ namespace Ventilation.Components.Shared.PatientComponents
             await modal.HideAsync();
         }
 
+        //Event callback from child component after saving the prescription form
+        protected async Task OnPrescriptionListChanged(int? PrescriptionId)
+        {
+            if (PrescriptionId != null)
+            {
+                StateHasChanged();
+
+                //user has updated or created a new prescription so refresh the data
+                loanPrescriptions = await _loanManager.GetPrescriptionsForALoan(loan.LoanId);
+            }
+
+        }
+
+        protected async Task OnConsumableListChanged(int? ConsumableId)
+        {
+            if (ConsumableId != null)
+            {
+                StateHasChanged();
+
+                //user has updated or created a new consumable so refresh the data
+                loanConsumables = await _loanManager.GetConsumablesForALoan(loan.LoanId);
+            }
+
+        }
+
     }
 }

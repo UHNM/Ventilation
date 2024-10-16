@@ -18,6 +18,9 @@ namespace Ventilation.Components.Shared.ConsumableComponents
         [Inject]
         IConsumableManager _consumableManager { get; set; }
 
+        [Parameter]
+        public EventCallback<int?> OnConsumableChanged { get; set; }
+
         List<ToastMessage> messages = new List<ToastMessage>();
         Consumable consumableDetail = new();
 
@@ -53,18 +56,12 @@ namespace Ventilation.Components.Shared.ConsumableComponents
         {
             Task.Delay(100);
 
-            //The internalPatientId will always be populated, but if the id is null its an insert, otherwise an update
-            //string message = "New Patient Added!";
+           
 
-            //if (PatientDetail.Id != null)
-            //{
-            //    message = "Patient Updated!";
-            //}
-
-            //int? Id = await _patientManager.SavePatient((PatientDetail)context.Model);
+            int? Id = await _consumableManager.SaveConsumable((Consumable)context.Model);
 
          
-            //await OnPatientSaved.InvokeAsync(Id);
+            await OnConsumableChanged.InvokeAsync(Id);
 
         }
 
