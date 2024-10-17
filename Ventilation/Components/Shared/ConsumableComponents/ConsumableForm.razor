@@ -1,14 +1,18 @@
 ﻿@rendermode InteractiveServer
-<h3></h3>
 
     <br/>
     @if (@consumable != null)
     {
-    <EditForm Model="@consumableDetail" OnSubmit="OnSaveConsumable">
+    <EditForm Model="@consumable" OnSubmit="OnSaveConsumable">
         
         <div class="form-group mb-1">
             <label>Type</label>
-            <InputSelect class="form-control" @bind-Value=@consumable.EquipmentTypeId>
+            <select class="form-control" @bind=@consumable.EquipmentTypeId @bind:after="OnEquipmentTypeChange">
+                @if (consumable.EquipmentTypeId == null || consumable.EquipmentTypeId == 0)
+                {
+                    <option value="0">-- Choose a Type --</option>
+                }
+               
                 @if (typeOptions != null)
                 {
                     @foreach (var option in typeOptions)
@@ -16,37 +20,39 @@
                         <option value=@option.Id>@option.EquipmentTypeName</option>
                     }
                 }
-            </InputSelect>
+            </select>
 
            
         </div>
 
         <div class="form-group mb-1">
             <label>Name</label>
-            <InputSelect class="form-control" @bind-Value=@consumable.EquipmentId>
-                @if (equipOptions != null)
+            <InputSelect class="form-control" @bind-Value=@consumable.EquipmentId disabled="@(!hasSelectedEquipmentType)">
+                <option value="0">-- Choose a Consumable --</option>
+                @if (filteredEquipOptions != null)
                 {
-                    @foreach (var option in equipOptions)
+                    @foreach (var option in filteredEquipOptions)
                     {
                         <option value=@option.EquipmentId>@option.EquipmentName</option>
                     }
                 }
             </InputSelect>
-           @*  <InputText id="equipmentName" class="form-control" @bind-Value="@consumable.EquipmentName"></InputText> *@
+         
         </div>
 
         <div class="form-group mb-1">
             <label>Delivery Method</label>
             <InputSelect class="form-control" @bind-Value=@consumable.DeliveryMethod>
+                <option value="0">-- Choose a Delivery Method --</option>
                 @if (deliveryOptions != null)
                 {
                     @foreach (var option in deliveryOptions)
                     {
-                        <option value=@option.Value>@option.Value</option>
+                        <option value=@option.Key>@option.Value</option>
                     }
                 }
             </InputSelect>
-           @*  <InputText id="equipmentName" class="form-control" @bind-Value="@consumable.DeliveryMethod"></InputText> *@
+         
         </div>
 
 
@@ -65,5 +71,9 @@
         </div>
     </EditForm>
     }
+
+
+<Toasts class="p-3" Messages="@messages" AutoHide="true" Delay="3000" Placement="ToastsPlacement.BottomRight" />
+
 
 

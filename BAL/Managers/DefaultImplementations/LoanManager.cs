@@ -68,6 +68,7 @@ namespace BAL.Managers.DefaultImplementations
                     c.SupplierName = consumable.SupplierName;
                     c.SerialNumber = consumable.SerialNumber;
                     c.DeliveryMethod = consumable.DeliveryMethod;
+                    c.DeliveryMethodName = consumable.DeliveryMethodName;
                     c.Comments = consumable.Comments;
                     consumables.Add(c);
                 }

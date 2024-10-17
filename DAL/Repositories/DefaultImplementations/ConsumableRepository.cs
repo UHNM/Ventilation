@@ -23,15 +23,15 @@ namespace DAL.Repositories.DefaultImplementations
             //we need drop downs for equipment and delivery method
             //Put a bool in the equipment Table to say if the equipment is a consumable or not
             c.Id = consumableId;
-           // c.EquipmentName = "Facemask - Medium Phillips";
-            c.EquipmentId = 10;
-            c.EquipmentType = "Mask";
+           
+            c.EquipmentId = 11;
             c.EquipmentTypeId = 80;
             c.SerialNumber = null;
-            c.SupplierName = "Phillips";
+            c.SupplierName = null;
             c.ConsumableDate = new DateTime(2024, 10, 15);
             c.LoanId = 1111; //will already have the saved loan Id?
-            c.DeliveryMethod = "Posted";
+            c.DeliveryMethod = 1;
+            c.DeliveryMethodName = "Posted";
             c.Comments = "Some comments about sending the consumable out in the post";
 
             detail.Consumable = c;
@@ -68,7 +68,7 @@ namespace DAL.Repositories.DefaultImplementations
             t1.EquipmentTypeName = "Filter";
 
             EquipmentTypeCx t2 = new EquipmentTypeCx();
-            t2.Id = 81;
+            t2.Id = 82;
             t2.EquipmentTypeName = "Tubing";
 
             EquipmentTypes.Add(t);

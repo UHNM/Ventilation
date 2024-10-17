@@ -5,7 +5,8 @@
         public int? Id                          { get; set; }
         public DateTime ConsumableDate          { get; set; }
         public int? LoanId                      { get; set; }
-        public String? DeliveryMethod           { get; set; }
+        public int? DeliveryMethod              { get; set; }
+        public string? DeliveryMethodName       { get; set; }
         public String? Comments                 { get; set; }
     }
 }

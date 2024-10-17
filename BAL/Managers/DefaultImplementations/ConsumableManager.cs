@@ -44,6 +44,7 @@ namespace BAL.Managers.DefaultImplementations
                 Consumable.ConsumableDate = Dto.Consumable.ConsumableDate;
                 Consumable.LoanId   = Dto.Consumable.LoanId;
                 Consumable.DeliveryMethod = Dto.Consumable.DeliveryMethod;
+                Consumable.DeliveryMethodName = Dto.Consumable.DeliveryMethodName;
                 Consumable.Comments = Dto.Consumable.Comments; 
                 detail.ConsumableSummary = Consumable;
 
