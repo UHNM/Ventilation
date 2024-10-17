@@ -2,11 +2,11 @@ using BAL.Managers;
 using Domain.Models;
 using Microsoft.AspNetCore.Components;
 
-namespace Ventilation.Components.Shared.LoanComponents
+namespace Ventilation.Components.Shared.PrescriptionComponents
 {
     public partial class PrescriptionWrapper
     {
-        [CascadingParameter]
+        [Parameter]
         public Loan? paramLoan { get; set; }
         
        

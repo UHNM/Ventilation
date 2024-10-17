@@ -1,6 +1,5 @@
 using Domain.Models;
 using Microsoft.AspNetCore.Components;
-using System.Reflection;
 
 namespace Ventilation.Components.Shared.ConsumableComponents
 {

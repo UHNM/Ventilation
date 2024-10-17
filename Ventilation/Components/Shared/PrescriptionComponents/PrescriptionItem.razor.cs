@@ -1,9 +1,7 @@
-using BlazorBootstrap;
 using Domain.Models;
 using Microsoft.AspNetCore.Components;
-using Models;
 
-namespace Ventilation.Components.Shared.LoanComponents
+namespace Ventilation.Components.Shared.PrescriptionComponents
 {
     public partial class PrescriptionItem
     {

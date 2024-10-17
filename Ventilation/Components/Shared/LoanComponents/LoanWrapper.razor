@@ -1,5 +1,6 @@
 ﻿@using Ventilation.Components.Shared
 @using Ventilation.Components.Shared.ConsumableComponents
+@using Ventilation.Components.Shared.PrescriptionComponents
 
 @rendermode @(new InteractiveServerRenderMode(prerender:false));
 
@@ -41,9 +42,7 @@
         </TitleTemplate>
         <Content>
             <br />
-            <CascadingValue Value="@paramLoan">
-            <PrescriptionWrapper></PrescriptionWrapper>
-            </CascadingValue>
+            <PrescriptionWrapper paramLoan="@paramLoan"></PrescriptionWrapper>
         </Content>
     </Tab>
 

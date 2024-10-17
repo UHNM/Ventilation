@@ -1,16 +1,14 @@
 using BAL.Managers;
-using BAL.Managers.DefaultImplementations;
 using BlazorBootstrap;
 using Domain.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
-using Models;
 
-namespace Ventilation.Components.Shared.LoanComponents
+namespace Ventilation.Components.Shared.PrescriptionComponents
 {
     public partial class PrescriptionForm
     {
-        [CascadingParameter]
+        [Parameter]
         public Loan? paramLoan { get; set; }
 
         [Parameter]
@@ -35,7 +33,7 @@ namespace Ventilation.Components.Shared.LoanComponents
             {
                 //if an edit, pass in the prescription id
                 detail = await _prescriptionManager.GetPrescriptionQuestions(paramPrescription.EquipmentId, paramPrescription.Id, paramLoan.LoanId);
-              
+
             }
             else
             {
@@ -54,7 +52,7 @@ namespace Ventilation.Components.Shared.LoanComponents
 
             //let the parent component know to refresh the prescription lisr
             await OnPrescriptionChanged.InvokeAsync(Id);
-           
+
         }
 
 

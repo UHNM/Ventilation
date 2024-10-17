@@ -1,14 +1,11 @@
-using BAL.Managers;
-using BAL.Managers.DefaultImplementations;
-using BlazorBootstrap;
 using Domain.Models;
 using Microsoft.AspNetCore.Components;
 
-namespace Ventilation.Components.Shared.LoanComponents
+namespace Ventilation.Components.Shared.PrescriptionComponents
 {
     public partial class PrescriptionList
     {
-        [CascadingParameter]
+        [Parameter]
         public Loan? paramLoan { get; set; }
 
         [CascadingParameter]
@@ -41,7 +38,7 @@ namespace Ventilation.Components.Shared.LoanComponents
             prescriptionSelected = p;
             StateHasChanged();
             await OnPrescriptionSelected.InvokeAsync(p);
-           
+
 
         }
 

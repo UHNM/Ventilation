@@ -1,4 +1,5 @@
-﻿@if (paramPrescriptions != null)
+﻿@using Ventilation.Components.Shared.PrescriptionComponents
+@if (paramPrescriptions != null)
 {
     @if (paramPrescriptions.Count != 0)
     {
@@ -37,13 +38,13 @@
 
     @if (prescriptionSelected != null && paramLoan != null)
     {
-        <PrescriptionForm paramPrescription="@prescriptionSelected" OnPrescriptionChanged="OnPrescriptionChanged"></PrescriptionForm>
+        <PrescriptionForm paramLoan="@paramLoan" paramPrescription="@prescriptionSelected" OnPrescriptionChanged="OnPrescriptionChanged"></PrescriptionForm>
     }
     else
     {
         @if (paramLoan != null && UserClickedAdd == true)
         {
-            <PrescriptionForm paramPrescription="@null" OnPrescriptionChanged="OnPrescriptionChanged"></PrescriptionForm>
+            <PrescriptionForm paramLoan="@paramLoan" paramPrescription="@null" OnPrescriptionChanged="OnPrescriptionChanged"></PrescriptionForm>
 
         }
     }
