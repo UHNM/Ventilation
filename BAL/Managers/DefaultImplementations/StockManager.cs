@@ -21,6 +21,12 @@ namespace BAL.Managers.DefaultImplementations
             return await Task.FromResult(GetStockFromDto(dto));
         }
 
+        public async Task<IEnumerable<StockItem>> GetStockList()
+        {
+            var dto = await _dynamicResponseRepository.GetStockList();
+            return await Task.FromResult(GetStockFromDto(dto));
+        }
+
         private static List<StockItem> GetStockFromDto(IEnumerable<StockItemCx> Dto)
         {
             if (Dto != null)

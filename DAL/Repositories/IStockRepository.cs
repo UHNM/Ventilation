@@ -8,6 +8,7 @@ namespace DAL.Repositories
     {
         Task<IEnumerable<StockItemCx>> FindStock(string clinicalTechRef);
 
-      
+        Task<IEnumerable<StockItemCx>> GetStockList();
+
     }
 }

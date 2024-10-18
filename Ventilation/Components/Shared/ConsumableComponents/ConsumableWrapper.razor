@@ -1,18 +1,21 @@
 ﻿@using Ventilation.Components.Shared
 @rendermode @(new InteractiveServerRenderMode(prerender:false));
-
-<div class="container">
-    <div>
-        Loan: @paramLoan.EquipmentName (@paramLoan.ClinicalReference)
+@if (paramLoan != null)
+{
+    <div class="container">
+        <div>
+            Loan: @paramLoan.EquipmentName (@paramLoan.ClinicalReference)
+        </div>
+        <div>
+            <Button Color="ButtonColor.Success" Size="ButtonSize.Small" @onclick="OnAddConsumableClick">
+                <Icon Name="IconName.PlusSquare"></Icon>
+            </Button>
+        </div>
     </div>
-    <div>
-        <Button Color="ButtonColor.Success" Size="ButtonSize.Small" @onclick="OnAddConsumableClick">
-            <Icon Name="IconName.PostcardFill"></Icon>
-        </Button>
-    </div>
-</div>
 
 
     <CascadingValue Value="@UserClickedAdd">
-    <ConsumableList paramConsumables=@loanConsumables paramIsEdit="true" paramLoan=@paramLoan OnConsumableListChanged="OnConsumableListChanged" OnConsumableSelected="ConsumableSelected"></ConsumableList>
+        <ConsumableList paramConsumables=@loanConsumables paramIsEdit="true" paramLoan=@paramLoan OnConsumableListChanged="OnConsumableListChanged" OnConsumableSelected="ConsumableSelected"></ConsumableList>
     </CascadingValue>
+}
+

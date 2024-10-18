@@ -7,7 +7,7 @@ namespace BAL.Managers
     public interface IStockManager
     {
         Task<List<StockItem>> FindStock(string clinicalTechRef);
-
+        Task<IEnumerable<StockItem>> GetStockList();
 
     }
 }

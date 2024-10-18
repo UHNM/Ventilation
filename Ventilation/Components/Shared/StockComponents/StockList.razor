@@ -1,0 +1,41 @@
+﻿@rendermode InteractiveServer
+@using Domain.Models
+<div>
+
+    <Grid TItem="StockItem"
+          AllowRowClick="true"
+          Class="table table-hover table-bordered table-striped"
+          DataProvider="StockItemsDataProvider"
+          AllowFiltering="true"
+          AllowPaging="true"
+          PageSize="5"
+          AllowSorting="true"
+          AllowSelection="true"
+          SelectionMode="GridSelectionMode.Multiple"
+          SelectedItemsChanged="OnSelectedItemsChanged"
+          Responsive="true"
+          OnRowClick="OnRowClick">
+
+        <GridColumns>
+            <GridColumn TItem="StockItem" HeaderText="Id" PropertyName="StockId" SortKeySelector="item => item.StockId">
+                @context.StockId
+            </GridColumn>
+            <GridColumn TItem="StockItem" HeaderText="Type" PropertyName="EquipmentType" SortKeySelector="item => item.EquipmentType">
+                @context.EquipmentType
+            </GridColumn>
+            <GridColumn TItem="StockItem" HeaderText="Name" PropertyName="EquipmentName" SortKeySelector="item => item.EquipmentName">
+                @context.EquipmentName
+            </GridColumn>
+            <GridColumn TItem="StockItem" HeaderText="Clinical Ref" PropertyName="ClinicalReference" SortKeySelector="item => item.ClinicalReference">
+                @context.ClinicalReference
+            </GridColumn>
+            <GridColumn TItem="StockItem" HeaderText="Service Date" PropertyName="ServiceDate" SortKeySelector="item => item.ServiceDate">
+                @context.ServiceDate
+            </GridColumn>
+           
+        </GridColumns>
+
+    </Grid>
+
+
+</div>

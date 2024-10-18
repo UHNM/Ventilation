@@ -1,4 +1,33 @@
 ﻿@page "/stock"
-<h3>Stock</h3>
-<p>This screen will list all the equipment that we have in stock, with the ability to add, edit or remove items. When a new delivery of say Nippy 4000 ventilators arrive, each device will be given a unique Clinical technololgy reference number</p>
+@using Ventilation.Components.Shared.StockComponents
+@rendermode InteractiveServer
+<PageTitle>Ventilation System</PageTitle>
+<Modal @ref="modal"
+       UseStaticBackdrop="true"
+       CloseOnEscape="false"
+       Size="ModalSize.ExtraLarge">
 
+    <BodyTemplate>
+
+    </BodyTemplate>
+
+    <FooterTemplate>
+        <Button Color="ButtonColor.Secondary" @onclick="OnHideModalClick">Close</Button>
+
+    </FooterTemplate>
+
+</Modal>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <h4>Patients</h4>
+        </div>
+        <div class="col-sm-9">
+        </div>
+        <div class="col-sm nhsuk-u-float-right">
+            <Button Color="ButtonColor.Success" Size="ButtonSize.Small" @onclick="OnAddStockClick"><Icon Name="IconName.PlusSquare" /></Button>
+        </div>
+    </div>
+</div>
+<StockList></StockList>
