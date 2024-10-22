@@ -54,11 +54,7 @@ namespace BAL.Managers.DefaultImplementations
             return await Task.FromResult(GetEquipmentFromDto(dto));
         }
 
-        //public async Task<List<EquipmentBase>> FindEquipment(string equipmentName)
-        //{
-        //    var dto = await _dynamicResponseRepository.FindEquipment(equipmentName);
-        //    return await Task.FromResult(GetEquipmentFromDto(dto));
-        //}
+      
 
         private static List<EquipmentBase> GetEquipmentFromDto(IEnumerable<EquipmentBaseCx> Dto)
         {

@@ -51,32 +51,7 @@ namespace DAL.Repositories.DefaultImplementations
             return EquipProperties;
         }
 
-        //public async Task<IEnumerable<EquipmentBaseCx>> FindEquipment(string equipmentName)
-        //{
-        //    IEnumerable<EquipmentBaseCx> equipmentItems = new List<EquipmentBaseCx>();
-
-        //    EquipmentBaseCx s = new EquipmentBaseCx();
-        //    s.EquipmentId = 80;
-        //    s.EquipmentName = "Nippy 1000";
-        //    s.EquipmentType = "Ventilator";
-        //    s.EquipmentTypeId = 1;
-        //    s.SerialNumber = "fgfgfg";
-        //    s.SupplierName = "Phillips";
-
-        //    EquipmentBaseCx s1 = new EquipmentBaseCx();
-        //    s1.EquipmentId = 81;
-        //    s1.EquipmentName = "Nipp 2000";
-        //    s1.EquipmentType = "Ventilator";
-        //    s1.EquipmentTypeId = 1;
-        //    s1.SerialNumber = "123456";
-        //    s1.SupplierName = "Phillips";
-
-
-        //    equipmentItems = equipmentItems.Append(s);
-        //    equipmentItems = equipmentItems.Append(s1);
-        //    await Task.Delay(10);
-        //    return equipmentItems;
-        //}
+       
 
 
         public async Task<IEnumerable<EquipmentBaseCx>> GetEquipmentList()

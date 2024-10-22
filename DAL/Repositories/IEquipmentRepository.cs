@@ -6,6 +6,6 @@ namespace DAL.Repositories
     {
         Task<IEnumerable<EquipmentPropertyCx>> GetEquipmentProperties(int? equipmentId);
         Task<IEnumerable<EquipmentBaseCx>> GetEquipmentList();
-       // Task<IEnumerable<EquipmentBaseCx>> FindEquipment(string equipmentName);
+    
     }
 }
