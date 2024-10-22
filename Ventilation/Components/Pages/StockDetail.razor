@@ -1,7 +1,12 @@
 ﻿@page "/stock/detail/{stockid:int}"
 @rendermode @(new InteractiveServerRenderMode(prerender:false));
+@using Ventilation.Components.Shared.StockComponents
+<PageTitle>Stock Detail</PageTitle>
+<h3>Edit an item of Stock</h3>
 
-
-<h3>StockDetail</h3>
+@if (stockItem.EquipmentId != 0)
+{
+    <StockForm stockItem="@stockItem" OnStockItemSaved="StockItemSaved"></StockForm>
+}
 
 

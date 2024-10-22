@@ -111,7 +111,23 @@ namespace DAL.Repositories.DefaultImplementations
 
             await Task.Delay(200);
             return Id;
+        }
 
+        public async Task<StockItemCx> GetStockItem(int StockId)
+        {
+            StockItemCx s = new StockItemCx();
+            s.StockId = 1;
+            s.ClinicalReference = "XYZ 123";
+            s.EquipmentId = 2;
+            s.EquipmentType = "Ventilator";
+            s.EquipmentTypeId = 80;
+            s.EquipmentName = "Stellar 150";
+            s.SupplierName = "Phillips";
+            s.SerialNumber = "999";
+            s.ServiceDate = new DateTime(2025, 9, 23);
+
+            await Task.Delay(20);
+            return s;
         }
     }
 }

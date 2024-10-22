@@ -12,5 +12,7 @@ namespace DAL.Repositories
 
         Task<int> SaveStockItem(StockItem item);
 
+        Task<StockItemCx> GetStockItem(int StockId);
+
     }
 }

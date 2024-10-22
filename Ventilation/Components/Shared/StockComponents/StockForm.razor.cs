@@ -10,7 +10,7 @@ namespace Ventilation.Components.Shared.StockComponents
     public partial class StockForm
     {
         [Parameter]
-        public EquipmentBase? equipmentItem { get; set; }
+        public StockItem? stockItem { get; set; }
 
         [Inject]
         IStockManager _stockManager { get; set; }
@@ -22,14 +22,17 @@ namespace Ventilation.Components.Shared.StockComponents
 
         protected override void OnInitialized()
         {
-            stockDetail.EquipmentId = equipmentItem.EquipmentId;
-            stockDetail.EquipmentName = equipmentItem.EquipmentName;
-            stockDetail.SerialNumber = equipmentItem.SerialNumber;
-            stockDetail.SupplierName = equipmentItem.SupplierName;
-            stockDetail.EquipmentType = equipmentItem.EquipmentType;
-            stockDetail.EquipmentTypeId = equipmentItem.EquipmentTypeId;
-     
+            stockDetail = stockItem;
 
+            if(stockDetail.StockId == null)
+            {
+                //we are in an add
+            }
+            else
+            {
+                //we are at an update
+            }
+         
         }
 
         private async Task OnSaveStock(EditContext context)

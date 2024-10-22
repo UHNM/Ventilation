@@ -3,7 +3,7 @@
 <EquipmentList OnEquipmentSelected="EquipmentSelected"></EquipmentList>
 
 
-@if (equipmentItemSelected != null )
+@if (stockItemSelected != null )
 {
-    <StockForm equipmentItem="@equipmentItemSelected" OnStockItemSaved="StockItemSaved"></StockForm>
+    <StockForm stockItem="@stockItemSelected" OnStockItemSaved="StockItemSaved"></StockForm>
 }

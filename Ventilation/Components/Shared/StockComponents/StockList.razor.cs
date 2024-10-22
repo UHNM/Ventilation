@@ -30,11 +30,7 @@ namespace Ventilation.Components.Shared.StockComponents
             {
                 stockListItems = await _stockManager.GetStockList();
             }
-
-
         }
-
-
 
         private async Task<GridDataProviderResult<StockItem>> StockItemsDataProvider(GridDataProviderRequest<StockItem> request)
         {

@@ -53,10 +53,37 @@ namespace BAL.Managers.DefaultImplementations
             return null;
         }
 
+
+        private static StockItem GetStockItemFromDto(StockItemCx Dto)
+        {
+            if (Dto != null)
+            {
+                StockItem s = new StockItem();
+                s.StockId = Dto.StockId;
+                s.ClinicalReference = Dto.ClinicalReference;
+                s.EquipmentId = Dto.EquipmentId;
+                s.EquipmentType = Dto.EquipmentType;
+                s.EquipmentTypeId = Dto.EquipmentTypeId;
+                s.EquipmentName = Dto.EquipmentName;
+                s.SupplierName = Dto.SupplierName;
+                s.SerialNumber = Dto.SerialNumber;
+                s.ServiceDate = Dto.ServiceDate;
+                return s;
+            }
+            return null;
+        }
+
         public async Task<int> SaveStockItem(StockItem item)
         {
             var dto = await _dynamicResponseRepository.SaveStockItem(item);
             return await Task.FromResult(dto);
         }
+
+        public async Task<StockItem> GetStockItem(int stockId)
+        {
+            var dto = await _dynamicResponseRepository.GetStockItem(stockId);
+            return await Task.FromResult(GetStockItemFromDto(dto));
+        }
+
     }
 }
