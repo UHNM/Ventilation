@@ -1,0 +1,26 @@
+﻿@rendermode InteractiveServer
+@using Microsoft.AspNetCore.Components.QuickGrid
+
+<div class="border border-dark">
+    <h4>need a proper search facility for equipment</h4>
+
+    <EditForm Model="@equipmentToFind" OnSubmit="OnFindClick">
+        <InputText id="equipmentName" @bind-Value="@equipmentToFind.EquipmentName"></InputText>
+        <button Type="submit" class="btn btn-primary">Find</button>
+    </EditForm>
+</div>
+
+<div>
+    <QuickGrid Class="table" Items="equipmentList" Pagination="state">
+        <PropertyColumn Property="@(s => s.EquipmentId)" Sortable="true" Title="id" />
+        <PropertyColumn Property="@(s => s.EquipmentName)" Sortable="true" Title="name" />
+        <PropertyColumn Property="@(p => p.SerialNumber)" Sortable="true" Title="Ref" />
+        <TemplateColumn Title="ID">
+            <button type="button" class="btn btn-link" @onclick="@(() => SelectEquipmentClick(context))">Select</button>
+        </TemplateColumn>
+
+    </QuickGrid>
+    <Paginator State="state" />
+</div>
+
+

@@ -8,6 +8,6 @@ namespace BAL.Managers
     {
         Task<List<StockItem>> FindStock(string clinicalTechRef);
         Task<IEnumerable<StockItem>> GetStockList();
-
+        Task<int> SaveStockItem(StockItem stock);
     }
 }

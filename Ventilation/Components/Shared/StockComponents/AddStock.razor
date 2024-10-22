@@ -1,5 +1,9 @@
-﻿<h3>Add Stock</h3>
+﻿@using Ventilation.Components.Shared.StockComponents
 
-@code {
+<EquipmentList OnEquipmentSelected="EquipmentSelected"></EquipmentList>
 
+
+@if (equipmentItemSelected != null )
+{
+    <StockForm equipmentItem="@equipmentItemSelected" OnStockItemSaved="StockItemSaved"></StockForm>
 }

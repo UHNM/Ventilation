@@ -10,5 +10,7 @@ namespace DAL.Repositories
 
         Task<IEnumerable<StockItemCx>> GetStockList();
 
+        Task<int> SaveStockItem(StockItem item);
+
     }
 }

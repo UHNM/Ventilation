@@ -52,5 +52,11 @@ namespace BAL.Managers.DefaultImplementations
             }
             return null;
         }
+
+        public async Task<int> SaveStockItem(StockItem item)
+        {
+            var dto = await _dynamicResponseRepository.SaveStockItem(item);
+            return await Task.FromResult(dto);
+        }
     }
 }

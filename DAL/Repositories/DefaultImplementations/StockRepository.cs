@@ -1,6 +1,7 @@
 ﻿
 using DAL.Contexts;
 using Domain.Entities.Complex;
+using Domain.Models;
 using System.Net.Http.Headers;
 
 namespace DAL.Repositories.DefaultImplementations
@@ -100,6 +101,17 @@ namespace DAL.Repositories.DefaultImplementations
 
             await Task.Delay(100);
             return stockItems;
+        }
+
+        public async Task<int> SaveStockItem(StockItem item)
+        {
+            //if tyhe loan Id is null do an insert, if not do an update. return the Loan Id
+
+            int Id = 123456;
+
+            await Task.Delay(200);
+            return Id;
+
         }
     }
 }

@@ -47,5 +47,41 @@ namespace BAL.Managers.DefaultImplementations
             }
             return null;
         }
+
+        public async Task<IEnumerable<EquipmentBase>> GetEquipmentList()
+        {
+            var dto = await _dynamicResponseRepository.GetEquipmentList();
+            return await Task.FromResult(GetEquipmentFromDto(dto));
+        }
+
+        //public async Task<List<EquipmentBase>> FindEquipment(string equipmentName)
+        //{
+        //    var dto = await _dynamicResponseRepository.FindEquipment(equipmentName);
+        //    return await Task.FromResult(GetEquipmentFromDto(dto));
+        //}
+
+        private static List<EquipmentBase> GetEquipmentFromDto(IEnumerable<EquipmentBaseCx> Dto)
+        {
+            if (Dto != null)
+            {
+                List<EquipmentBase> equipmentItems = new List<EquipmentBase>();
+
+                foreach (EquipmentBaseCx equip in Dto)
+                {
+                    EquipmentBase s = new EquipmentBase();
+                    s.EquipmentId = equip.EquipmentId;
+                    s.EquipmentName = equip.EquipmentName;
+                    s.EquipmentType = equip.EquipmentType;
+                    s.SerialNumber  = equip.SerialNumber;
+                    s.SupplierName  = equip.SupplierName;
+                    s.EquipmentTypeId = equip.EquipmentTypeId;  
+
+                    equipmentItems.Add(s);
+                }
+
+                return equipmentItems;
+            }
+            return null;
+        }
     }
 }

@@ -22,8 +22,7 @@ namespace Ventilation.Components.Shared.ConsumableComponents
         {
             loanConsumables = null;
             UserClickedAdd = false;
-
-            var xx = paramLoan;
+          
             if (paramLoan != null)
             {
                 if (loanConsumables == null)

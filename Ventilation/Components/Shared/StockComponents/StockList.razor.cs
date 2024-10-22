@@ -4,10 +4,14 @@ using Domain.Models;
 using Microsoft.AspNetCore.Components;
 
 
+using BlazorBootstrap;
+
 namespace Ventilation.Components.Shared.StockComponents
 {
     public partial class StockList
     {
+        [CascadingParameter]
+        public bool? RefreshList { get; set; }
 
         [Inject]
         IStockManager _stockManager { get; set; }
@@ -19,15 +23,23 @@ namespace Ventilation.Components.Shared.StockComponents
         private HashSet<StockItem> selectedStockItem = new();
 
 
-        protected override async Task OnInitializedAsync()
+        protected override async Task OnParametersSetAsync()
         {
-      
-            
+            //TODO: needs to be async due to component base, require further investigation
+            if(RefreshList == true)
+            {
+                stockListItems = await _stockManager.GetStockList();
+            }
+
+
         }
+
+
 
         private async Task<GridDataProviderResult<StockItem>> StockItemsDataProvider(GridDataProviderRequest<StockItem> request)
         {
-            if (stockListItems is null) // pull employees only one time for client-side filtering, sorting, and paging
+           
+            if (stockListItems is null) 
                 stockListItems = await _stockManager.GetStockList();
 
             return await Task.FromResult(request.ApplyTo(stockListItems));
@@ -44,7 +56,6 @@ namespace Ventilation.Components.Shared.StockComponents
         {
             await Task.Delay(10);
             _navigationManager.NavigateTo("/stock/detail/" + args.Item.StockId);
-            //await ModalService.ShowAsync(new ModalOption { Type = ModalType.Primary, Title = "Event: Row Click", Message = $"Id: {args.Item.Id}, Name: {args.Item.Name}" });
         }
 
     }

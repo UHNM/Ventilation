@@ -38,9 +38,6 @@ namespace DAL.Repositories.DefaultImplementations
             await Task.Delay(200);
             return Id;
 
-
-
-
         }
 
 

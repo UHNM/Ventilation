@@ -77,8 +77,7 @@ namespace Ventilation.Components.Shared.ConsumableComponents
 
         private async Task OnSaveConsumable(EditContext context)
         {
-            var xx = (Consumable)context.Model;
-
+       
             int? Id = await _consumableManager.SaveConsumable((Consumable)context.Model);
 
             //show Toast

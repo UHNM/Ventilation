@@ -1,0 +1,37 @@
+﻿@rendermode InteractiveServer
+@using Domain.Models
+<div>
+
+    <Grid TItem="EquipmentBase"
+          AllowRowClick="true"
+          Class="table table-hover table-bordered table-striped"
+          DataProvider="EquipmentItemsDataProvider"
+          AllowFiltering="true"
+          AllowPaging="true"
+          PageSize="5"
+          AllowSorting="true"
+          AllowSelection="true"
+          SelectionMode="GridSelectionMode.Multiple"
+          SelectedItemsChanged="OnSelectedItemsChanged"
+          Responsive="true"
+          OnRowClick="OnRowClick">
+
+        <GridColumns>
+           
+            <GridColumn TItem="EquipmentBase" HeaderText="Type" PropertyName="EquipmentType" SortKeySelector="item => item.EquipmentType">
+                @context.EquipmentType
+            </GridColumn>
+            <GridColumn TItem="EquipmentBase" HeaderText="Name" PropertyName="EquipmentName" SortKeySelector="item => item.EquipmentName">
+                @context.EquipmentName
+            </GridColumn>
+            <GridColumn TItem="EquipmentBase" HeaderText="Serial No." PropertyName="SerialNumber" SortKeySelector="item => item.SerialNumber">
+                @context.SerialNumber
+            </GridColumn>
+           
+
+        </GridColumns>
+
+    </Grid>
+
+
+</div>

@@ -21,7 +21,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm">
-            <h4>Patients</h4>
+            <h4>Stock</h4>
         </div>
         <div class="col-sm-9">
         </div>
@@ -30,4 +30,8 @@
         </div>
     </div>
 </div>
-<StockList></StockList>
+
+<!-- Statehaschanged doesn't refresh child components unless there is a related parameter-->
+<CascadingValue Value="@RefreshList">
+ <StockList></StockList>
+</CascadingValue>

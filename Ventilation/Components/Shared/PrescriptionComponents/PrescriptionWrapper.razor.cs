@@ -22,8 +22,6 @@ namespace Ventilation.Components.Shared.PrescriptionComponents
         {
             loanPrescriptions = null;
             UserClickedAdd = false;
-
-            var xx = paramLoan;
         }
 
         protected override async Task OnParametersSetAsync()

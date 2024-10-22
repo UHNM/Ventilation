@@ -1,0 +1,57 @@
+﻿@rendermode InteractiveServer
+<div class="border border-dark">
+
+
+    <EditForm Model="@stockDetail" OnSubmit="OnSaveStock">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">
+               Equipment Type:
+            </label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" disabled value="@stockDetail.EquipmentType" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">
+                Equipment Name:
+            </label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" disabled value="@stockDetail.EquipmentName" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">
+                Serial Number:
+            </label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" disabled value="@stockDetail.SerialNumber" />
+            </div>
+        </div>
+
+
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">
+                Clinical Tech Ref:
+            </label>
+            <div class="col-sm-8">
+                <InputText id="ClinicalReference" @bind-Value="@stockDetail.ClinicalReference"></InputText>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">
+                Service Date:
+            </label>
+            <div class="col-sm-8">
+                <InputDate id="serviceDate" @bind-Value="@stockDetail.ServiceDate"></InputDate>
+            </div>
+        </div>
+
+
+        <button Type="submit" class="btn btn-primary">Save</button>
+    </EditForm>
+</div>
+
+
+
+
