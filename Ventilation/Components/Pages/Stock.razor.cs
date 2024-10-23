@@ -1,6 +1,7 @@
 using BAL.Managers;
 using BAL.Managers.DefaultImplementations;
 using BlazorBootstrap;
+using Domain.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Ventilation.Components.Shared.StockComponents;
@@ -11,6 +12,9 @@ namespace Ventilation.Components.Pages
     {
         private Modal modal = default!;
         public bool? RefreshList { get; set; }
+
+        [Inject]
+        NavigationManager _navigationManager { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
@@ -41,5 +45,16 @@ namespace Ventilation.Components.Pages
             StateHasChanged();
 
         }
+
+        protected async Task StockSelected(StockItem? stock)
+        {
+            await Task.Delay(100);
+            if (stock != null)
+            {
+                _navigationManager.NavigateTo("/stock/detail/" + stock.StockId);
+            }
+
+        }
+
     }
 }

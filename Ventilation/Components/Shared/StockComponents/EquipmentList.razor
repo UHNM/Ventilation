@@ -30,7 +30,7 @@
             <GridColumn TItem="EquipmentBase" HeaderText="Serial No." PropertyName="SerialNumber" SortKeySelector="item => item.SerialNumber">
                 @context.SerialNumber
             </GridColumn>
-            <GridColumn TItem="EquipmentBase" Filterable="false" HeaderText="View" HeaderTextAlignment="Alignment.Center" PropertyName="EquipmentId">
+            <GridColumn TItem="EquipmentBase" Filterable="false" HeaderText="Select" HeaderTextAlignment="Alignment.Center" PropertyName="EquipmentId">
                 <Button Color="ButtonColor.Secondary" @onclick="@(()=> OnSelectEquipmentClick(@context))">Select</Button>
             </GridColumn>
 

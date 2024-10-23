@@ -12,7 +12,7 @@
           FixedHeader="true"
           Responsive="true"
           Unit="Unit.Px"
-          Height="600">
+          Height="400">
 
         <GridColumns>
             <GridColumn TItem="StockItem" HeaderText="Id" PropertyName="StockId" SortKeySelector="item => item.StockId">
@@ -30,8 +30,9 @@
             <GridColumn TItem="StockItem" HeaderText="Service Date" PropertyName="ServiceDate" SortKeySelector="item => item.ServiceDate">
                 @context.ServiceDate?.ToString("dd/MM/yyyy")
             </GridColumn>
-            <GridColumn TItem="StockItem" Filterable="false" HeaderText="View" HeaderTextAlignment="Alignment.Center" PropertyName="Id">
-                <a href="/stock/detail/@context.StockId">View</a>
+            <GridColumn TItem="StockItem" Filterable="false" HeaderText="Select" HeaderTextAlignment="Alignment.Center" PropertyName="Id">
+               @*  <a href="/stock/detail/@context.StockId">Select</a> *@
+                <Button Color="ButtonColor.Secondary" @onclick="@(()=> OnSelectStockClick(@context))">Select</Button>
             </GridColumn>
            
         </GridColumns>

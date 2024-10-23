@@ -1,48 +1,80 @@
 ﻿@rendermode InteractiveServer
-<div class="border border-dark">
+<div>
    
 
     <EditForm Model="@loanDetail" OnSubmit="OnSaveLoan">
-        <div class="form-group row">
+        <div class="row mb-3">
+            <label for="ClinicalReference" class="col-sm-2 col-form-label">Clinical Tech Ref</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" disabled value="@loanDetail.ClinicalReference" />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="EquipmentName" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" disabled value="@loanDetail.EquipmentName" />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="SerialNumber" class="col-sm-2 col-form-label">Serial Number</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" disabled value="@loanDetail.SerialNumber" />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="LoanDate" class="col-sm-2 col-form-label">Loan Date</label>
+            <div class="col-sm-4">
+                <InputDate id="loanDate" class="form-control" @bind-Value="@loanDetail.LoanDate"></InputDate>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="ServiceDate" class="col-sm-2 col-form-label">Service Date</label>
+            <div class="col-sm-4">
+                <InputDate id="serviceDate" class="form-control" @bind-Value="@loanDetail.ServiceDate"></InputDate>
+            </div>
+        </div>
+        
+        
+      @*   <div class="form-group row">
             <label class="col-sm-2 col-form-label">
                 Clinical Tech Ref:
             </label>
             <div class="col-sm-8">
                 <input type="text" class="form-control" disabled value="@loanDetail.ClinicalReference" />
             </div>
-        </div>
-        <div class="form-group row">
+        </div> *@
+       @*  <div class="form-group row">
             <label class="col-sm-2 col-form-label">
                 Name:
             </label>
             <div class="col-sm-8">
                 <input type="text" class="form-control" disabled value="@loanDetail.EquipmentName" />
             </div>
-        </div>
-        <div class="form-group row">
+        </div> *@
+       @*  <div class="form-group row">
             <label class="col-sm-2 col-form-label">
                 Serial Number:
             </label>
             <div class="col-sm-8">
                 <input type="text" class="form-control" disabled value="@loanDetail.SerialNumber" />
             </div>
-        </div>
-        <div class="form-group row">
+        </div> *@
+        @* <div class="form-group row">
             <label class="col-sm-2 col-form-label">
                 Loan Date:
             </label>
             <div class="col-sm-8">
                 <InputDate id="loanDate" @bind-Value="@loanDetail.LoanDate"></InputDate>
             </div>
-        </div>
-        <div class="form-group row">
+        </div> *@
+       @*  <div class="form-group row">
             <label class="col-sm-2 col-form-label">
                 Service Date:
             </label>
             <div class="col-sm-8">
                 <InputDate id="serviceDate" @bind-Value="@loanDetail.ServiceDate"></InputDate>
             </div>
-        </div>
+        </div> *@
 
        
         <button Type="submit" class="btn btn-primary">Save</button>

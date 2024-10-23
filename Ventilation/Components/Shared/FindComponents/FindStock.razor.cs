@@ -8,38 +8,61 @@ namespace Ventilation.Components.Shared.FindComponents
 {
     public partial class FindStock
     {
-        [Inject]
-        IStockManager _stockManager { get; set; }
+        //[Inject]
+        //IStockManager _stockManager { get; set; }
 
-        public StockToFind? stockToFind = new();
-        List<StockItem> stockitemsFound = new();
+     //   public StockToFind? stockToFind = new();
+      //  List<StockItem> stockitemsFound = new();
+
+        public bool? RefreshList { get; set; }
+     
+        
+        //TODO: remove redundant code if Simon / Vent team are happy with the grid
 
         [Parameter]
         public EventCallback<StockItem?> OnStockSelected { get; set; }
 
-        IQueryable<StockItem>? stockList;
+        //IQueryable<StockItem>? stockList;
 
-        PaginationState state = new PaginationState { ItemsPerPage = 5 };
+        // PaginationState state = new PaginationState { ItemsPerPage = 5 };
 
-        protected async Task OnFindClick(EditContext context)
+        protected override async Task OnInitializedAsync()
         {
-            stockitemsFound = await _stockManager.FindStock(((StockToFind)context.Model).ClinicalTechRef);
-            stockList = stockitemsFound.AsQueryable();
+            RefreshList = false;
+        }
 
+
+        //protected async Task OnFindClick(EditContext context)
+        //{
+        //    stockitemsFound = await _stockManager.FindStock(((StockToFind)context.Model).ClinicalTechRef);
+        //    stockList = stockitemsFound.AsQueryable();
+
+
+        //}
+
+        //public class StockToFind
+        //{
+        //    public string? ClinicalTechRef { get; set; } = string.Empty;
+        //}
+
+        //Event callback from child component after saving additional information
+        protected async Task StockSelected(StockItem? stock)
+        {
+            await Task.Delay(100);
+            if (stock != null)
+            {
+                await OnStockSelected.InvokeAsync(stock);
+            }
 
         }
 
-        public class StockToFind
-        {
-            public string? ClinicalTechRef { get; set; } = string.Empty;
-        }
 
-        private async Task SelectStockClick(StockItem item)
-        {
+        //private async Task SelectStockClick(StockItem item)
+        //{
 
 
-            await OnStockSelected.InvokeAsync(item);
-        }
+        //    await OnStockSelected.InvokeAsync(item);
+        //}
     }
 
 

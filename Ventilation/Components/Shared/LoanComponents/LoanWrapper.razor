@@ -14,7 +14,8 @@
         <Content>
             <br/>
             @* If paramLoan is null its an add, so show find stock component *@
-            @if(paramLoan == null){
+            @if (stockItemSelected == null && paramLoan == null)
+            {
                 <FindStock OnStockSelected="StockSelected"></FindStock>
             }
 

@@ -3,15 +3,14 @@ using BlazorBootstrap;
 using Domain.Models;
 using Microsoft.AspNetCore.Components;
 
-
-using BlazorBootstrap;
-
 namespace Ventilation.Components.Shared.StockComponents
 {
     public partial class StockList
     {
         [CascadingParameter]
         public bool? RefreshList { get; set; }
+
+       
 
         [Inject]
         IStockManager _stockManager { get; set; }
@@ -22,6 +21,8 @@ namespace Ventilation.Components.Shared.StockComponents
         private IEnumerable<StockItem> stockListItems = default!;
         private HashSet<StockItem> selectedStockItem = new();
 
+        [Parameter]
+        public EventCallback<StockItem?> OnStockSelected { get; set; }
 
         protected override async Task OnParametersSetAsync()
         {
@@ -41,6 +42,10 @@ namespace Ventilation.Components.Shared.StockComponents
             return await Task.FromResult(request.ApplyTo(stockListItems));
         }
 
+        private async Task OnSelectStockClick(StockItem? item)
+        {
+           await OnStockSelected.InvokeAsync(item);
+        }
 
         //private Task OnSelectedItemsChanged(HashSet<StockItem> stockItems)
         //{

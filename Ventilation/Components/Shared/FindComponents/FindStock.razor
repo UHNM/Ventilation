@@ -1,16 +1,21 @@
 ﻿@rendermode InteractiveServer
-@using Microsoft.AspNetCore.Components.QuickGrid
+@using Ventilation.Components.Shared.StockComponents
 
-<div class="border border-dark">
+<!-- Statehaschanged doesn't refresh child components unless there is a related parameter-->
+<CascadingValue Value="@RefreshList">
+    <StockList OnStockSelected="StockSelected"></StockList>
+</CascadingValue>
+
+@* <div class="border border-dark">
     <h4>need a proper search facility for stock</h4>
 
     <EditForm Model="@stockToFind" OnSubmit="OnFindClick">
         <InputText id="clinicalTech" @bind-Value="@stockToFind.ClinicalTechRef"></InputText>
         <button Type="submit" class="btn btn-primary">Find</button>
     </EditForm>
-</div>
+</div> *@
 
-<div>
+@* <div>
     <QuickGrid Class="table" Items="stockList" Pagination="state">
         <PropertyColumn Property="@(s => s.StockId)" Sortable="true" Title="id" />
         <PropertyColumn Property="@(s => s.EquipmentName)" Sortable="true" Title="name" />
@@ -22,7 +27,7 @@
     </QuickGrid>
     <Paginator State="state" />
 </div>
-
+ *@
 
 
 
