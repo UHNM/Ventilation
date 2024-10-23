@@ -35,11 +35,15 @@ namespace Ventilation.Components.Shared.StockComponents
             return Task.CompletedTask;
         }
 
-        private async Task OnRowClick(GridRowEventArgs<EquipmentBase> args)
-        {
-            await OnEquipmentSelected.InvokeAsync(args.Item);
+        //private async Task OnRowClick(GridRowEventArgs<EquipmentBase> args)
+        //{
+        //    await OnEquipmentSelected.InvokeAsync(args.Item);
            
-        }
+        //}
 
+        private async Task OnSelectEquipmentClick(EquipmentBase? equip)
+        {
+            await OnEquipmentSelected.InvokeAsync(equip);
+        }
     }
 }

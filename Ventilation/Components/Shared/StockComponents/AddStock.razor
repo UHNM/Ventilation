@@ -1,7 +1,9 @@
 ﻿@using Ventilation.Components.Shared.StockComponents
 
-<EquipmentList OnEquipmentSelected="EquipmentSelected"></EquipmentList>
-
+@if (stockItemSelected == null)
+{
+    <EquipmentList OnEquipmentSelected="EquipmentSelected"></EquipmentList>
+}
 
 @if (stockItemSelected != null )
 {
