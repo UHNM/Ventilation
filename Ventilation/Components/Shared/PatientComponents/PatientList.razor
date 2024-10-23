@@ -1,0 +1,70 @@
+﻿@rendermode InteractiveServer
+@using Domain.Models
+
+<div >
+
+    <Grid TItem="PatientBase"
+          Class="table table-hover table-bordered border-top"
+          AllowDetailView="true"
+          Height="600"
+          DataProvider="PatientLoansDataProvider"
+          AllowFiltering="true"
+          AllowPaging="true"
+          PageSize="15"
+          AllowSorting="true"
+          FixedHeader="true"
+          Responsive="true"
+          Unit="Unit.Px">
+
+        <GridColumns>
+            <GridColumn TItem="PatientBase" HeaderText="Surname" PropertyName="Surname" SortKeySelector="item => item.Surname">
+                @context.Surname
+            </GridColumn>
+            <GridColumn TItem="PatientBase" HeaderText="Forename" PropertyName="Forename" SortKeySelector="item => item.Forename">
+                @context.Forename
+            </GridColumn>
+            <GridColumn TItem="PatientBase" HeaderText="Hosp. No" PropertyName="HospitalNumber" SortKeySelector="item => item.HospitalNumber">
+                @context.HospitalNumber
+            </GridColumn>
+            <GridColumn TItem="PatientBase" HeaderText="NHS No" PropertyName="NHSNumber" SortKeySelector="item => item.NHSNumber">
+                @context.NHSNumber
+            </GridColumn>
+            <GridColumn TItem="PatientBase" TextNoWrap="true" HeaderText="Address" PropertyName="Address1" SortKeySelector="item => item.Address1">
+                @context.Address1
+            </GridColumn>
+            <GridColumn TItem="PatientBase" HeaderText="View" Filterable="false" HeaderTextAlignment="Alignment.Center" PropertyName="Id">
+                <a href="/patient/detail/@context.Id" >View</a>
+                
+            </GridColumn>
+        </GridColumns>
+
+        <GridDetailView TItem="PatientBase">
+
+            <Grid TItem="Loan"
+                  Class="table table-hover table-bordered table-striped"
+                  Data="GetPatientLoans(context.Id)">
+
+                <GridColumns>
+                    <GridColumn TItem="Loan" Context="loan" HeaderText="Loan Date" PropertyName="LoanDate">
+                        @loan.LoanDate?.ToString("dd/MM/yyyy")
+                    </GridColumn>
+                    <GridColumn TItem="Loan" Context="loan" HeaderText="Equipment" PropertyName="EquipmentName">
+                        @loan.EquipmentName
+                    </GridColumn>
+                    <GridColumn TItem="Loan" Context="loan" HeaderText="Clin Ref" PropertyName="ClinicalReference">
+                        @loan.ClinicalReference
+                    </GridColumn>
+                   @*  <GridColumn TItem="Loan" Context="loan" HeaderText="Service" PropertyName="ServiceDate">
+                        @loan.ServiceDate?.ToString("dd/MM/yyyy")
+                    </GridColumn> *@
+                    
+                </GridColumns>
+
+            </Grid>
+
+        </GridDetailView>
+
+    </Grid>
+
+
+</div>

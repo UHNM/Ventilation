@@ -3,18 +3,16 @@
 <div>
 
     <Grid TItem="StockItem"
-          AllowRowClick="true"
           Class="table table-hover table-bordered table-striped"
           DataProvider="StockItemsDataProvider"
           AllowFiltering="true"
           AllowPaging="true"
-          PageSize="5"
+          PageSize="15"
           AllowSorting="true"
-          AllowSelection="true"
-          SelectionMode="GridSelectionMode.Multiple"
-          SelectedItemsChanged="OnSelectedItemsChanged"
+          FixedHeader="true"
           Responsive="true"
-          OnRowClick="OnRowClick">
+          Unit="Unit.Px"
+          Height="600">
 
         <GridColumns>
             <GridColumn TItem="StockItem" HeaderText="Id" PropertyName="StockId" SortKeySelector="item => item.StockId">
@@ -30,7 +28,10 @@
                 @context.ClinicalReference
             </GridColumn>
             <GridColumn TItem="StockItem" HeaderText="Service Date" PropertyName="ServiceDate" SortKeySelector="item => item.ServiceDate">
-                @context.ServiceDate
+                @context.ServiceDate?.ToString("dd/MM/yyyy")
+            </GridColumn>
+            <GridColumn TItem="StockItem" Filterable="false" HeaderText="View" HeaderTextAlignment="Alignment.Center" PropertyName="Id">
+                <a href="/stock/detail/@context.StockId">View</a>
             </GridColumn>
            
         </GridColumns>

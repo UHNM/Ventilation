@@ -4,6 +4,8 @@ namespace BAL.Managers
 {
     public interface IPatientListManager
     {
-        Task<List<PatientListItem>> GetPatientList();
+        //Task<List<PatientListItem>> GetPatientList();
+
+        Task<PatientListLoan> GetPatientList();
     }
 }

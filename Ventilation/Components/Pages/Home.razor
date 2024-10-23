@@ -2,6 +2,7 @@
 @page "/"
 @rendermode InteractiveServer
 @using Ventilation.Components.Shared
+@using Ventilation.Components.Shared.PatientComponents
 
 <PageTitle>Ventilation System</PageTitle>
 
@@ -35,7 +36,9 @@
     </div>
 </div>
 
-<FindPatientLoan/>
+<PatientList></PatientList>
+
+@* <FindPatientLoan/>
 
 <div>
 
@@ -45,7 +48,7 @@
     } 
    
 </div>
-
+ *@
 
 
 
