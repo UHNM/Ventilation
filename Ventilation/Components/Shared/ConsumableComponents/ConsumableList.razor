@@ -1,59 +1,43 @@
 ﻿@using Ventilation.Components.Shared.ConsumableComponents
-@if (paramConsumables != null)
+@rendermode InteractiveServer
+@using Domain.Models
+
+
+@if (paramLoan != null)
 {
-    @if (paramConsumables.Count != 0)
-    {
-        <div class="border border-dark">
-            <div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            Date Given
-                        </div>
-                        <div class="col-sm-2">
-                            Type
-                        </div>
-                        <div class="col-sm-2">
-                            Name
-                        </div>
-                        <div class="col-sm-2">
-                            Delivery Method
-                        </div>
+   
+        <Grid TItem="Consumable"
+              Class="table table-hover table-bordered table-striped"
+              DataProvider="ConsumablesDataProvider"
+              AllowPaging="false"
+              FixedHeader="true"
+              Responsive="true">
 
-
-                        @if (paramIsEdit == true)
-                        {
-                            <div class="col-sm-2">
-                                Edit
-                            </div>
-                        }
-
-
-                    </div>
-                </div>
-              
-
-                @foreach (var c in paramConsumables)
+            <GridColumns>
+                <GridColumn TItem="Consumable" HeaderText="Date Given" PropertyName="ConsumableDate" SortKeySelector="item => item.ConsumableDate">
+                    @context.ConsumableDate.ToString("dd/MM/yyyy")
+                </GridColumn>
+                <GridColumn TItem="Consumable" HeaderText="Type" PropertyName="EquipmentType" SortKeySelector="item => item.EquipmentType">
+                    @context.EquipmentType
+                </GridColumn>
+                <GridColumn TItem="Consumable" HeaderText="Equipment" PropertyName="EquipmentName" SortKeySelector="item => item.EquipmentName">
+                    @context.EquipmentName
+                </GridColumn>
+                <GridColumn TItem="Consumable" HeaderText="Delivery Method" PropertyName="DeliveryMethodName" SortKeySelector="item => item.DeliveryMethodName">
+                    @context.DeliveryMethodName
+                </GridColumn>
+                @if (paramIsEdit == true)
                 {
-                    <ConsumableItem paramConsumable=@c paramIsEdit=@paramIsEdit OnConsumableSelected="ConsumableSelected"></ConsumableItem>
+                    <GridColumn TItem="Consumable" Filterable="false" HeaderText="Select" HeaderTextAlignment="Alignment.Center" PropertyName="Id">
+                        <Button Color="ButtonColor.Secondary" Size="ButtonSize.Small" Outline="true" @onclick="@(()=> OnSelectConsumableClick(@context))">Select</Button>
+
+                    </GridColumn>
                 }
-            </div>
-        </div>
-    }
+            </GridColumns>
 
-    @if (consumableSelected != null && paramLoan != null)
-    {
-        <ConsumableForm paramLoan="@paramLoan" paramConsumable="@consumableSelected" OnConsumableChanged="OnConsumableChanged"></ConsumableForm>
-    }
-    else
-    {
-        @if (paramLoan != null && UserClickedAdd == true)
-        {
-            <ConsumableForm paramLoan="@paramLoan" paramConsumable="@null" OnConsumableChanged="OnConsumableChanged"></ConsumableForm>
+        </Grid>
 
-        }
-    }
-
+       
 }
 
 

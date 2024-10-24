@@ -20,7 +20,7 @@ namespace Ventilation.Components.Shared.PatientComponents
         [Inject]
         ILoanManager _loanManager { get; set; }
       
-        List<Consumable> loanConsumables = new();
+       // List<Consumable> loanConsumables = new();
 
         Tabs tabs = default!;
         private Modal modal = default!;
@@ -33,7 +33,7 @@ namespace Ventilation.Components.Shared.PatientComponents
         {
           
           //  loanPrescriptions = await _loanManager.GetPrescriptionsForALoan(loan.LoanId);
-            loanConsumables = await _loanManager.GetConsumablesForALoan(loan.LoanId);
+         //   loanConsumables = await _loanManager.GetConsumablesForALoan(loan.LoanId);
 
         }
 
@@ -56,17 +56,17 @@ namespace Ventilation.Components.Shared.PatientComponents
         }
 
     
-        protected async Task OnConsumableListChanged(int? ConsumableId)
-        {
-            if (ConsumableId != null)
-            {
-                StateHasChanged();
+        //protected async Task OnConsumableListChanged(int? ConsumableId)
+        //{
+        //    if (ConsumableId != null)
+        //    {
+        //        StateHasChanged();
 
-                //user has updated or created a new consumable so refresh the data
-                loanConsumables = await _loanManager.GetConsumablesForALoan(loan.LoanId);
-            }
+        //        //user has updated or created a new consumable so refresh the data
+        //      //  loanConsumables = await _loanManager.GetConsumablesForALoan(loan.LoanId);
+        //    }
 
-        }
+        //}
 
     }
 }

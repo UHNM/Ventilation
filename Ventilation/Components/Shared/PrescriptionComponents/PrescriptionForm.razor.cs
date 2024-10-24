@@ -21,10 +21,10 @@ namespace Ventilation.Components.Shared.PrescriptionComponents
         PrescriptionDetail detail = new();
 
         [Parameter]
-        public EventCallback<int?> OnPrescriptionChanged { get; set; }
+        public EventCallback<EventArgs> OnPrescriptionChanged { get; set; }
 
         //to delete
-        public Loan? loanDetail = new();
+        //public Loan? loanDetail = new();
 
         protected override async Task OnInitializedAsync()
         {
@@ -50,14 +50,14 @@ namespace Ventilation.Components.Shared.PrescriptionComponents
             //show Toast
             ShowMessage(ToastType.Success);
 
-            //let the parent component know to refresh the prescription lisr
+            //let the parent component know to refresh the prescription list
             await OnPrescriptionChanged.InvokeAsync();
 
         }
 
         private async Task OnCancelPrescriptionClick()
         {
-            //let the parent component know to refresh the prescription lisr
+            //let the parent component know to refresh the prescription list
             await OnPrescriptionChanged.InvokeAsync();
         }
 

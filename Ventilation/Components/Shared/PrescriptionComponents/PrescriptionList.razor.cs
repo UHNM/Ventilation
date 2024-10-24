@@ -14,8 +14,8 @@ namespace Ventilation.Components.Shared.PrescriptionComponents
         [CascadingParameter]
         public bool? UserClickedAdd { get; set; }
 
-        [Parameter]
-        public List<Prescription>? paramPrescriptions { get; set; }
+        //[Parameter]
+        //public List<Prescription>? paramPrescriptions { get; set; }
 
         [Parameter]
         public bool? paramIsEdit { get; set; }
@@ -39,14 +39,6 @@ namespace Ventilation.Components.Shared.PrescriptionComponents
 
         }
 
-        protected override async Task OnParametersSetAsync()
-        {
-            //after the user saves a prescription on the prescription form, refresh the data on prescription list
-            var xx = paramLoan;
-            var yy = "";
-        }
-
-
 
         //new grid stuff
         private async Task<GridDataProviderResult<Prescription>> PrescriptionsDataProvider(GridDataProviderRequest<Prescription> request)
@@ -64,7 +56,6 @@ namespace Ventilation.Components.Shared.PrescriptionComponents
 
         private async Task OnSelectPrescriptionClick(Prescription? item)
         {
-            await Task.Delay(10);
            await OnPrescriptionSelected.InvokeAsync(item);
         }
 

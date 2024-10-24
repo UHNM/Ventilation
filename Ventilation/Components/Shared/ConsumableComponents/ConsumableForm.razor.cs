@@ -19,7 +19,7 @@ namespace Ventilation.Components.Shared.ConsumableComponents
         IConsumableManager _consumableManager { get; set; }
 
         [Parameter]
-        public EventCallback<int?> OnConsumableChanged { get; set; }
+        public EventCallback<EventArgs> OnConsumableChanged { get; set; }
 
         List<ToastMessage> messages = new List<ToastMessage>();
         ConsumableDetail consumableDetail = new();
@@ -83,7 +83,7 @@ namespace Ventilation.Components.Shared.ConsumableComponents
             //show Toast
             ShowMessage(ToastType.Success);
 
-            await OnConsumableChanged.InvokeAsync(Id);
+            await OnConsumableChanged.InvokeAsync();
 
         }
 
@@ -118,6 +118,11 @@ namespace Ventilation.Components.Shared.ConsumableComponents
         }
 
 
+        private async Task OnCancelConsumableClick()
+        {
+            //let the parent component know to refresh the prescription list
+            await OnConsumableChanged.InvokeAsync();
+        }
 
         private void ShowMessage(ToastType toastType) => messages.Add(CreateSaveMessage(toastType));
 

@@ -2,7 +2,7 @@
 @rendermode @(new InteractiveServerRenderMode(prerender:false));
 @if (paramLoan != null)
 {
-    <div class="container">
+   @*  <div class="container">
         <div>
             Loan: @paramLoan.EquipmentName (@paramLoan.ClinicalReference)
         </div>
@@ -11,11 +11,59 @@
                 <Icon Name="IconName.PlusSquare"></Icon>
             </Button>
         </div>
+    </div> *@
+
+    <div class="row">
+        <div class="col-sm-6">
+            <p><b>Loan for: @paramLoan.EquipmentName on the @paramLoan.LoanDate?.ToString("dd/MM/yyyy")</b></p>
+        </div>
+        <div class="col-sm-6">
+            <div class="float-sm-end">
+                @if (consumableSelected.Id == null && UserClickedAdd == false && paramLoan != null)
+                {
+                    <Button Color="ButtonColor.Success" Type="ButtonType.Submit" Size="ButtonSize.Small" Outline="true" @onclick="OnAddConsumableClick">
+                        <Icon Name="IconName.PlusCircleFill" /> Add Consumable
+                    </Button>
+                }
+            </div>
+        </div>
     </div>
 
+    @if (consumableSelected.Id == null && UserClickedAdd == false && paramLoan != null)
+    {
+        <CascadingValue Value="@UserClickedAdd">
+            <ConsumableList paramIsEdit="true" paramLoan=@paramLoan  OnConsumableSelected="ConsumableSelected"></ConsumableList>
+        </CascadingValue>
+    }
 
-    <CascadingValue Value="@UserClickedAdd">
-        <ConsumableList paramConsumables=@loanConsumables paramIsEdit="true" paramLoan=@paramLoan OnConsumableListChanged="OnConsumableListChanged" OnConsumableSelected="ConsumableSelected"></ConsumableList>
-    </CascadingValue>
+
+    @if (consumableSelected.Id != null && UserClickedAdd == false && paramLoan != null)
+    {
+        <ConsumableForm paramLoan="@paramLoan"
+                        paramConsumable="@consumableSelected"
+                        OnConsumableChanged="OnConsumableChanged">
+        </ConsumableForm>
+    }
+
+    @if (consumableSelected.Id == null && UserClickedAdd == true)
+    {
+
+        <ConsumableForm paramLoan="@paramLoan"
+                        paramConsumable="@consumableSelected"
+                        OnConsumableChanged="OnConsumableChanged">
+        </ConsumableForm>
+    }
+    else
+    {
+        @if (UserClickedAdd == true)
+        {
+            <ConsumableForm paramLoan="@paramLoan"
+                            paramConsumable="@null"
+                            OnConsumableChanged="OnConsumableChanged">
+            </ConsumableForm>
+
+        }
+    }
+
 }
 

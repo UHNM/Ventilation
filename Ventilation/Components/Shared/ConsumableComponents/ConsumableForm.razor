@@ -4,9 +4,10 @@
     @if (@consumable != null)
     {
     <EditForm Model="@consumable" OnSubmit="OnSaveConsumable">
-        
-        <div class="form-group mb-1">
-            <label>Type</label>
+
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Type</label>
+            <div class="col-sm-4">
             <select class="form-control" @bind=@consumable.EquipmentTypeId @bind:after="OnEquipmentTypeChange">
                 @if (consumable.EquipmentTypeId == null || consumable.EquipmentTypeId == 0)
                 {
@@ -21,54 +22,63 @@
                     }
                 }
             </select>
-
+            </div>
            
         </div>
 
-        <div class="form-group mb-1">
-            <label>Name</label>
-            <InputSelect class="form-control" @bind-Value=@consumable.EquipmentId disabled="@(!hasSelectedEquipmentType)">
-                <option value="0">-- Choose a Consumable --</option>
-                @if (filteredEquipOptions != null)
-                {
-                    @foreach (var option in filteredEquipOptions)
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-4">
+                <InputSelect class="form-control" @bind-Value=@consumable.EquipmentId disabled="@(!hasSelectedEquipmentType)">
+                    <option value="0">-- Choose a Consumable --</option>
+                    @if (filteredEquipOptions != null)
                     {
-                        <option value=@option.EquipmentId>@option.EquipmentName</option>
+                        @foreach (var option in filteredEquipOptions)
+                        {
+                            <option value=@option.EquipmentId>@option.EquipmentName</option>
+                        }
                     }
-                }
-            </InputSelect>
-         
+                </InputSelect>
+            </div>
         </div>
 
-        <div class="form-group mb-1">
-            <label>Delivery Method</label>
-            <InputSelect class="form-control" @bind-Value=@consumable.DeliveryMethod>
-                <option value="0">-- Choose a Delivery Method --</option>
-                @if (deliveryOptions != null)
-                {
-                    @foreach (var option in deliveryOptions)
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Delivery Method</label>
+            <div class="col-sm-4">
+                <InputSelect class="form-control" @bind-Value=@consumable.DeliveryMethod>
+                    <option value="0">-- Choose a Delivery Method --</option>
+                    @if (deliveryOptions != null)
                     {
-                        <option value=@option.Key>@option.Value</option>
+                        @foreach (var option in deliveryOptions)
+                        {
+                            <option value=@option.Key>@option.Value</option>
+                        }
                     }
-                }
-            </InputSelect>
-         
+                </InputSelect>
+            </div>
         </div>
 
 
-        <div class="form-group mb-1">
-            <label>Consumable Date</label>
-            <InputDate id="consumableDate" class="form-control" @bind-Value="@consumable.ConsumableDate"></InputDate>
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Date Given</label>
+            <div class="col-sm-4">
+                <InputDate id="consumableDate" class="form-control" @bind-Value="@consumable.ConsumableDate"></InputDate>
+            </div>
         </div>
 
-        <div class="form-group mb-1">
-            <label>Comments</label>
-            <InputTextArea id="comments" class="form-control" @attributes="inputTextAreaAttributesComments" @bind-Value="@consumable.Comments"></InputTextArea>
+         <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Comments</label>
+            <div class="col-sm-4">
+                <InputTextArea id="comments" class="form-control" @attributes="inputTextAreaAttributesComments" @bind-Value="@consumable.Comments"></InputTextArea>
+            </div>
         </div>
-
-        <div>
-            <button Type="submit" class="btn btn-primary pull-right">Save</button>
-        </div>
+        <Button Color="ButtonColor.Success" Type="ButtonType.Submit" Size="ButtonSize.Small" Outline="true">
+            Save
+        </Button>
+        <Button Color="ButtonColor.Dark" Size="ButtonSize.Small" Outline="true" @onclick="OnCancelConsumableClick">
+            Cancel
+        </Button>
+      
     </EditForm>
     }
 

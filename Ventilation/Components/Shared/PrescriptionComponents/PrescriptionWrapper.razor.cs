@@ -15,6 +15,7 @@ namespace Ventilation.Components.Shared.PrescriptionComponents
 
         protected override async Task OnInitializedAsync()
         {
+            await Task.Delay(10);
             UserClickedAdd = false;
         }
 
@@ -27,7 +28,7 @@ namespace Ventilation.Components.Shared.PrescriptionComponents
         protected async Task PrescriptionSelected(Prescription? p)
         {
             prescriptionSelected = p;
-            await Task.Delay(100);
+            await Task.Delay(10);
             StateHasChanged();
         }
 
