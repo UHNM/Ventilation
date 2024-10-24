@@ -43,7 +43,7 @@
             </div>
         </div>
 
-        <div class="col-sm-8">
+        <div class="col-sm-7">
             <div class="container">
                 <Tabs EnableFadeEffect="true" @ref="tabs" NavStyle="NavStyle.Underline">
                     <Tab Title="Prescriptions" Active="true">
@@ -72,11 +72,12 @@
              
             </div>
         </div>
-        <div class="col-sm-1">
+        <div class="col-sm-2">
             <br/>
-            <Button Color="ButtonColor.Warning" Size="ButtonSize.Small" @onclick="OnEditLoanClick">
-                <Icon Name="IconName.PostcardFill"></Icon>
+            <Button Color="ButtonColor.Primary" Type="ButtonType.Submit" Size="ButtonSize.Small" Outline="true" @onclick="OnEditLoanClick">
+                <Icon Name="IconName.PlusCircleFill" /> Edit Loan
             </Button>
+           
         </div>
 
     </div>

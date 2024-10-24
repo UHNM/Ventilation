@@ -17,7 +17,23 @@
 
 <span class="pull-right"> <AddLoanModal PatientId="@(Patient.Id)"></AddLoanModal></span>
 
-<Button Color="ButtonColor.Success" @onclick="OnAddLoanClick" Size="ButtonSize.Small"><Icon Name="IconName.PlusSquare" /></Button>
+
+<div class="row">
+    <div class="col-sm-6">
+        <p><b>Loans</b></p>
+    </div>
+    <div class="col-sm-6">
+        <div class="float-sm-end">
+            <Button Color="ButtonColor.Success" Type="ButtonType.Submit" Size="ButtonSize.Small" Outline="true" @onclick="OnAddLoanClick">
+                <Icon Name="IconName.PlusCircleFill" /> Add Loan
+            </Button>
+        </div>
+    </div>
+</div>
+
+
+
+
 
 <div>
 
