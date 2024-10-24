@@ -1,8 +1,9 @@
 ﻿@rendermode InteractiveServer
 
-<div class="form-group mb-1">
-    <label>@controlLabel</label>
-    <InputSelect @bind-Value=@viewModelProperty.ResponseString>
+<div class="row mb-3">
+    <label class="col-sm-2 col-form-label">@controlLabel</label>
+    <div class="col-sm-4">
+        <InputSelect @bind-Value=@viewModelProperty.ResponseString class="form-control">
         @if (controlOptions != null){
             @foreach (var option in controlOptions)
             {
@@ -12,5 +13,5 @@
        
        
     </InputSelect>
-
+    </div>
 </div>

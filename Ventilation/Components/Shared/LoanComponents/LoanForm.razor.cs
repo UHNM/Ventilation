@@ -22,6 +22,8 @@ namespace Ventilation.Components.Shared.LoanComponents
         [Parameter]
         public EventCallback<Loan?> OnLoanSaved { get; set; }
 
+        [Parameter]
+        public EventCallback<EventArgs> OnCancelLoan { get; set; }
 
         public Loan? loanDetail = new();
 
@@ -70,6 +72,12 @@ namespace Ventilation.Components.Shared.LoanComponents
 
             await OnLoanSaved.InvokeAsync(l);
 
+        }
+
+        private async Task OnCancelLoanClick()
+        {
+            //let the parent component know to close the Modal
+            await OnCancelLoan.InvokeAsync();
         }
 
     }

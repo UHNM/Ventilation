@@ -23,7 +23,7 @@
 
     @foreach (var loan in patientLoans)
     {
-        <PatientLoanItem Patient="Patient" loan="loan" ></PatientLoanItem>
+        <PatientLoanItem Patient="Patient" loan="loan" OnLoanDataChanged="LoanDataChanged" ></PatientLoanItem>
     }
 
 </div>

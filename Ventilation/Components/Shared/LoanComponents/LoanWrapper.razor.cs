@@ -20,11 +20,10 @@ namespace Ventilation.Components.Shared.LoanComponents
         Loan? loan = null;
         List<ToastMessage> messages = new List<ToastMessage>();
 
-        [Inject]
-        ILoanManager _loanManager { get; set; }
-        List<Prescription> loanPrescriptions = new();
+        [Parameter]
+        public EventCallback<EventArgs> OnCancelLoan { get; set; }
 
-       
+
         public event EventHandler OnLoanChanged;
 
         protected override async Task OnInitializedAsync()
@@ -60,7 +59,6 @@ namespace Ventilation.Components.Shared.LoanComponents
             if (UpdateLoan != null)
             {
                 paramLoan = UpdateLoan;
-                // loanPrescriptions = await _loanManager.GetPrescriptionsForALoan(loan.LoanId);
                 OnLoanChanged?.Invoke(this, EventArgs.Empty);
                 hasLoanId = true;
                 StateHasChanged();
@@ -71,9 +69,13 @@ namespace Ventilation.Components.Shared.LoanComponents
 
         }
 
+        //Event callback from child component after saving the loan form
+        protected async Task CloseModal()
+        {
+            //let the parent component know to close the Modal
+            await OnCancelLoan.InvokeAsync();
 
-
-      
+        }
 
         private void ShowMessage(ToastType toastType) => messages.Add(CreateSaveMessage(toastType));
 

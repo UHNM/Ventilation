@@ -1,53 +1,39 @@
 ﻿@using Ventilation.Components.Shared.PrescriptionComponents
-@if (paramPrescriptions != null)
+@rendermode InteractiveServer
+@using Domain.Models
+
+@if (paramLoan != null)
 {
-    @if (paramPrescriptions.Count != 0)
-    {
-        <div class="border border-dark">
-            <div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            Prescription Date
-                        </div>
-                        <div class="col-sm-2">
-                            Loan Id
-                        </div>
-                        <div class="col-sm-2">
-                            Id
-                        </div>
 
-                        @if (paramIsEdit == true)
-                        {
-                            <div class="col-sm-2">
-                                Edit
-                            </div>
-                        }
+    <Grid TItem="Prescription"
+          Class="table table-hover table-bordered table-striped"
+          DataProvider="PrescriptionsDataProvider"
+          AllowPaging="false"
+          FixedHeader="true"
+          Responsive="true"
+          >
+
+        <GridColumns>
+            <GridColumn TItem="Prescription" HeaderText="Prescription Date" PropertyName="PrescriptionDate" SortKeySelector="item => item.PrescriptionDate">
+                @context.PrescriptionDate.ToString("dd/MM/yyyy")
+            </GridColumn>
+            <GridColumn TItem="Prescription" HeaderText="Loan Id" PropertyName="LoanId" SortKeySelector="item => item.LoanId">
+                @context.LoanId
+            </GridColumn>
+            @if (paramIsEdit == true)
+            {
+                <GridColumn  TItem="Prescription" Filterable="false" HeaderText="Select" HeaderTextAlignment="Alignment.Center" PropertyName="Id">
+                    <Button Color="ButtonColor.Secondary" Size="ButtonSize.Small" Outline="true" @onclick="@(()=> OnSelectPrescriptionClick(@context))">Select</Button>
+               
+            </GridColumn>
+            }
+        </GridColumns>
+
+    </Grid>
 
 
-                    </div>
-                </div>
 
-                @foreach (var p in paramPrescriptions)
-                {
-                    <PrescriptionItem paramPrescription=@p paramIsEdit=@paramIsEdit OnPrescriptionSelected="PrescriptionSelected"></PrescriptionItem>
-                }
-            </div>
-        </div>
-    }
-
-    @if (prescriptionSelected != null && paramLoan != null)
-    {
-        <PrescriptionForm paramLoan="@paramLoan" paramPrescription="@prescriptionSelected" OnPrescriptionChanged="OnPrescriptionChanged"></PrescriptionForm>
-    }
-    else
-    {
-        @if (paramLoan != null && UserClickedAdd == true)
-        {
-            <PrescriptionForm paramLoan="@paramLoan" paramPrescription="@null" OnPrescriptionChanged="OnPrescriptionChanged"></PrescriptionForm>
-
-        }
-    }
+  
 
 }
 

@@ -1,6 +1,8 @@
 ﻿@rendermode InteractiveServer
-<div class="form-group mb-1">
-    <label>@controlLabel</label>
-    <InputCheckbox id="blah" @bind-Value="@viewModelProperty.ResponseBool"></InputCheckbox>
+<div class="row mb-3">
+    <label class="col-sm-2 col-form-label">@controlLabel</label>
+    <div class="col-sm-4">
+        <InputCheckbox @bind-Value="@viewModelProperty.ResponseBool"></InputCheckbox>
+    </div>
 </div>
 

@@ -19,17 +19,20 @@ namespace Ventilation.Components.Shared.PatientComponents
 
         [Inject]
         ILoanManager _loanManager { get; set; }
-        List<Prescription> loanPrescriptions = new();
+      
         List<Consumable> loanConsumables = new();
 
         Tabs tabs = default!;
         private Modal modal = default!;
 
-       
+        [Parameter]
+        public EventCallback<EventArgs> OnLoanDataChanged { get; set; }
+
 
         protected override async Task OnInitializedAsync()
         {
-            loanPrescriptions = await _loanManager.GetPrescriptionsForALoan(loan.LoanId);
+          
+          //  loanPrescriptions = await _loanManager.GetPrescriptionsForALoan(loan.LoanId);
             loanConsumables = await _loanManager.GetConsumablesForALoan(loan.LoanId);
 
         }
@@ -39,28 +42,20 @@ namespace Ventilation.Components.Shared.PatientComponents
             var parameters = new Dictionary<string, object>();
             parameters.Add("PatientId", loan.PatientId);
             parameters.Add("paramLoan", loan);
+            parameters.Add("OnCancelLoan", EventCallback.Factory.Create<EventArgs>(this, OnHideModalClick));
 
             await modal.ShowAsync<LoanComponents.LoanWrapper>(title: "Edit Loan for Patient: " + Patient.Surname + "," + Patient.Forename + " (" + Patient.HospitalNumber + ")", parameters: parameters);
         }
 
         private async Task OnHideModalClick()
         {
+            //pass a call back to patient loans as the data may have chnaged in the pop up and so needs refreshing on the page
+            await OnLoanDataChanged.InvokeAsync();
+            //  loanPrescriptions = await _loanManager.GetPrescriptionsForALoan(loan.LoanId);
             await modal.HideAsync();
         }
 
-        //Event callback from child component after saving the prescription form
-        protected async Task OnPrescriptionListChanged(int? PrescriptionId)
-        {
-            if (PrescriptionId != null)
-            {
-                StateHasChanged();
-
-                //user has updated or created a new prescription so refresh the data
-                loanPrescriptions = await _loanManager.GetPrescriptionsForALoan(loan.LoanId);
-            }
-
-        }
-
+    
         protected async Task OnConsumableListChanged(int? ConsumableId)
         {
             if (ConsumableId != null)

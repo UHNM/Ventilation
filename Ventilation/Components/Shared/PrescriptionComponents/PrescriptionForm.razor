@@ -11,7 +11,14 @@
          </ControlWrapper>
         }
     }
-    <button Type="submit" class="btn btn-primary">Save</button>
+
+    <Button Color="ButtonColor.Success" Type="ButtonType.Submit" Size="ButtonSize.Small" Outline="true" >
+         Save
+    </Button>
+    <Button Color="ButtonColor.Dark" Size="ButtonSize.Small" Outline="true" @onclick="OnCancelPrescriptionClick">
+         Cancel
+    </Button>
+
 </EditForm>
 
 

@@ -31,8 +31,7 @@
                 @context.ServiceDate?.ToString("dd/MM/yyyy")
             </GridColumn>
             <GridColumn TItem="StockItem" Filterable="false" HeaderText="Select" HeaderTextAlignment="Alignment.Center" PropertyName="Id">
-               @*  <a href="/stock/detail/@context.StockId">Select</a> *@
-                <Button Color="ButtonColor.Secondary" @onclick="@(()=> OnSelectStockClick(@context))">Select</Button>
+                <Button Color="ButtonColor.Secondary" Size="ButtonSize.Small" Outline="true" @onclick="@(()=> OnSelectStockClick(@context))">Select</Button>
             </GridColumn>
            
         </GridColumns>

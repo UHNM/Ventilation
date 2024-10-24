@@ -51,11 +51,15 @@ namespace Ventilation.Components.Shared.PrescriptionComponents
             ShowMessage(ToastType.Success);
 
             //let the parent component know to refresh the prescription lisr
-            await OnPrescriptionChanged.InvokeAsync(Id);
+            await OnPrescriptionChanged.InvokeAsync();
 
         }
 
-
+        private async Task OnCancelPrescriptionClick()
+        {
+            //let the parent component know to refresh the prescription lisr
+            await OnPrescriptionChanged.InvokeAsync();
+        }
 
         private void ShowMessage(ToastType toastType) => messages.Add(CreateSaveMessage(toastType));
 

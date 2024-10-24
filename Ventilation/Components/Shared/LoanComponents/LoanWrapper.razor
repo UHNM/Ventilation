@@ -22,13 +22,13 @@
             
             @if ((stockItemSelected != null && paramLoan == null))
                 {
-                <LoanForm stockItem="@stockItemSelected" paramLoan="@paramLoan" patientId="@PatientId" OnLoanSaved="LoanIdChanged"></LoanForm>
+                <LoanForm stockItem="@stockItemSelected" paramLoan="@paramLoan" patientId="@PatientId" OnLoanSaved="LoanIdChanged" OnCancelLoan="CloseModal"></LoanForm>
             }
             else
             {
                 @if(paramLoan != null)
                 {
-                    <LoanForm stockItem="@null" paramLoan="@paramLoan" patientId="@PatientId" OnLoanSaved="LoanIdChanged"></LoanForm>
+                    <LoanForm stockItem="@null" paramLoan="@paramLoan" patientId="@PatientId" OnLoanSaved="LoanIdChanged" OnCancelLoan="CloseModal"></LoanForm>
                 }
 
             }

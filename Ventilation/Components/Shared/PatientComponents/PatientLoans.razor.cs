@@ -34,13 +34,24 @@ namespace Ventilation.Components.Shared.PatientComponents
             var parameters = new Dictionary<string, object>();
             parameters.Add("PatientId", Patient.Id);
             parameters.Add("paramLoan", null);
-
+            parameters.Add("OnCancelLoan", EventCallback.Factory.Create<EventArgs>(this, OnHideModalClick));
             await modal.ShowAsync<LoanWrapper>(title: "Add Loan for Patient: " + Patient.Surname + "," + Patient.Forename + " (" + Patient.HospitalNumber + ")", parameters: parameters);
         }
 
         private async Task OnHideModalClick()
         {
+            patientLoans = await _patientManager.GetPatientLoans(Patient.Id);
             await modal.HideAsync();
+
+        }
+
+        //Event callback from child component after saving the prescription form
+        protected async Task LoanDataChanged()
+        {
+            patientLoans = await _patientManager.GetPatientLoans(Patient.Id);
+            StateHasChanged();
+
+
         }
 
 

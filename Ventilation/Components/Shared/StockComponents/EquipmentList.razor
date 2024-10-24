@@ -31,7 +31,7 @@
                 @context.SerialNumber
             </GridColumn>
             <GridColumn TItem="EquipmentBase" Filterable="false" HeaderText="Select" HeaderTextAlignment="Alignment.Center" PropertyName="EquipmentId">
-                <Button Color="ButtonColor.Secondary" @onclick="@(()=> OnSelectEquipmentClick(@context))">Select</Button>
+                <Button Color="ButtonColor.Secondary" Size="ButtonSize.Small" Outline="true" @onclick="@(()=> OnSelectEquipmentClick(@context))">Select</Button>
             </GridColumn>
 
         </GridColumns>

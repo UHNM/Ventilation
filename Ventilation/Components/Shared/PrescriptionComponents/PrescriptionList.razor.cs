@@ -1,3 +1,6 @@
+using BAL.Managers;
+using BAL.Managers.DefaultImplementations;
+using BlazorBootstrap;
 using Domain.Models;
 using Microsoft.AspNetCore.Components;
 
@@ -20,10 +23,14 @@ namespace Ventilation.Components.Shared.PrescriptionComponents
         [Parameter]
         public EventCallback<Prescription?> OnPrescriptionSelected { get; set; }
 
-        [Parameter]
-        public EventCallback<int?> OnPrescriptionListChanged { get; set; }
-
         Prescription? prescriptionSelected = new();
+
+        [Inject]
+        ILoanManager _loanManager { get; set; }
+
+        //new grid stuff
+        private IEnumerable<Prescription> prescriptionListItems = default!;
+
 
         protected override async Task OnInitializedAsync()
         {
@@ -32,29 +39,34 @@ namespace Ventilation.Components.Shared.PrescriptionComponents
 
         }
 
-        //Event callback from child component after saving additional information
-        protected async Task PrescriptionSelected(Prescription? p)
+        protected override async Task OnParametersSetAsync()
         {
-            prescriptionSelected = p;
-            StateHasChanged();
-            await OnPrescriptionSelected.InvokeAsync(p);
-
-
+            //after the user saves a prescription on the prescription form, refresh the data on prescription list
+            var xx = paramLoan;
+            var yy = "";
         }
 
-        //Event callback from child component after saving the prescription form
-        protected async Task OnPrescriptionChanged(int? PrescriptionId)
+
+
+        //new grid stuff
+        private async Task<GridDataProviderResult<Prescription>> PrescriptionsDataProvider(GridDataProviderRequest<Prescription> request)
         {
-            if (PrescriptionId != null)
+            //TODO: might be able to move the get to here rather than param
+            if (prescriptionListItems is null)
             {
-                StateHasChanged();
-                //let the parent component know to refresh the prescription lisr
-                await OnPrescriptionListChanged.InvokeAsync(PrescriptionId);
+                // prescriptionListItems = await _loanManager.GetPrescriptionsForALoan(paramLoan.LoanId);
+                 prescriptionListItems = await _loanManager.GetPrescriptionsForALoan(paramLoan.LoanId);
             }
 
+            return await Task.FromResult(request.ApplyTo(prescriptionListItems));
         }
 
 
+        private async Task OnSelectPrescriptionClick(Prescription? item)
+        {
+            await Task.Delay(10);
+           await OnPrescriptionSelected.InvokeAsync(item);
+        }
 
     }
 }

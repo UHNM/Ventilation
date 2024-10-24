@@ -2,21 +2,63 @@
 @rendermode @(new InteractiveServerRenderMode(prerender:false));
 @if(paramLoan != null)
 {
-    <div class="container">
-        <div>
-            Loan: @paramLoan.EquipmentName (@paramLoan.ClinicalReference)
+
+    <div class="row">
+        <div class="col-sm-6" >
+                <p><b>Loan for: @paramLoan.EquipmentName on the @paramLoan.LoanDate?.ToString("dd/MM/yyyy")</b></p>
         </div>
-        <div>
-            <Button Color="ButtonColor.Success" Size="ButtonSize.Small" @onclick="OnAddPrescriptionClick">
-                <Icon Name="IconName.PostcardFill"></Icon>
-            </Button>
+        <div class="col-sm-6">
+        <div class="float-sm-end">
+            @if (prescriptionSelected.Id == 0 && UserClickedAdd == false && paramLoan != null){
+               <Button Color="ButtonColor.Success" Type="ButtonType.Submit" Size="ButtonSize.Small" Outline="true" @onclick="OnAddPrescriptionClick">
+                   <Icon Name="IconName.PlusCircleFill" /> Add Prescription
+               </Button>
+            }
         </div>
     </div>
+  </div>
+        
 
+
+    
+
+
+  @*   <! -- also hide the grid if there are no prescriptions?? --> *@
+    @if (prescriptionSelected.Id == 0 && UserClickedAdd == false && paramLoan != null)
+    {
     <CascadingValue Value="@UserClickedAdd">
-        <PrescriptionList paramPrescriptions=@loanPrescriptions paramIsEdit="true" paramLoan=@paramLoan OnPrescriptionListChanged="OnPrescriptionListChanged" OnPrescriptionSelected="PrescriptionSelected"></PrescriptionList>
+        <PrescriptionList  paramIsEdit="true" paramLoan=@paramLoan  OnPrescriptionSelected="PrescriptionSelected"></PrescriptionList>
     </CascadingValue>
+    }
 
+    @if (prescriptionSelected.Id != 0 && UserClickedAdd == false && paramLoan != null)
+    {
+        <PrescriptionForm paramLoan="@paramLoan"
+            paramPrescription="@prescriptionSelected"
+            OnPrescriptionChanged="OnPrescriptionChanged">
+        </PrescriptionForm>
+    }
+
+    @if (prescriptionSelected.Id == 0 && UserClickedAdd == true)
+    {
+
+        <PrescriptionForm paramLoan="@paramLoan"
+                          paramPrescription="@prescriptionSelected"
+                          OnPrescriptionChanged="OnPrescriptionChanged">
+        </PrescriptionForm>
+    }
+    else
+    {
+        @if (UserClickedAdd == true)
+        {
+            <PrescriptionForm paramLoan="@paramLoan"
+                paramPrescription="@null"
+                OnPrescriptionChanged="OnPrescriptionChanged">
+            </PrescriptionForm>
+
+        }
+    }
+ 
 }
 
 

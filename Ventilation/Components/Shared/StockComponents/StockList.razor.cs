@@ -47,17 +47,6 @@ namespace Ventilation.Components.Shared.StockComponents
            await OnStockSelected.InvokeAsync(item);
         }
 
-        //private Task OnSelectedItemsChanged(HashSet<StockItem> stockItems)
-        //{
-        //    selectedStockItem = stockItems is not null && stockItems.Any() ? stockItems : new();
-        //    return Task.CompletedTask;
-        //}
-
-        //private async Task OnRowClick(GridRowEventArgs<StockItem> args)
-        //{
-        //    await Task.Delay(10);
-        //    _navigationManager.NavigateTo("/stock/detail/" + args.Item.StockId);
-        //}
-
+     
     }
 }

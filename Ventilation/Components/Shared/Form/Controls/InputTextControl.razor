@@ -1,6 +1,8 @@
 ﻿@rendermode InteractiveServer
 
-<div class="form-group mb-1">
-    <label>@controlLabel</label>
-    <InputText class="form-control" @bind-Value="@viewModelProperty.ResponseString"></InputText>
+<div class="row mb-3">
+    <label class="col-sm-2 col-form-label">@controlLabel</label>
+    <div class="col-sm-4">
+        <InputText class="form-control" @bind-Value="@viewModelProperty.ResponseString"></InputText>
+    </div>
 </div>

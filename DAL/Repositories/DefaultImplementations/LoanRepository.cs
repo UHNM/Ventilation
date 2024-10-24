@@ -19,13 +19,13 @@ namespace DAL.Repositories.DefaultImplementations
             PrescriptionCx p = new PrescriptionCx();
             p.Id = 1;
             p.EquipmentId = 1000;
-            p.PrescriptionDate = new DateTime(2024, 09, 23);
+            p.PrescriptionDate = new DateTime(2024, 03, 10);
             p.LoanId = loanId;
         
             PrescriptionCx p1 = new PrescriptionCx();
             p1.Id = 2;
             p1.EquipmentId = 2000;
-            p1.PrescriptionDate = new DateTime(2024, 07, 23);
+            p1.PrescriptionDate = new DateTime(2023, 11, 18);
             p1.LoanId = loanId;
            
 
